@@ -157,13 +157,13 @@ namespace JanSharp
                 .WannaBeConstructor(label);
         }
 
-        public SliderFieldWidgetData NewSlider(string label, float value)
+        public SliderFieldWidgetData NewSliderField(string label, float value)
         {
             return wannaBeClasses.New<SliderFieldWidgetData>(nameof(SliderFieldWidgetData))
                 .WannaBeConstructor(label, value);
         }
 
-        public ToggleFieldWidgetData NewToggle(string label, bool value)
+        public ToggleFieldWidgetData NewToggleField(string label, bool value)
         {
             return wannaBeClasses.New<ToggleFieldWidgetData>(nameof(ToggleFieldWidgetData))
                 .WannaBeConstructor(label, value);

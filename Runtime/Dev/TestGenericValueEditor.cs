@@ -25,10 +25,10 @@ namespace JanSharp
                 valueEditor.CloseScope(),
                 valueEditor.NewLabel("My Label"),
                 valueEditor.CloseScope(),
-                valueEditor.NewSlider("My Slider", 0.5f)
+                valueEditor.NewSliderField("My Slider", 0.5f)
                     .SetListener(this, nameof(OnSliderFieldValueChanged), nameof(sliderField))
                     .SetCustomData(nameof(fieldName), "My Slider"),
-                valueEditor.NewToggle("My Toggle", true)
+                valueEditor.NewToggleField("My Toggle", true)
                     .SetListener(this, nameof(OnToggleFieldValueChanged), nameof(toggleField))
                     .SetCustomData(nameof(fieldName), "My Toggle"),
             }));
