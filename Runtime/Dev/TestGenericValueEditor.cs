@@ -17,6 +17,7 @@ namespace JanSharp
                 valueEditor.NewButton("My Button")
                     .SetListener(this, nameof(OnButtonClicked), nameof(button))
                     .SetCustomData(nameof(fieldName), "My Button"),
+                valueEditor.NewLabel("My Label"),
                 valueEditor.NewSlider("My Slider", 0.5f)
                     .SetListener(this, nameof(OnSliderFieldValueChanged), nameof(sliderField))
                     .SetCustomData(nameof(fieldName), "My Slider"),

@@ -96,6 +96,12 @@ namespace JanSharp
                 .WannaBeConstructor(label);
         }
 
+        public LabelWidgetData NewLabel(string label)
+        {
+            return wannaBeClasses.New<LabelWidgetData>(nameof(LabelWidgetData))
+                .WannaBeConstructor(label);
+        }
+
         public SliderFieldWidgetData NewSlider(string label, float value)
         {
             return wannaBeClasses.New<SliderFieldWidgetData>(nameof(SliderFieldWidgetData))
