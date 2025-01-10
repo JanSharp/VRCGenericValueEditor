@@ -170,7 +170,8 @@ MonoBehaviour:
   _udonSharpBackingUdonBehaviour: {fileID: 8377345033412379564}
   wannaBeClasses: {fileID: 0}
   widgetsRoot: {fileID: 7174205594031353377}
-  boxWidgetPrefab: {fileID: 0}
+  boxWidgetPrefab: {fileID: 4746048533275003449, guid: fc85ec2adb18006b68aa9cc9011f83fe,
+    type: 3}
   buttonWidgetPrefab: {fileID: 6180328593967467976, guid: a9271ffd3807bc39d8526e460b3a73a1,
     type: 3}
   indentWidgetPrefab: {fileID: 0}

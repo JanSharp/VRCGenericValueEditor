@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
-  m_Name: BoxWidgetData
+  m_Name: ScopeClosingWidgetData
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: 221e52319407dbd7a8a35a0a4c435aa0,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: 76e681f2468bea5a49197393dd2ce020,
     type: 2}
   udonAssembly: 
   assemblyError: 
-  sourceCsScript: {fileID: 11500000, guid: f8dc7c89751cef0adaeb365a87a510de, type: 3}
+  sourceCsScript: {fileID: 11500000, guid: 365764f84bfa2c1e49022f0f238591ac, type: 3}
   scriptVersion: 2
   compiledVersion: 2
   behaviourSyncMode: 1
   hasInteractEvent: 0
-  scriptID: 7255528858221556797
+  scriptID: -1475815689132249072
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 

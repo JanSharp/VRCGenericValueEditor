@@ -9,6 +9,8 @@ namespace JanSharp
     public abstract class Widget : UdonSharpBehaviour
     {
         public abstract string WidgetName { get; }
+        public virtual bool IsContainer => false;
+        public Transform containerWidgetsRoot = null;
 
         private WidgetData backingWidgetData;
         public WidgetData BackingWidgetData

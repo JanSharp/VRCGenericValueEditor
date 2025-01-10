@@ -25,6 +25,8 @@ namespace JanSharp
         private DataDictionary widgetPrefabsByName = new DataDictionary();
         private Widget[] widgets = new Widget[0];
 
+        private ScopeClosingWidgetData scopeClosingWidgetData;
+
         private void Start()
         {
             widgetPrefabsByName.Add("Box", boxWidgetPrefab);
@@ -37,38 +39,78 @@ namespace JanSharp
             widgetPrefabsByName.Add("ToggleField", toggleFieldWidgetPrefab);
             widgetPrefabsByName.Add("Vector2Field", vector2FieldWidgetPrefab);
             widgetPrefabsByName.Add("Vector3Field", vector3FieldWidgetPrefab);
+            scopeClosingWidgetData = wannaBeClasses.New<ScopeClosingWidgetData>(nameof(ScopeClosingWidgetData));
         }
 
         private GameObject GetWidgetPrefab(string widgetName) => (GameObject)widgetPrefabsByName[widgetName].Reference;
 
         public void Draw(WidgetData[] widgetData, int count = -1)
         {
+            // This function is way too big, way too mountainous, and thanks to he beauty of Udon I can't do
+            // anything about it without sacrificing performance.
+
             if (count < 0)
                 count = widgetData.Length;
+
+            Transform[] widgetContainerStack = new Transform[ArrList.MinCapacity];
+            int widgetContainerStackCount = 0;
+            Transform currentWidgetContainer = widgetsRoot;
+
             Widget[] newWidgets = new Widget[count];
+            int newIndex = 0;
             int existingIndex = 0;
             int existingCount = widgets.Length;
             Widget existingWidget = existingIndex < existingCount ? widgets[existingIndex++] : null;
             for (int i = 0; i < count; i++)
             {
                 WidgetData currentData = widgetData[i];
-                Widget widget = null;
-                if (existingWidget == null)
+                if (currentData == scopeClosingWidgetData)
                 {
-                    GameObject widgetGo = Instantiate(GetWidgetPrefab(currentData.WidgetName));
-                    widgetGo.transform.SetParent(widgetsRoot, worldPositionStays: false);
-                    widget = widgetGo.GetComponent<Widget>();
+                    if (widgetContainerStackCount == 0)
+                    {
+                        Debug.LogError($"[GenericValueEditor] Attempt to close more scoped widget containers than there are open, index: {i}.");
+                        return;
+                    }
+                    currentWidgetContainer = ArrList.RemoveAt(ref widgetContainerStack, ref widgetContainerStackCount, widgetContainerStackCount - 1);
+                    newWidgets[i] = null;
+                    continue;
                 }
-                else if (existingWidget.BackingWidgetData.WidgetName == currentData.WidgetName)
+
+                Widget widget;
+                if (existingWidget == null || existingWidget.BackingWidgetData.WidgetName != currentData.WidgetName)
+                    widget = Instantiate(GetWidgetPrefab(currentData.WidgetName)).GetComponent<Widget>();
+                else
                 {
                     widget = existingWidget;
-                    widget.transform.SetAsLastSibling();
-                    existingWidget = existingIndex < existingCount ? widgets[existingIndex++] : null;
+                    do
+                    {
+                        if (existingIndex >= existingCount)
+                        {
+                            existingWidget = null;
+                            break;
+                        }
+                        existingWidget = widgets[existingIndex++];
+                    }
+                    while (existingWidget == null);
                 }
+
+                Transform t = widget.transform;
+                t.SetParent(currentWidgetContainer, worldPositionStays: false);
+                t.SetAsLastSibling();
                 // This ultimately calls IncrementRefsCount, allowing the widgetData array to be StdMoved in.
                 widget.BackingWidgetData = currentData;
-                newWidgets[i] = widget;
+                newWidgets[newIndex++] = widget;
+
+                if (widget.IsContainer)
+                {
+                    ArrList.Add(ref widgetContainerStack, ref widgetContainerStackCount, currentWidgetContainer);
+                    currentWidgetContainer = widget.containerWidgetsRoot;
+                }
             }
+
+            if (widgetContainerStackCount != 0)
+                Debug.LogError($"[GenericValueEditor] Did not close all scoped widget containers.");
+
             if (existingWidget != null)
                 while (true)
                 {
@@ -78,6 +120,7 @@ namespace JanSharp
                         break;
                     existingWidget = widgets[existingIndex++];
                 }
+
             widgets = newWidgets;
         }
 
@@ -88,6 +131,13 @@ namespace JanSharp
             for (int i = 0; i < count; i++)
                 widgetData[i].StdMove();
             return widgetData;
+        }
+
+        public ScopeClosingWidgetData CloseScope() => scopeClosingWidgetData;
+
+        public BoxWidgetData NewBoxScope()
+        {
+            return wannaBeClasses.New<BoxWidgetData>(nameof(BoxWidgetData));
         }
 
         public ButtonWidgetData NewButton(string label)

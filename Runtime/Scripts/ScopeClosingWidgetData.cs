@@ -6,9 +6,8 @@ using VRC.Udon;
 namespace JanSharp
 {
     [UdonBehaviourSyncMode(BehaviourSyncMode.None)]
-    public class BoxWidgetData : WidgetData
+    public class ScopeClosingWidgetData : WidgetData
     {
-        public override string WidgetName => "Box";
-        public BoxWidget ActualWidget => (BoxWidget)widget;
+        public override string WidgetName => "ScopeClosing";
     }
 }
