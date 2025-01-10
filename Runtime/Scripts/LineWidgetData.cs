@@ -6,8 +6,9 @@ using VRC.Udon;
 namespace JanSharp
 {
     [UdonBehaviourSyncMode(BehaviourSyncMode.None)]
-    public class LineWidgetData : UdonSharpBehaviour
+    public class LineWidgetData : WidgetData
     {
-
+        public override string WidgetName => "Line";
+        public LineWidget ActualWidget => (LineWidget)widget;
     }
 }

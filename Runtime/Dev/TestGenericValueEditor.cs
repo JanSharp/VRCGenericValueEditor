@@ -20,9 +20,12 @@ namespace JanSharp
                     .SetCustomData(nameof(fieldName), "My Button"),
                 valueEditor.NewLabel("My Label"),
                 valueEditor.NewIndentScope(),
+                valueEditor.NewLine(),
                 valueEditor.NewLabel("My Label"),
                 valueEditor.NewLabel("My Label"),
+                valueEditor.NewLine(),
                 valueEditor.CloseScope(),
+                valueEditor.NewLine(),
                 valueEditor.NewLabel("My Label"),
                 valueEditor.CloseScope(),
                 valueEditor.NewSliderField("My Slider", 0.5f)

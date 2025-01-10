@@ -157,6 +157,11 @@ namespace JanSharp
                 .WannaBeConstructor(label);
         }
 
+        public LineWidgetData NewLine()
+        {
+            return wannaBeClasses.New<LineWidgetData>(nameof(LineWidgetData));
+        }
+
         public SliderFieldWidgetData NewSliderField(string label, float value)
         {
             return wannaBeClasses.New<SliderFieldWidgetData>(nameof(SliderFieldWidgetData))
