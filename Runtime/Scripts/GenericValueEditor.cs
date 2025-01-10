@@ -146,6 +146,11 @@ namespace JanSharp
                 .WannaBeConstructor(label);
         }
 
+        public IndentWidgetData NewIndentScope()
+        {
+            return wannaBeClasses.New<IndentWidgetData>(nameof(IndentWidgetData));
+        }
+
         public LabelWidgetData NewLabel(string label)
         {
             return wannaBeClasses.New<LabelWidgetData>(nameof(LabelWidgetData))

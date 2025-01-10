@@ -174,7 +174,8 @@ MonoBehaviour:
     type: 3}
   buttonWidgetPrefab: {fileID: 6180328593967467976, guid: a9271ffd3807bc39d8526e460b3a73a1,
     type: 3}
-  indentWidgetPrefab: {fileID: 0}
+  indentWidgetPrefab: {fileID: 7730269699152747894, guid: f157b9d4948e73962833eec3eb02ede3,
+    type: 3}
   labelWidgetPrefab: {fileID: 5511203837243142918, guid: c4859a881eb212ff1bd7b83a157dad08,
     type: 3}
   lineWidgetPrefab: {fileID: 0}
