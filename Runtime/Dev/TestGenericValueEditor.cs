@@ -12,7 +12,9 @@ namespace JanSharp
 
         private void Start()
         {
-            valueEditor.Draw(valueEditor.StdMoveWidgetData(new WidgetData[]
+            System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
+            sw.Start();
+            WidgetData[] widgets = new WidgetData[]
             {
                 valueEditor.NewBoxScope(),
                 valueEditor.NewButton("My Button")
@@ -52,7 +54,10 @@ namespace JanSharp
                 valueEditor.NewULongField("My ULong", 2000000)
                     .SetListener(this, nameof(OnIntegerFieldValueChanged), nameof(integerField))
                     .SetCustomData(nameof(fieldName), "My ULong"),
-            }));
+            };
+            Debug.Log($"[GenericValueEditor] Creating widget data took {sw.Elapsed}.");
+            valueEditor.Draw(valueEditor.StdMoveWidgetData(widgets));
+            Debug.Log($"[GenericValueEditor] Draw took {sw.Elapsed}.");
         }
 
         private string fieldName;
