@@ -192,7 +192,8 @@ MonoBehaviour:
     type: 3}
   toggleFieldWidgetPrefab: {fileID: 1251850030158033793, guid: 411b8e2947d8fb39394c9751ec8db575,
     type: 3}
-  vector2FieldWidgetPrefab: {fileID: 0}
+  vector2FieldWidgetPrefab: {fileID: 5285838614482955472, guid: 9cf0e0802b5e350b48a13b24626a1866,
+    type: 3}
   vector3FieldWidgetPrefab: {fileID: 0}
 --- !u!114 &8377345033412379564
 MonoBehaviour:

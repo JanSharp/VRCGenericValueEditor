@@ -1,4 +1,4 @@
-using UdonSharp;
+﻿using UdonSharp;
 using UnityEngine;
 using VRC.SDKBase;
 using VRC.Udon;
@@ -63,6 +63,9 @@ namespace JanSharp
                 valueEditor.NewDecimalField("My Decimal", 123456789.123456789m)
                     .SetListener(this, nameof(OnDecimalFieldValueChanged), nameof(decimalField))
                     .SetCustomData(nameof(fieldName), "My Decimal"),
+                valueEditor.NewVector2Field("My Vector2", new Vector2(100, 200))
+                    .SetListener(this, nameof(OnVector2FieldValueChanged), nameof(vector2Field))
+                    .SetCustomData(nameof(fieldName), "My Vector2"),
             };
             Debug.Log($"[GenericValueEditor] Creating widget data took {sw.Elapsed}.");
             valueEditor.Draw(valueEditor.StdMoveWidgetData(widgets));
@@ -111,6 +114,12 @@ namespace JanSharp
         public void OnToggleFieldValueChanged()
         {
             Debug.Log($"[GenericValueEditor] Value for {fieldName} changed to {toggleField.Value}.");
+        }
+
+        private Vector2FieldWidgetData vector2Field;
+        public void OnVector2FieldValueChanged()
+        {
+            Debug.Log($"[GenericValueEditor] Value for {fieldName} changed to {vector2Field.Value}.");
         }
     }
 }

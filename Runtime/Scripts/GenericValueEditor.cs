@@ -234,5 +234,11 @@ namespace JanSharp
             return wannaBeClasses.New<ToggleFieldWidgetData>(nameof(ToggleFieldWidgetData))
                 .WannaBeConstructor(label, value);
         }
+
+        public Vector2FieldWidgetData NewVector2Field(string label, Vector2 value)
+        {
+            return wannaBeClasses.New<Vector2FieldWidgetData>(nameof(Vector2FieldWidgetData))
+                .WannaBeConstructor(label, value);
+        }
     }
 }
