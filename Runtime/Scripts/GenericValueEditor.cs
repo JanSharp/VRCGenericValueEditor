@@ -15,6 +15,7 @@ namespace JanSharp
         public GameObject boxWidgetPrefab;
         public GameObject buttonWidgetPrefab;
         public GameObject indentWidgetPrefab;
+        public GameObject integerFieldWidgetPrefab;
         public GameObject labelWidgetPrefab;
         public GameObject lineWidgetPrefab;
         public GameObject multilineStringFieldWidgetPrefab;
@@ -33,6 +34,7 @@ namespace JanSharp
             widgetPrefabsByName.Add("Box", boxWidgetPrefab);
             widgetPrefabsByName.Add("Button", buttonWidgetPrefab);
             widgetPrefabsByName.Add("Indent", indentWidgetPrefab);
+            widgetPrefabsByName.Add("IntegerField", integerFieldWidgetPrefab);
             widgetPrefabsByName.Add("Label", labelWidgetPrefab);
             widgetPrefabsByName.Add("Line", lineWidgetPrefab);
             widgetPrefabsByName.Add("MultilineStringField", multilineStringFieldWidgetPrefab);
@@ -151,6 +153,30 @@ namespace JanSharp
         public IndentWidgetData NewIndentScope()
         {
             return wannaBeClasses.New<IndentWidgetData>(nameof(IndentWidgetData));
+        }
+
+        public IntegerFieldWidgetData NewIntField(string label, int value)
+        {
+            return wannaBeClasses.New<IntegerFieldWidgetData>(nameof(IntegerFieldWidgetData))
+                .WannaBeConstructor(label, value);
+        }
+
+        public IntegerFieldWidgetData NewUIntField(string label, uint value)
+        {
+            return wannaBeClasses.New<IntegerFieldWidgetData>(nameof(IntegerFieldWidgetData))
+                .WannaBeConstructor(label, value);
+        }
+
+        public IntegerFieldWidgetData NewLongField(string label, long value)
+        {
+            return wannaBeClasses.New<IntegerFieldWidgetData>(nameof(IntegerFieldWidgetData))
+                .WannaBeConstructor(label, value);
+        }
+
+        public IntegerFieldWidgetData NewULongField(string label, ulong value)
+        {
+            return wannaBeClasses.New<IntegerFieldWidgetData>(nameof(IntegerFieldWidgetData))
+                .WannaBeConstructor(label, value);
         }
 
         public LabelWidgetData NewLabel(string label)

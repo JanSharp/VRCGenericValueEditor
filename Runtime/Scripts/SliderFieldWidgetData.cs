@@ -11,6 +11,8 @@ namespace JanSharp
         public override string WidgetName => "SliderField";
         public SliderFieldWidget ActualWidget => (SliderFieldWidget)widget;
 
+        // TODO: Add min and max.
+
         private float value;
         public float Value
         {

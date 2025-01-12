@@ -40,6 +40,18 @@ namespace JanSharp
                 valueEditor.NewToggleField("My Toggle", true)
                     .SetListener(this, nameof(OnToggleFieldValueChanged), nameof(toggleField))
                     .SetCustomData(nameof(fieldName), "My Toggle"),
+                valueEditor.NewIntField("My Int", -2000)
+                    .SetListener(this, nameof(OnIntegerFieldValueChanged), nameof(integerField))
+                    .SetCustomData(nameof(fieldName), "My Int"),
+                valueEditor.NewUIntField("My UInt", 2000)
+                    .SetListener(this, nameof(OnIntegerFieldValueChanged), nameof(integerField))
+                    .SetCustomData(nameof(fieldName), "My UInt"),
+                valueEditor.NewLongField("My Long", -2000000)
+                    .SetListener(this, nameof(OnIntegerFieldValueChanged), nameof(integerField))
+                    .SetCustomData(nameof(fieldName), "My Long"),
+                valueEditor.NewULongField("My ULong", 2000000)
+                    .SetListener(this, nameof(OnIntegerFieldValueChanged), nameof(integerField))
+                    .SetCustomData(nameof(fieldName), "My ULong"),
             }));
         }
 
@@ -49,6 +61,12 @@ namespace JanSharp
         public void OnButtonClicked()
         {
             Debug.Log($"[GenericValueEditor] Clicked {fieldName}.");
+        }
+
+        private IntegerFieldWidgetData integerField;
+        public void OnIntegerFieldValueChanged()
+        {
+            Debug.Log($"[GenericValueEditor] Value for {fieldName} changed to {integerField.GetValueAsString()}.");
         }
 
         private MultilineStringFieldWidgetData multilineStringField;
