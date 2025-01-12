@@ -1,4 +1,4 @@
-﻿using UdonSharp;
+using UdonSharp;
 using UnityEngine;
 using VRC.SDKBase;
 using VRC.Udon;
@@ -95,7 +95,7 @@ namespace JanSharp
             Debug.Log($"[GenericValueEditor] Value for {fieldName} changed to {multilineStringField.Value}.");
         }
 
-        private ToggleFieldWidgetData sliderField;
+        private SliderFieldWidgetData sliderField;
         public void OnSliderFieldValueChanged()
         {
             Debug.Log($"[GenericValueEditor] Value for {fieldName} changed to {sliderField.Value}.");
