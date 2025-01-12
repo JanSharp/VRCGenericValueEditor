@@ -54,6 +54,15 @@ namespace JanSharp
                 valueEditor.NewULongField("My ULong", 2000000)
                     .SetListener(this, nameof(OnIntegerFieldValueChanged), nameof(integerField))
                     .SetCustomData(nameof(fieldName), "My ULong"),
+                valueEditor.NewFloatField("My Float", 0.5f)
+                    .SetListener(this, nameof(OnDecimalFieldValueChanged), nameof(decimalField))
+                    .SetCustomData(nameof(fieldName), "My Float"),
+                valueEditor.NewDoubleField("My Double", 1234.56789)
+                    .SetListener(this, nameof(OnDecimalFieldValueChanged), nameof(decimalField))
+                    .SetCustomData(nameof(fieldName), "My Double"),
+                valueEditor.NewDecimalField("My Decimal", 123456789.123456789m)
+                    .SetListener(this, nameof(OnDecimalFieldValueChanged), nameof(decimalField))
+                    .SetCustomData(nameof(fieldName), "My Decimal"),
             };
             Debug.Log($"[GenericValueEditor] Creating widget data took {sw.Elapsed}.");
             valueEditor.Draw(valueEditor.StdMoveWidgetData(widgets));
@@ -66,6 +75,12 @@ namespace JanSharp
         public void OnButtonClicked()
         {
             Debug.Log($"[GenericValueEditor] Clicked {fieldName}.");
+        }
+
+        private DecimalFieldWidgetData decimalField;
+        public void OnDecimalFieldValueChanged()
+        {
+            Debug.Log($"[GenericValueEditor] Value for {fieldName} changed to {decimalField.GetValueAsString()}.");
         }
 
         private IntegerFieldWidgetData integerField;

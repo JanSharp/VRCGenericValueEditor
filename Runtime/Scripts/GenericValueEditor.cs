@@ -14,6 +14,7 @@ namespace JanSharp
         public Transform widgetsRoot;
         public GameObject boxWidgetPrefab;
         public GameObject buttonWidgetPrefab;
+        public GameObject decimalFieldWidgetPrefab;
         public GameObject indentWidgetPrefab;
         public GameObject integerFieldWidgetPrefab;
         public GameObject labelWidgetPrefab;
@@ -33,6 +34,7 @@ namespace JanSharp
         {
             widgetPrefabsByName.Add("Box", boxWidgetPrefab);
             widgetPrefabsByName.Add("Button", buttonWidgetPrefab);
+            widgetPrefabsByName.Add("DecimalField", decimalFieldWidgetPrefab);
             widgetPrefabsByName.Add("Indent", indentWidgetPrefab);
             widgetPrefabsByName.Add("IntegerField", integerFieldWidgetPrefab);
             widgetPrefabsByName.Add("Label", labelWidgetPrefab);
@@ -148,6 +150,24 @@ namespace JanSharp
         {
             return wannaBeClasses.New<ButtonWidgetData>(nameof(ButtonWidgetData))
                 .WannaBeConstructor(label);
+        }
+
+        public DecimalFieldWidgetData NewFloatField(string label, float value)
+        {
+            return wannaBeClasses.New<DecimalFieldWidgetData>(nameof(DecimalFieldWidgetData))
+                .WannaBeConstructor(label, value);
+        }
+
+        public DecimalFieldWidgetData NewDoubleField(string label, double value)
+        {
+            return wannaBeClasses.New<DecimalFieldWidgetData>(nameof(DecimalFieldWidgetData))
+                .WannaBeConstructor(label, value);
+        }
+
+        public DecimalFieldWidgetData NewDecimalField(string label, decimal value)
+        {
+            return wannaBeClasses.New<DecimalFieldWidgetData>(nameof(DecimalFieldWidgetData))
+                .WannaBeConstructor(label, value);
         }
 
         public IndentWidgetData NewIndentScope()
