@@ -17,8 +17,9 @@ namespace JanSharp
         public GameObject indentWidgetPrefab;
         public GameObject labelWidgetPrefab;
         public GameObject lineWidgetPrefab;
+        public GameObject multilineStringFieldWidgetPrefab;
         public GameObject sliderFieldWidgetPrefab;
-        public GameObject textFieldWidgetPrefab;
+        public GameObject stringFieldWidgetPrefab;
         public GameObject toggleFieldWidgetPrefab;
         public GameObject vector2FieldWidgetPrefab;
         public GameObject vector3FieldWidgetPrefab;
@@ -34,8 +35,9 @@ namespace JanSharp
             widgetPrefabsByName.Add("Indent", indentWidgetPrefab);
             widgetPrefabsByName.Add("Label", labelWidgetPrefab);
             widgetPrefabsByName.Add("Line", lineWidgetPrefab);
+            widgetPrefabsByName.Add("MultilineStringField", multilineStringFieldWidgetPrefab);
             widgetPrefabsByName.Add("SliderField", sliderFieldWidgetPrefab);
-            widgetPrefabsByName.Add("TextField", textFieldWidgetPrefab);
+            widgetPrefabsByName.Add("StringField", stringFieldWidgetPrefab);
             widgetPrefabsByName.Add("ToggleField", toggleFieldWidgetPrefab);
             widgetPrefabsByName.Add("Vector2Field", vector2FieldWidgetPrefab);
             widgetPrefabsByName.Add("Vector3Field", vector3FieldWidgetPrefab);
@@ -162,9 +164,22 @@ namespace JanSharp
             return wannaBeClasses.New<LineWidgetData>(nameof(LineWidgetData));
         }
 
+        public MultilineStringFieldWidgetData NewMultilineStringField(string label, string value)
+        {
+            MultilineStringFieldWidgetData result = wannaBeClasses.New<MultilineStringFieldWidgetData>(nameof(MultilineStringFieldWidgetData));
+            result.WannaBeConstructor(label, value);
+            return result;
+        }
+
         public SliderFieldWidgetData NewSliderField(string label, float value)
         {
             return wannaBeClasses.New<SliderFieldWidgetData>(nameof(SliderFieldWidgetData))
+                .WannaBeConstructor(label, value);
+        }
+
+        public StringFieldWidgetData NewStringField(string label, string value)
+        {
+            return wannaBeClasses.New<StringFieldWidgetData>(nameof(StringFieldWidgetData))
                 .WannaBeConstructor(label, value);
         }
 

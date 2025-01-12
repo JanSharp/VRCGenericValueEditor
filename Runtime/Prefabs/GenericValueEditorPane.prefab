@@ -64,7 +64,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2907603296657724308}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -182,7 +182,10 @@ MonoBehaviour:
     type: 3}
   sliderFieldWidgetPrefab: {fileID: 6736198315849927313, guid: 76635e10e76c019fa935b06127d6a91a,
     type: 3}
-  textFieldWidgetPrefab: {fileID: 0}
+  stringFieldWidgetPrefab: {fileID: 2694536238198396353, guid: 833279ab66d90ad4e999c2fa5d672b34,
+    type: 3}
+  multilineStringFieldWidgetPrefab: {fileID: 1911104068574340042, guid: 6a0cd5b8539196ba9bab7e9fdd064975,
+    type: 3}
   toggleFieldWidgetPrefab: {fileID: 1251850030158033793, guid: 411b8e2947d8fb39394c9751ec8db575,
     type: 3}
   vector2FieldWidgetPrefab: {fileID: 0}
@@ -206,7 +209,7 @@ MonoBehaviour:
   SynchronizePosition: 0
   AllowCollisionOwnershipTransfer: 0
   Reliable: 0
-  _syncMethod: 0
+  _syncMethod: 1
   serializedProgramAsset: {fileID: 11400000, guid: 28587ab268bec6843b3564a6279eda00,
     type: 2}
   programSource: {fileID: 11400000, guid: a96cb645ca41b9d76b4f14709a9eccb4, type: 2}

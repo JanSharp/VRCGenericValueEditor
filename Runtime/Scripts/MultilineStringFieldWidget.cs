@@ -6,8 +6,8 @@ using VRC.Udon;
 namespace JanSharp
 {
     [UdonBehaviourSyncMode(BehaviourSyncMode.None)]
-    public class TextFieldWidgetData : UdonSharpBehaviour
+    public class MultilineStringFieldWidget : StringFieldWidget
     {
-
+        public override string WidgetName => "MultilineStringField";
     }
 }

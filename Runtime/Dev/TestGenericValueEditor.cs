@@ -28,9 +28,15 @@ namespace JanSharp
                 valueEditor.NewLine(),
                 valueEditor.NewLabel("My Label"),
                 valueEditor.CloseScope(),
+                valueEditor.NewMultilineStringField("My Multiline String", "Hello World!\nGoodbye World.")
+                    .SetListener(this, nameof(OnMultilineStringFieldValueChanged), nameof(multilineStringField))
+                    .SetCustomData(nameof(fieldName), "My Multiline String"),
                 valueEditor.NewSliderField("My Slider", 0.5f)
                     .SetListener(this, nameof(OnSliderFieldValueChanged), nameof(sliderField))
                     .SetCustomData(nameof(fieldName), "My Slider"),
+                valueEditor.NewStringField("My String", "Greetings")
+                    .SetListener(this, nameof(OnStringFieldValueChanged), nameof(stringField))
+                    .SetCustomData(nameof(fieldName), "My String"),
                 valueEditor.NewToggleField("My Toggle", true)
                     .SetListener(this, nameof(OnToggleFieldValueChanged), nameof(toggleField))
                     .SetCustomData(nameof(fieldName), "My Toggle"),
@@ -45,10 +51,22 @@ namespace JanSharp
             Debug.Log($"[GenericValueEditor] Clicked {fieldName}.");
         }
 
+        private MultilineStringFieldWidgetData multilineStringField;
+        public void OnMultilineStringFieldValueChanged()
+        {
+            Debug.Log($"[GenericValueEditor] Value for {fieldName} changed to {multilineStringField.Value}.");
+        }
+
         private ToggleFieldWidgetData sliderField;
         public void OnSliderFieldValueChanged()
         {
             Debug.Log($"[GenericValueEditor] Value for {fieldName} changed to {sliderField.Value}.");
+        }
+
+        private StringFieldWidgetData stringField;
+        public void OnStringFieldValueChanged()
+        {
+            Debug.Log($"[GenericValueEditor] Value for {fieldName} changed to {stringField.Value}.");
         }
 
         private ToggleFieldWidgetData toggleField;
