@@ -240,5 +240,11 @@ namespace JanSharp
             return wannaBeClasses.New<Vector2FieldWidgetData>(nameof(Vector2FieldWidgetData))
                 .WannaBeConstructor(label, value);
         }
+
+        public Vector3FieldWidgetData NewVector3Field(string label, Vector3 value)
+        {
+            return wannaBeClasses.New<Vector3FieldWidgetData>(nameof(Vector3FieldWidgetData))
+                .WannaBeConstructor(label, value);
+        }
     }
 }

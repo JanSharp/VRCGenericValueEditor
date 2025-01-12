@@ -66,6 +66,9 @@ namespace JanSharp
                 valueEditor.NewVector2Field("My Vector2", new Vector2(100, 200))
                     .SetListener(this, nameof(OnVector2FieldValueChanged), nameof(vector2Field))
                     .SetCustomData(nameof(fieldName), "My Vector2"),
+                valueEditor.NewVector3Field("My Vector3", new Vector3(100, 200, 300))
+                    .SetListener(this, nameof(OnVector3FieldValueChanged), nameof(vector3Field))
+                    .SetCustomData(nameof(fieldName), "My Vector3"),
             };
             Debug.Log($"[GenericValueEditor] Creating widget data took {sw.Elapsed}.");
             valueEditor.Draw(valueEditor.StdMoveWidgetData(widgets));
@@ -120,6 +123,12 @@ namespace JanSharp
         public void OnVector2FieldValueChanged()
         {
             Debug.Log($"[GenericValueEditor] Value for {fieldName} changed to {vector2Field.Value}.");
+        }
+
+        private Vector2FieldWidgetData vector3Field;
+        public void OnVector3FieldValueChanged()
+        {
+            Debug.Log($"[GenericValueEditor] Value for {fieldName} changed to {vector3Field.Value}.");
         }
     }
 }
