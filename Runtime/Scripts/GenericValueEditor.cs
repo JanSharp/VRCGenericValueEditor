@@ -21,6 +21,7 @@ namespace JanSharp
         public GameObject lineWidgetPrefab;
         public GameObject multilineStringFieldWidgetPrefab;
         public GameObject sliderFieldWidgetPrefab;
+        public GameObject spaceWidgetPrefab;
         public GameObject stringFieldWidgetPrefab;
         public GameObject toggleFieldWidgetPrefab;
         public GameObject vector2FieldWidgetPrefab;
@@ -41,6 +42,7 @@ namespace JanSharp
             widgetPrefabsByName.Add("Line", lineWidgetPrefab);
             widgetPrefabsByName.Add("MultilineStringField", multilineStringFieldWidgetPrefab);
             widgetPrefabsByName.Add("SliderField", sliderFieldWidgetPrefab);
+            widgetPrefabsByName.Add("Space", spaceWidgetPrefab);
             widgetPrefabsByName.Add("StringField", stringFieldWidgetPrefab);
             widgetPrefabsByName.Add("ToggleField", toggleFieldWidgetPrefab);
             widgetPrefabsByName.Add("Vector2Field", vector2FieldWidgetPrefab);
@@ -221,6 +223,11 @@ namespace JanSharp
         {
             return wannaBeClasses.New<SliderFieldWidgetData>(nameof(SliderFieldWidgetData))
                 .WannaBeConstructor(label, value);
+        }
+
+        public SpaceWidgetData NewSpace()
+        {
+            return wannaBeClasses.New<SpaceWidgetData>(nameof(SpaceWidgetData));
         }
 
         public StringFieldWidgetData NewStringField(string label, string value)

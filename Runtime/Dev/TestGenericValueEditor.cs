@@ -42,6 +42,7 @@ namespace JanSharp
                 valueEditor.NewToggleField("My Toggle", true)
                     .SetListener(this, nameof(OnToggleFieldValueChanged), nameof(toggleField))
                     .SetCustomData(nameof(fieldName), "My Toggle"),
+                valueEditor.NewSpace(),
                 valueEditor.NewIntField("My Int", -2000)
                     .SetListener(this, nameof(OnIntegerFieldValueChanged), nameof(integerField))
                     .SetCustomData(nameof(fieldName), "My Int"),
@@ -54,6 +55,7 @@ namespace JanSharp
                 valueEditor.NewULongField("My ULong", 2000000)
                     .SetListener(this, nameof(OnIntegerFieldValueChanged), nameof(integerField))
                     .SetCustomData(nameof(fieldName), "My ULong"),
+                valueEditor.NewSpace(),
                 valueEditor.NewFloatField("My Float", 0.5f)
                     .SetListener(this, nameof(OnDecimalFieldValueChanged), nameof(decimalField))
                     .SetCustomData(nameof(fieldName), "My Float"),
@@ -63,6 +65,7 @@ namespace JanSharp
                 valueEditor.NewDecimalField("My Decimal", 123456789.123456789m)
                     .SetListener(this, nameof(OnDecimalFieldValueChanged), nameof(decimalField))
                     .SetCustomData(nameof(fieldName), "My Decimal"),
+                valueEditor.NewSpace(),
                 valueEditor.NewVector2Field("My Vector2", new Vector2(100, 200))
                     .SetListener(this, nameof(OnVector2FieldValueChanged), nameof(vector2Field))
                     .SetCustomData(nameof(fieldName), "My Vector2"),

@@ -188,6 +188,8 @@ MonoBehaviour:
     type: 3}
   sliderFieldWidgetPrefab: {fileID: 6736198315849927313, guid: 76635e10e76c019fa935b06127d6a91a,
     type: 3}
+  spaceWidgetPrefab: {fileID: 7763232004588554939, guid: 1ff29ac66e29bd46a8f4cdc5e3d8d540,
+    type: 3}
   stringFieldWidgetPrefab: {fileID: 2694536238198396353, guid: 833279ab66d90ad4e999c2fa5d672b34,
     type: 3}
   toggleFieldWidgetPrefab: {fileID: 1251850030158033793, guid: 411b8e2947d8fb39394c9751ec8db575,
