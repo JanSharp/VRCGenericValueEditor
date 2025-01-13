@@ -30,7 +30,13 @@ namespace JanSharp
 
         public void OnSliderValueChanged()
         {
-            Data.Value = slider.value;
+            // Unfortunately 'value - (value % 0.001f)' was not precise enough, it had results like 0.8200001
+            // (actually 0.820000112056732177734375) even though 0.819999992847442626953125 is the more
+            // accurate representation for 0.82 - not only more accurate, there's also
+            // 0.82000005245208740234375 which is a step in between those 2 values. So it's actually 2 steps
+            // away from the most accurate representation.
+            // Tool used: https://www.h-schmidt.net/FloatConverter/IEEE754.html
+            Data.Value = float.Parse(slider.value.ToString("0.###"));
         }
 
         public void OnInputFieldTextChanged()
