@@ -41,8 +41,7 @@ namespace JanSharp
 
         public void OnInputFieldTextChanged()
         {
-            if (float.TryParse(inputField.text, out float value))
-                Data.Value = value;
+            Data.Value = float.TryParse(inputField.text, out float value) ? value : 0f;
         }
     }
 }
