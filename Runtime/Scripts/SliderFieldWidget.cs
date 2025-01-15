@@ -20,6 +20,8 @@ namespace JanSharp
         {
             base.InitFromData();
             slider.SetValueWithoutNotify(Data.Value);
+            slider.minValue = Data.MinValue;
+            slider.maxValue = Data.MaxValue;
             UpdateInputField(Data.Value);
         }
 

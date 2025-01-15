@@ -42,9 +42,12 @@ namespace JanSharp
                     .SetCustomData(nameof(fieldName), "My String"),
                 valueEditor.CloseScope(),
 
-                valueEditor.NewSliderField("My Slider", 0.5f)
+                valueEditor.NewSliderField("My Slider", 0.5f, 0f, 2f)
                     .SetListener(this, nameof(OnSliderFieldValueChanged), nameof(sliderField))
                     .SetCustomData(nameof(fieldName), "My Slider"),
+                valueEditor.NewSliderField("My Unrestricted Slider", 0.5f, -1f, 1f, enforceMinMax: false)
+                    .SetListener(this, nameof(OnSliderFieldValueChanged), nameof(sliderField))
+                    .SetCustomData(nameof(fieldName), "My Unrestricted Slider"),
                 valueEditor.NewToggleField("My Toggle", true)
                     .SetListener(this, nameof(OnToggleFieldValueChanged), nameof(toggleField))
                     .SetCustomData(nameof(fieldName), "My Toggle"),

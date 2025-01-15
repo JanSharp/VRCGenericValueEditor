@@ -227,10 +227,10 @@ namespace JanSharp
             return result;
         }
 
-        public SliderFieldWidgetData NewSliderField(string label, float value)
+        public SliderFieldWidgetData NewSliderField(string label, float value, float minValue, float maxValue, bool enforceMinMax = true)
         {
             return wannaBeClasses.New<SliderFieldWidgetData>(nameof(SliderFieldWidgetData))
-                .WannaBeConstructor(label, value);
+                .WannaBeConstructor(label, value, minValue, maxValue, enforceMinMax);
         }
 
         public SpaceWidgetData NewSpace()
