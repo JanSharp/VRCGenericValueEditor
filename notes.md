@@ -6,3 +6,4 @@ Think about IMGUI. Then think about Udon. Become sad.
 - [ ] interactable option for all widgets
   - [ ] non interactable widgets should be darkened, not red
 - [ ] step value for sliders, which also enables int sliders
+- [ ] range limitations on integer and decimal field widgets

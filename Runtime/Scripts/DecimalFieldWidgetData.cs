@@ -30,8 +30,6 @@ namespace JanSharp
 
         private DecimalWidgetType decimalType = DecimalWidgetType.Invalid;
 
-        // TODO: add range restrictions
-
         private float floatValue;
         private double doubleValue;
         private decimal decimalValue;

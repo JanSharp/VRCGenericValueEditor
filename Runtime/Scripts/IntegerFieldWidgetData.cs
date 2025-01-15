@@ -32,8 +32,6 @@ namespace JanSharp
 
         private IntegerWidgetType integerType = IntegerWidgetType.Invalid;
 
-        // TODO: add range restrictions
-
         private int intValue;
         private uint uintValue;
         private long longValue;
