@@ -22,12 +22,12 @@ namespace JanSharp
             slider.SetValueWithoutNotify(Data.Value);
             slider.minValue = Data.MinValue;
             slider.maxValue = Data.MaxValue;
-            UpdateInputField(Data.Value);
+            UpdateInputField();
         }
 
-        public void UpdateInputField(float value)
+        public void UpdateInputField()
         {
-            inputField.SetTextWithoutNotify(value.ToString("0.###"));
+            inputField.SetTextWithoutNotify(Data.Value.ToString("0.###"));
         }
 
         public void OnSliderValueChanged()
@@ -44,6 +44,7 @@ namespace JanSharp
         public void OnInputFieldTextChanged()
         {
             Data.Value = float.TryParse(inputField.text, out float value) ? value : 0f;
+            UpdateInputField(); // To handle when the value didn't change, but text does differ.
         }
     }
 }

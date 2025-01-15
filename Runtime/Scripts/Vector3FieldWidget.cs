@@ -38,16 +38,19 @@ namespace JanSharp
         public void OnXChanged()
         {
             Data.X = Parse(xInputField.text);
+            UpdateInputFields(); // To handle when the value didn't change, but text does differ.
         }
 
         public void OnYChanged()
         {
             Data.Y = Parse(yInputField.text);
+            UpdateInputFields(); // To handle when the value didn't change, but text does differ.
         }
 
         public void OnZChanged()
         {
             Data.Z = Parse(zInputField.text);
+            UpdateInputFields(); // To handle when the value didn't change, but text does differ.
         }
     }
 }

@@ -120,7 +120,7 @@ namespace JanSharp
         private void SetText(string text)
         {
             if (ActualWidget != null)
-                ActualWidget.inputField.SetTextWithoutNotify(text);
+                ActualWidget.UpdateInputField(text);
             RaiseEvent();
         }
 

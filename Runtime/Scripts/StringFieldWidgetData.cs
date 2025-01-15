@@ -23,7 +23,7 @@ namespace JanSharp
                     return;
                 this.value = value;
                 if (ActualWidget != null)
-                    ActualWidget.inputField.SetTextWithoutNotify(value);
+                    ActualWidget.UpdateInputField();
                 RaiseEvent();
             }
         }

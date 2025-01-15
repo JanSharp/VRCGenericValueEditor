@@ -17,12 +17,18 @@ namespace JanSharp
         protected override void InitFromData()
         {
             base.InitFromData();
-            inputField.SetTextWithoutNotify(Data.GetValueAsString());
+            UpdateInputField();
+        }
+
+        public void UpdateInputField(string text = null)
+        {
+            inputField.SetTextWithoutNotify(text != null ? text : Data.GetValueAsString());
         }
 
         public void OnTextChanged()
         {
             Data.SetValueFromString(inputField.text);
+            UpdateInputField(); // To handle when the value didn't change, but text does differ.
         }
     }
 }

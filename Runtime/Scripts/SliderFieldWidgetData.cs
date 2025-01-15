@@ -67,7 +67,7 @@ namespace JanSharp
                 if (ActualWidget != null)
                 {
                     ActualWidget.slider.SetValueWithoutNotify(value);
-                    ActualWidget.UpdateInputField(value);
+                    ActualWidget.UpdateInputField();
                 }
                 RaiseEvent();
             }
