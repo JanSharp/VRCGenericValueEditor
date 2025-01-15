@@ -14,6 +14,8 @@ namespace JanSharp
         {
             System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
             sw.Start();
+            BoxWidgetData toggleAbleBox = valueEditor.NewBoxScope();
+            toggleAbleBox.IsVisible = false;
             WidgetData[] widgets = new WidgetData[]
             {
                 valueEditor.NewFoldOutScope("My Boxes and Stuff", false),
@@ -88,6 +90,15 @@ namespace JanSharp
                     .SetListener(this, nameof(OnVector3FieldValueChanged), nameof(vector3Field))
                     .SetCustomData(nameof(fieldName), "My Vector3"),
                 valueEditor.CloseScope(),
+
+                valueEditor.NewToggleField("Show More", toggleAbleBox.IsVisible)
+                    .SetListener(this, nameof(OnWidgetToggleValueChanged), nameof(toggleField))
+                    .SetCustomData(nameof(widgetToToggle), toggleAbleBox),
+                toggleAbleBox,
+                valueEditor.NewLabel("Hello World!"),
+                valueEditor.NewLine(),
+                valueEditor.NewLabel("There's so much content in this box."),
+                valueEditor.CloseScope(),
             };
             Debug.Log($"[GenericValueEditor] Creating widget data took {sw.Elapsed}.");
             valueEditor.Draw(valueEditor.StdMoveWidgetData(widgets));
@@ -148,6 +159,12 @@ namespace JanSharp
         public void OnVector3FieldValueChanged()
         {
             Debug.Log($"[GenericValueEditor] Value for {fieldName} changed to {vector3Field.Value}.");
+        }
+
+        private WidgetData widgetToToggle;
+        public void OnWidgetToggleValueChanged()
+        {
+            widgetToToggle.IsVisible = toggleField.Value;
         }
     }
 }

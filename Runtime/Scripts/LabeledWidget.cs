@@ -13,6 +13,7 @@ namespace JanSharp
 
         protected override void InitFromData()
         {
+            base.InitFromData();
             label.text = ((LabeledWidgetData)BackingWidgetData).Label;
         }
     }

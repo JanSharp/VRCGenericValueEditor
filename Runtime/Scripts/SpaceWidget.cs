@@ -10,7 +10,5 @@ namespace JanSharp
     {
         public override string WidgetName => "Space";
         public SpaceWidgetData Data => (SpaceWidgetData)BackingWidgetData;
-
-        protected override void InitFromData() { }
     }
 }

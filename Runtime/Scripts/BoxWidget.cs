@@ -12,7 +12,5 @@ namespace JanSharp
         public BoxWidgetData Data => (BoxWidgetData)BackingWidgetData;
 
         public override bool IsContainer => true;
-
-        protected override void InitFromData() { }
     }
 }

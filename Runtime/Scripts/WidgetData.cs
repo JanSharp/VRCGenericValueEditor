@@ -26,6 +26,31 @@ namespace JanSharp
         [System.NonSerialized] public bool preventRecursion = false;
         private bool waitingForRaiseEvent = false;
 
+        private bool isVisible = true;
+        public bool IsVisible
+        {
+            get => isVisible;
+            set
+            {
+                if (value == isVisible)
+                    return;
+                isVisible = value;
+                if (widget != null)
+                    widget.gameObject.SetActive(value);
+            }
+        }
+
+        /// <summary>
+        /// <para>Just sets <see cref="IsVisible"/>, enables function call chaining.</para>
+        /// </summary>
+        /// <param name="isVisible"></param>
+        /// <returns></returns>
+        public WidgetData SetIsVisible(bool isVisible)
+        {
+            IsVisible = isVisible;
+            return this;
+        }
+
         public WidgetData SetCustomData(string customDataFieldName, object customData)
         {
             this.customDataFieldName = customDataFieldName;

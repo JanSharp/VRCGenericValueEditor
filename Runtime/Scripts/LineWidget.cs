@@ -10,7 +10,5 @@ namespace JanSharp
     {
         public override string WidgetName => "Line";
         public LineWidgetData Data => (LineWidgetData)BackingWidgetData;
-
-        protected override void InitFromData() { }
     }
 }

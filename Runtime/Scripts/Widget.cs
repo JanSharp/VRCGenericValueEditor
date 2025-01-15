@@ -32,6 +32,9 @@ namespace JanSharp
             }
         }
 
-        protected abstract void InitFromData();
+        protected virtual void InitFromData()
+        {
+            this.gameObject.SetActive(backingWidgetData.IsVisible);
+        }
     }
 }
