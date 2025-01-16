@@ -30,6 +30,23 @@ namespace JanSharp
         private DataDictionary widgetPrefabsByName = new DataDictionary();
         private Widget[] widgets = new Widget[0];
 
+        public WidgetData sendingWidgetData;
+        public BoxWidgetData GetSendingBox() => (BoxWidgetData)sendingWidgetData;
+        public ButtonWidgetData GetSendingButton() => (ButtonWidgetData)sendingWidgetData;
+        public DecimalFieldWidgetData GetSendingDecimalField() => (DecimalFieldWidgetData)sendingWidgetData;
+        public FoldOutWidgetData GetSendingFoldOut() => (FoldOutWidgetData)sendingWidgetData;
+        public IndentWidgetData GetSendingIndent() => (IndentWidgetData)sendingWidgetData;
+        public IntegerFieldWidgetData GetSendingIntegerField() => (IntegerFieldWidgetData)sendingWidgetData;
+        public LabelWidgetData GetSendingLabel() => (LabelWidgetData)sendingWidgetData;
+        public LineWidgetData GetSendingLine() => (LineWidgetData)sendingWidgetData;
+        public MultilineStringFieldWidgetData GetSendingMultilineStringField() => (MultilineStringFieldWidgetData)sendingWidgetData;
+        public SliderFieldWidgetData GetSendingSliderField() => (SliderFieldWidgetData)sendingWidgetData;
+        public SpaceWidgetData GetSendingSpace() => (SpaceWidgetData)sendingWidgetData;
+        public StringFieldWidgetData GetSendingStringField() => (StringFieldWidgetData)sendingWidgetData;
+        public ToggleFieldWidgetData GetSendingToggleField() => (ToggleFieldWidgetData)sendingWidgetData;
+        public Vector2FieldWidgetData GetSendingVector2Field() => (Vector2FieldWidgetData)sendingWidgetData;
+        public Vector3FieldWidgetData GetSendingVector3Field() => (Vector3FieldWidgetData)sendingWidgetData;
+
         private ScopeClosingWidgetData scopeClosingWidgetData;
 
         private void Start()
@@ -109,6 +126,7 @@ namespace JanSharp
                 t.SetAsLastSibling();
                 // This ultimately calls IncrementRefsCount, allowing the widgetData array to be StdMoved in.
                 widget.BackingWidgetData = currentData;
+                currentData.genericValueEditor = this;
                 newWidgets[newIndex++] = widget;
 
                 if (widget.IsContainer)

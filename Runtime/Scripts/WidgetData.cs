@@ -10,10 +10,10 @@ namespace JanSharp
     {
         public abstract string WidgetName { get; }
         [System.NonSerialized] public Widget widget;
+        [System.NonSerialized] public GenericValueEditor genericValueEditor;
 
         [System.NonSerialized] public UdonSharpBehaviour listener;
         [System.NonSerialized] public string listenerEventName;
-        [System.NonSerialized] public string listenerWidgetDataFieldName;
 
         [System.NonSerialized] public string customDataFieldName;
         [System.NonSerialized] public object customData;
@@ -90,11 +90,10 @@ namespace JanSharp
             return this;
         }
 
-        public WidgetData SetListener(UdonSharpBehaviour listener, string listenerEventName, string listenerWidgetDataFieldName)
+        public WidgetData SetListener(UdonSharpBehaviour listener, string listenerEventName)
         {
             this.listener = listener;
             this.listenerEventName = listenerEventName;
-            this.listenerWidgetDataFieldName = listenerWidgetDataFieldName;
             return this;
         }
 
@@ -102,7 +101,6 @@ namespace JanSharp
         {
             listener = null;
             listenerEventName = null;
-            listenerWidgetDataFieldName = null;
             return this;
         }
 
@@ -124,7 +122,8 @@ namespace JanSharp
             waitingForRaiseEvent = false;
             if (listener == null)
                 return;
-            listener.SetProgramVariable(listenerWidgetDataFieldName, this);
+            if (genericValueEditor != null)
+                genericValueEditor.sendingWidgetData = this;
             if (customDataFieldName != null)
                 listener.SetProgramVariable(customDataFieldName, customData);
             listener.SendCustomEvent(listenerEventName);
