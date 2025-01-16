@@ -25,6 +25,14 @@ namespace JanSharp
             UpdateInputField();
         }
 
+        public override void UpdateInteractable()
+        {
+            base.UpdateInteractable();
+            bool interactable = Data.Interactable;
+            slider.interactable = interactable;
+            inputField.interactable = interactable;
+        }
+
         public void UpdateInputField()
         {
             inputField.SetTextWithoutNotify(Data.Value.ToString("0.###"));

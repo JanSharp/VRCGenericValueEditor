@@ -40,6 +40,20 @@ namespace JanSharp
             }
         }
 
+        private bool interactable = true;
+        public bool Interactable
+        {
+            get => interactable;
+            set
+            {
+                if (value == interactable)
+                    return;
+                interactable = value;
+                if (widget != null)
+                    widget.UpdateInteractable();
+            }
+        }
+
         /// <summary>
         /// <para>Just sets <see cref="IsVisible"/>, enables function call chaining.</para>
         /// </summary>
@@ -48,6 +62,17 @@ namespace JanSharp
         public WidgetData SetIsVisible(bool isVisible)
         {
             IsVisible = isVisible;
+            return this;
+        }
+
+        /// <summary>
+        /// <para>Just sets <see cref="Interactable"/>, enables function call chaining.</para>
+        /// </summary>
+        /// <param name="interactable"></param>
+        /// <returns></returns>
+        public WidgetData SetInteractable(bool interactable)
+        {
+            Interactable = interactable;
             return this;
         }
 

@@ -313,7 +313,10 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 8820367311589733969}
+  containerWidgetsRoot: {fileID: 0}
+  InteractableCanvasGroup: {fileID: 0}
   label: {fileID: 6186377964948302072}
+  button: {fileID: 2311870494520184002}
 --- !u!114 &8820367311589733969
 MonoBehaviour:
   m_ObjectHideFlags: 0

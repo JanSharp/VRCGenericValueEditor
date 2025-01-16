@@ -573,6 +573,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7913359597796587726}
   - component: {fileID: 9147427724177366466}
+  - component: {fileID: 1535157899401677835}
   m_Layer: 17
   m_Name: TopRow
   m_TagString: Untagged
@@ -627,6 +628,18 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!225 &1535157899401677835
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4412304768564608261}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 1
 --- !u!1 &5237960675979543686
 GameObject:
   m_ObjectHideFlags: 0
@@ -831,6 +844,7 @@ MonoBehaviour:
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 2190459051069290098}
   containerWidgetsRoot: {fileID: 1343866574025936462}
+  InteractableCanvasGroup: {fileID: 0}
   label: {fileID: 9075597962847068715}
   foldButtonText: {fileID: 6445684606807391886}
   content: {fileID: 4089366831741658942}

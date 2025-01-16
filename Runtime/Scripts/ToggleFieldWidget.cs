@@ -21,6 +21,12 @@ namespace JanSharp
             toggle.SetIsOnWithoutNotify(Data.Value);
         }
 
+        public override void UpdateInteractable()
+        {
+            base.UpdateInteractable();
+            toggle.interactable = Data.Interactable;
+        }
+
         public void OnValueChanged()
         {
             Data.Value = toggle.isOn;

@@ -20,6 +20,12 @@ namespace JanSharp
             UpdateInputField();
         }
 
+        public override void UpdateInteractable()
+        {
+            base.UpdateInteractable();
+            inputField.interactable = Data.Interactable;
+        }
+
         public void UpdateInputField()
         {
             inputField.SetTextWithoutNotify(Data.Value);

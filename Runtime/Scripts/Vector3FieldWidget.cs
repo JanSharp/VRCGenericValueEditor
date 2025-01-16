@@ -22,6 +22,15 @@ namespace JanSharp
             UpdateInputFields();
         }
 
+        public override void UpdateInteractable()
+        {
+            base.UpdateInteractable();
+            bool interactable = Data.Interactable;
+            xInputField.interactable = interactable;
+            yInputField.interactable = interactable;
+            zInputField.interactable = interactable;
+        }
+
         public void UpdateInputFields()
         {
             Vector3 value = Data.Value;

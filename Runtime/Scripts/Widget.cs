@@ -10,7 +10,8 @@ namespace JanSharp
     {
         public abstract string WidgetName { get; }
         public virtual bool IsContainer => false;
-        public Transform containerWidgetsRoot = null;
+        public Transform containerWidgetsRoot;
+        public CanvasGroup InteractableCanvasGroup;
 
         private WidgetData backingWidgetData;
         public WidgetData BackingWidgetData
@@ -35,6 +36,13 @@ namespace JanSharp
         protected virtual void InitFromData()
         {
             this.gameObject.SetActive(backingWidgetData.IsVisible);
+            UpdateInteractable();
+        }
+
+        public virtual void UpdateInteractable()
+        {
+            if (InteractableCanvasGroup != null)
+                InteractableCanvasGroup.interactable = backingWidgetData.Interactable;
         }
     }
 }

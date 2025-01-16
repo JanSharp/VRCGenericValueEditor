@@ -89,6 +89,7 @@ MonoBehaviour:
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 7264162107874022044}
   containerWidgetsRoot: {fileID: 0}
+  InteractableCanvasGroup: {fileID: 0}
   label: {fileID: 1837893631287284633}
   inputField: {fileID: 3887095038272838578}
 --- !u!114 &7264162107874022044
@@ -844,6 +845,7 @@ GameObject:
   - component: {fileID: 2072456964451916158}
   - component: {fileID: 1013713512385550092}
   - component: {fileID: 1967187158943615858}
+  - component: {fileID: 3673614040138399701}
   m_Layer: 17
   m_Name: Scrollbar Vertical
   m_TagString: Untagged
@@ -958,6 +960,18 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!225 &3673614040138399701
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7080889832651671168}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 1
 --- !u!1 &7090857644738992962
 GameObject:
   m_ObjectHideFlags: 0
