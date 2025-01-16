@@ -6,7 +6,6 @@ using VRC.Udon;
 
 namespace JanSharp
 {
-    [DefaultExecutionOrder(-10000)]
     [UdonBehaviourSyncMode(BehaviourSyncMode.None)]
     public class GenericValueEditor : UdonSharpBehaviour
     {
@@ -27,7 +26,32 @@ namespace JanSharp
         [SerializeField] private GameObject toggleFieldWidgetPrefab;
         [SerializeField] private GameObject vector2FieldWidgetPrefab;
         [SerializeField] private GameObject vector3FieldWidgetPrefab;
-        private DataDictionary widgetPrefabsByName = new DataDictionary();
+        private DataDictionary widgetPrefabsByName = null;
+        private DataDictionary WidgetPrefabsByName
+        {
+            get
+            {
+                if (widgetPrefabsByName != null)
+                    return widgetPrefabsByName;
+                widgetPrefabsByName = new DataDictionary(); // "U# Does not yet support initializer lists".
+                widgetPrefabsByName.Add("Box", boxWidgetPrefab);
+                widgetPrefabsByName.Add("Button", buttonWidgetPrefab);
+                widgetPrefabsByName.Add("DecimalField", decimalFieldWidgetPrefab);
+                widgetPrefabsByName.Add("FoldOut", foldOutWidgetPrefab);
+                widgetPrefabsByName.Add("Indent", indentWidgetPrefab);
+                widgetPrefabsByName.Add("IntegerField", integerFieldWidgetPrefab);
+                widgetPrefabsByName.Add("Label", labelWidgetPrefab);
+                widgetPrefabsByName.Add("Line", lineWidgetPrefab);
+                widgetPrefabsByName.Add("MultilineStringField", multilineStringFieldWidgetPrefab);
+                widgetPrefabsByName.Add("SliderField", sliderFieldWidgetPrefab);
+                widgetPrefabsByName.Add("Space", spaceWidgetPrefab);
+                widgetPrefabsByName.Add("StringField", stringFieldWidgetPrefab);
+                widgetPrefabsByName.Add("ToggleField", toggleFieldWidgetPrefab);
+                widgetPrefabsByName.Add("Vector2Field", vector2FieldWidgetPrefab);
+                widgetPrefabsByName.Add("Vector3Field", vector3FieldWidgetPrefab);
+                return widgetPrefabsByName;
+            }
+        }
         private Widget[] widgets = new Widget[0];
 
         public WidgetData sendingWidgetData;
@@ -47,29 +71,19 @@ namespace JanSharp
         public Vector2FieldWidgetData GetSendingVector2Field() => (Vector2FieldWidgetData)sendingWidgetData;
         public Vector3FieldWidgetData GetSendingVector3Field() => (Vector3FieldWidgetData)sendingWidgetData;
 
-        private ScopeClosingWidgetData scopeClosingWidgetData;
-
-        private void Start()
+        private ScopeClosingWidgetData scopeClosingInstance;
+        private ScopeClosingWidgetData ScopeClosingInstance
         {
-            widgetPrefabsByName.Add("Box", boxWidgetPrefab);
-            widgetPrefabsByName.Add("Button", buttonWidgetPrefab);
-            widgetPrefabsByName.Add("DecimalField", decimalFieldWidgetPrefab);
-            widgetPrefabsByName.Add("FoldOut", foldOutWidgetPrefab);
-            widgetPrefabsByName.Add("Indent", indentWidgetPrefab);
-            widgetPrefabsByName.Add("IntegerField", integerFieldWidgetPrefab);
-            widgetPrefabsByName.Add("Label", labelWidgetPrefab);
-            widgetPrefabsByName.Add("Line", lineWidgetPrefab);
-            widgetPrefabsByName.Add("MultilineStringField", multilineStringFieldWidgetPrefab);
-            widgetPrefabsByName.Add("SliderField", sliderFieldWidgetPrefab);
-            widgetPrefabsByName.Add("Space", spaceWidgetPrefab);
-            widgetPrefabsByName.Add("StringField", stringFieldWidgetPrefab);
-            widgetPrefabsByName.Add("ToggleField", toggleFieldWidgetPrefab);
-            widgetPrefabsByName.Add("Vector2Field", vector2FieldWidgetPrefab);
-            widgetPrefabsByName.Add("Vector3Field", vector3FieldWidgetPrefab);
-            scopeClosingWidgetData = wannaBeClasses.New<ScopeClosingWidgetData>(nameof(ScopeClosingWidgetData));
+            get
+            {
+                if (scopeClosingInstance != null)
+                    return scopeClosingInstance;
+                scopeClosingInstance = wannaBeClasses.New<ScopeClosingWidgetData>(nameof(ScopeClosingWidgetData));
+                return scopeClosingInstance;
+            }
         }
 
-        private GameObject GetWidgetPrefab(string widgetName) => (GameObject)widgetPrefabsByName[widgetName].Reference;
+        private GameObject GetWidgetPrefab(string widgetName) => (GameObject)WidgetPrefabsByName[widgetName].Reference;
 
         public void Draw(WidgetData[] widgetData, int count = -1)
         {
@@ -91,7 +105,7 @@ namespace JanSharp
             for (int i = 0; i < count; i++)
             {
                 WidgetData currentData = widgetData[i];
-                if (currentData == scopeClosingWidgetData)
+                if (currentData == ScopeClosingInstance)
                 {
                     if (widgetContainerStackCount == 0)
                     {
@@ -161,7 +175,7 @@ namespace JanSharp
             return widgetData;
         }
 
-        public ScopeClosingWidgetData CloseScope() => scopeClosingWidgetData;
+        public ScopeClosingWidgetData CloseScope() => ScopeClosingInstance;
 
         public BoxWidgetData NewBoxScope()
         {
