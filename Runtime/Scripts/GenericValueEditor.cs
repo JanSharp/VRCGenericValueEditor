@@ -11,22 +11,22 @@ namespace JanSharp
     public class GenericValueEditor : UdonSharpBehaviour
     {
         [HideInInspector] [SerializeField] [SingletonReference] private WannaBeClassesManager wannaBeClasses;
-        public Transform widgetsRoot;
-        public GameObject boxWidgetPrefab;
-        public GameObject buttonWidgetPrefab;
-        public GameObject decimalFieldWidgetPrefab;
-        public GameObject foldOutWidgetPrefab;
-        public GameObject indentWidgetPrefab;
-        public GameObject integerFieldWidgetPrefab;
-        public GameObject labelWidgetPrefab;
-        public GameObject lineWidgetPrefab;
-        public GameObject multilineStringFieldWidgetPrefab;
-        public GameObject sliderFieldWidgetPrefab;
-        public GameObject spaceWidgetPrefab;
-        public GameObject stringFieldWidgetPrefab;
-        public GameObject toggleFieldWidgetPrefab;
-        public GameObject vector2FieldWidgetPrefab;
-        public GameObject vector3FieldWidgetPrefab;
+        [SerializeField] private Transform widgetsRoot;
+        [SerializeField] private GameObject boxWidgetPrefab;
+        [SerializeField] private GameObject buttonWidgetPrefab;
+        [SerializeField] private GameObject decimalFieldWidgetPrefab;
+        [SerializeField] private GameObject foldOutWidgetPrefab;
+        [SerializeField] private GameObject indentWidgetPrefab;
+        [SerializeField] private GameObject integerFieldWidgetPrefab;
+        [SerializeField] private GameObject labelWidgetPrefab;
+        [SerializeField] private GameObject lineWidgetPrefab;
+        [SerializeField] private GameObject multilineStringFieldWidgetPrefab;
+        [SerializeField] private GameObject sliderFieldWidgetPrefab;
+        [SerializeField] private GameObject spaceWidgetPrefab;
+        [SerializeField] private GameObject stringFieldWidgetPrefab;
+        [SerializeField] private GameObject toggleFieldWidgetPrefab;
+        [SerializeField] private GameObject vector2FieldWidgetPrefab;
+        [SerializeField] private GameObject vector3FieldWidgetPrefab;
         private DataDictionary widgetPrefabsByName = new DataDictionary();
         private Widget[] widgets = new Widget[0];
 
