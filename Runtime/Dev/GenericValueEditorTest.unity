@@ -869,9 +869,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 365764f84bfa2c1e49022f0f238591ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <DisableInteractive>k__BackingField: 0
+  <InteractionText>k__BackingField: 
   serializationData:
     SerializedFormat: 2
-    SerializedBytes: 
+    SerializedBytes: []
     ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
@@ -879,7 +881,12 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 228212917}
+  _backingUdonBehaviourDump: {fileID: 228212917}
   wannaBeClasses: {fileID: 687433483}
+  referencesCount: 1
+  waitingForRaiseEvent: 0
+  isVisible: 1
+  interactable: 1
 --- !u!4 &228212916
 Transform:
   m_ObjectHideFlags: 0
@@ -6533,7 +6540,7 @@ PrefabInstance:
     - target: {fileID: 1967187158943615858, guid: 6a0cd5b8539196ba9bab7e9fdd064975,
         type: 3}
       propertyPath: m_Size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8191611055676564865, guid: 6a0cd5b8539196ba9bab7e9fdd064975,
         type: 3}

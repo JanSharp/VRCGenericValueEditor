@@ -18,6 +18,9 @@ namespace JanSharp
         [System.NonSerialized] public string customDataFieldName;
         [System.NonSerialized] public object customData;
 
+        [System.NonSerialized] public WidgetData[] childWidgets = new WidgetData[ArrList.MinCapacity];
+        [System.NonSerialized] public int childWidgetsCount = 0;
+
         /// <summary>
         /// <para>When <see langword="true"/> events are raised 1 frame delayed, and if there were multiple
         /// changes within 1 frame, only 1 event is raised and intermediate values will not get their
@@ -127,6 +130,52 @@ namespace JanSharp
             if (customDataFieldName != null)
                 listener.SetProgramVariable(customDataFieldName, customData);
             listener.SendCustomEvent(listenerEventName);
+        }
+
+        public WidgetData AddChildDynamic(WidgetData child)
+        {
+            ArrList.Add(ref childWidgets, ref childWidgetsCount, child);
+            return child;
+        }
+
+        public WidgetData[] AddChildrenDynamic(WidgetData[] children, int childCount = -1)
+        {
+            ArrList.AddRange(ref childWidgets, ref childWidgetsCount, children, childCount);
+            return children;
+        }
+
+        public WidgetData[] SetChildren(WidgetData[] children, int childCount = -1)
+        {
+            ArrList.Clear(ref childWidgets, ref childWidgetsCount);
+            ArrList.AddRange(ref childWidgets, ref childWidgetsCount, children, childCount);
+            return children;
+        }
+
+        public void ClearChildren()
+        {
+            ArrList.Clear(ref childWidgets, ref childWidgetsCount);
+        }
+
+        public WidgetData SetChildrenChained(WidgetData[] children, int childCount = -1)
+        {
+            ArrList.Clear(ref childWidgets, ref childWidgetsCount);
+            ArrList.AddRange(ref childWidgets, ref childWidgetsCount, children, childCount);
+            return this;
+        }
+    }
+
+    public static class WidgetDataExtensions
+    {
+        public static T AddChild<T>(this WidgetData widgetData, WidgetData child)
+            where T : WidgetData
+        {
+            return (T)widgetData.AddChildDynamic(child);
+        }
+
+        public static T[] AddChildren<T>(this WidgetData widgetData, WidgetData[] children, int childCount = -1)
+            where T : WidgetData
+        {
+            return (T[])widgetData.AddChildrenDynamic(children, childCount);
         }
     }
 }
