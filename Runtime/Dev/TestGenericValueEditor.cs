@@ -47,10 +47,13 @@ namespace JanSharp
                         valueEditor.NewLabel("My Label"),
                         valueEditor.NewIndentScope().SetChildrenChained(valueEditor.StdMoveWidgetData(new WidgetData[]
                         {
-                            valueEditor.NewLine(),
-                            valueEditor.NewLabel("My Label"),
-                            valueEditor.NewLabel("My Label"),
-                            valueEditor.NewLine(),
+                            valueEditor.NewGrouping().SetChildrenChained(valueEditor.StdMoveWidgetData(new WidgetData[]
+                            {
+                                valueEditor.NewLine(),
+                                valueEditor.NewLabel("My Label"),
+                                valueEditor.NewLabel("My Label"),
+                                valueEditor.NewLine(),
+                            })),
                         })),
                         valueEditor.NewLine(),
                         valueEditor.NewLabel("My Label"),

@@ -178,6 +178,8 @@ MonoBehaviour:
     type: 3}
   foldOutWidgetPrefab: {fileID: 8401109466896166462, guid: fb11bdaa4c855a4279d103027014f983,
     type: 3}
+  groupingWidgetPrefab: {fileID: 8111467951281651599, guid: b551a51ed785aadf8a44c69fa98488eb,
+    type: 3}
   indentWidgetPrefab: {fileID: 7730269699152747894, guid: f157b9d4948e73962833eec3eb02ede3,
     type: 3}
   integerFieldWidgetPrefab: {fileID: 1589331122007408812, guid: 319acd8e360ce35d994fa06af1971451,
@@ -200,6 +202,7 @@ MonoBehaviour:
     type: 3}
   vector3FieldWidgetPrefab: {fileID: 2756891032176785183, guid: ffc76e6e7da4c2ef0ab53f16f9e5a350,
     type: 3}
+  sendingWidgetData: {fileID: 0}
 --- !u!114 &8377345033412379564
 MonoBehaviour:
   m_ObjectHideFlags: 0

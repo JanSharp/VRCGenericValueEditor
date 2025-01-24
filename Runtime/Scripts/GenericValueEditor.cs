@@ -15,6 +15,7 @@ namespace JanSharp
         [SerializeField] private GameObject buttonWidgetPrefab;
         [SerializeField] private GameObject decimalFieldWidgetPrefab;
         [SerializeField] private GameObject foldOutWidgetPrefab;
+        [SerializeField] private GameObject groupingWidgetPrefab;
         [SerializeField] private GameObject indentWidgetPrefab;
         [SerializeField] private GameObject integerFieldWidgetPrefab;
         [SerializeField] private GameObject labelWidgetPrefab;
@@ -38,6 +39,7 @@ namespace JanSharp
                 widgetPrefabsByName.Add("Button", buttonWidgetPrefab);
                 widgetPrefabsByName.Add("DecimalField", decimalFieldWidgetPrefab);
                 widgetPrefabsByName.Add("FoldOut", foldOutWidgetPrefab);
+                widgetPrefabsByName.Add("Grouping", groupingWidgetPrefab);
                 widgetPrefabsByName.Add("Indent", indentWidgetPrefab);
                 widgetPrefabsByName.Add("IntegerField", integerFieldWidgetPrefab);
                 widgetPrefabsByName.Add("Label", labelWidgetPrefab);
@@ -60,6 +62,7 @@ namespace JanSharp
         public ButtonWidgetData GetSendingButton() => (ButtonWidgetData)sendingWidgetData;
         public DecimalFieldWidgetData GetSendingDecimalField() => (DecimalFieldWidgetData)sendingWidgetData;
         public FoldOutWidgetData GetSendingFoldOut() => (FoldOutWidgetData)sendingWidgetData;
+        public GroupingWidgetData GetSendingGrouping() => (GroupingWidgetData)sendingWidgetData;
         public IndentWidgetData GetSendingIndent() => (IndentWidgetData)sendingWidgetData;
         public IntegerFieldWidgetData GetSendingIntegerField() => (IntegerFieldWidgetData)sendingWidgetData;
         public LabelWidgetData GetSendingLabel() => (LabelWidgetData)sendingWidgetData;
@@ -211,6 +214,11 @@ namespace JanSharp
         {
             return wannaBeClasses.New<FoldOutWidgetData>(nameof(FoldOutWidgetData))
                 .WannaBeConstructor(label, foldedOut);
+        }
+
+        public GroupingWidgetData NewGrouping()
+        {
+            return wannaBeClasses.New<GroupingWidgetData>(nameof(GroupingWidgetData));
         }
 
         public IndentWidgetData NewIndentScope()
