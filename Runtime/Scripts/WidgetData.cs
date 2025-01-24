@@ -166,13 +166,13 @@ namespace JanSharp
 
     public static class WidgetDataExtensions
     {
-        public static T AddChild<T>(this WidgetData widgetData, WidgetData child)
+        public static T AddChild<T>(this WidgetData widgetData, T child)
             where T : WidgetData
         {
             return (T)widgetData.AddChildDynamic(child);
         }
 
-        public static T[] AddChildren<T>(this WidgetData widgetData, WidgetData[] children, int childCount = -1)
+        public static T[] AddChildren<T>(this WidgetData widgetData, T[] children, int childCount = -1)
             where T : WidgetData
         {
             return (T[])widgetData.AddChildrenDynamic(children, childCount);
