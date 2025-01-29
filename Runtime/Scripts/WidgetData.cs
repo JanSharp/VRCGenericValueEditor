@@ -18,7 +18,7 @@ namespace JanSharp
         [System.NonSerialized] public string customDataFieldName;
         [System.NonSerialized] public object customData;
 
-        [System.NonSerialized] public WidgetData[] childWidgets = new WidgetData[ArrList.MinCapacity];
+        [System.NonSerialized] public WidgetData[] childWidgets = new WidgetData[WannaBeArrList.MinCapacity];
         [System.NonSerialized] public int childWidgetsCount = 0;
 
         /// <summary>
@@ -55,6 +55,11 @@ namespace JanSharp
                 if (widget != null)
                     widget.UpdateInteractable();
             }
+        }
+
+        public override void WannaBeDestructor()
+        {
+            ClearChildren();
         }
 
         /// <summary>
@@ -134,32 +139,30 @@ namespace JanSharp
 
         public WidgetData AddChildDynamic(WidgetData child)
         {
-            ArrList.Add(ref childWidgets, ref childWidgetsCount, child);
+            WannaBeArrList.Add(ref childWidgets, ref childWidgetsCount, child);
             return child;
         }
 
         public WidgetData[] AddChildrenDynamic(WidgetData[] children, int childCount = -1)
         {
-            ArrList.AddRange(ref childWidgets, ref childWidgetsCount, children, childCount);
+            WannaBeArrList.AddRange(ref childWidgets, ref childWidgetsCount, children, childCount);
             return children;
         }
 
         public WidgetData[] SetChildren(WidgetData[] children, int childCount = -1)
         {
-            ArrList.Clear(ref childWidgets, ref childWidgetsCount);
-            ArrList.AddRange(ref childWidgets, ref childWidgetsCount, children, childCount);
-            return children;
+            ClearChildren();
+            return AddChildrenDynamic(children, childCount);
         }
 
         public void ClearChildren()
         {
-            ArrList.Clear(ref childWidgets, ref childWidgetsCount);
+            WannaBeArrList.Clear(ref childWidgets, ref childWidgetsCount);
         }
 
         public WidgetData SetChildrenChained(WidgetData[] children, int childCount = -1)
         {
-            ArrList.Clear(ref childWidgets, ref childWidgetsCount);
-            ArrList.AddRange(ref childWidgets, ref childWidgetsCount, children, childCount);
+            SetChildren(children, childCount);
             return this;
         }
     }
