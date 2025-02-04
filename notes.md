@@ -8,3 +8,4 @@ Think about IMGUI. Then think about Udon. Become sad.
 - [ ] step value for sliders, which also enables int sliders
 - [ ] range limitations on integer and decimal field widgets
 - [ ] custom widgets
+- [ ] manager which also keeps widget instances pooled for 5 minutes
