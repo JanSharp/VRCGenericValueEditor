@@ -1,0 +1,116 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4106339738034699163
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6673090980643692548}
+  - component: {fileID: 8264649137225383796}
+  - component: {fileID: 3544949825461503607}
+  m_Layer: 0
+  m_Name: GenericValueEditorManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6673090980643692548
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4106339738034699163}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.42346337, y: 1.746624, z: 5.224574}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8264649137225383796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4106339738034699163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f517db7a7c65ee9c9533a1376d32eba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  _udonSharpBackingUdonBehaviour: {fileID: 3544949825461503607}
+  wannaBeClasses: {fileID: 0}
+  boxWidgetPrefab: {fileID: 4746048533275003449, guid: fc85ec2adb18006b68aa9cc9011f83fe,
+    type: 3}
+  buttonWidgetPrefab: {fileID: 6180328593967467976, guid: a9271ffd3807bc39d8526e460b3a73a1,
+    type: 3}
+  decimalFieldWidgetPrefab: {fileID: 3060553831817875626, guid: bc34cb51bdd683dcdafef67e63f7cec0,
+    type: 3}
+  foldOutWidgetPrefab: {fileID: 8401109466896166462, guid: fb11bdaa4c855a4279d103027014f983,
+    type: 3}
+  groupingWidgetPrefab: {fileID: 8111467951281651599, guid: b551a51ed785aadf8a44c69fa98488eb,
+    type: 3}
+  indentWidgetPrefab: {fileID: 7730269699152747894, guid: f157b9d4948e73962833eec3eb02ede3,
+    type: 3}
+  integerFieldWidgetPrefab: {fileID: 1589331122007408812, guid: 319acd8e360ce35d994fa06af1971451,
+    type: 3}
+  labelWidgetPrefab: {fileID: 5511203837243142918, guid: c4859a881eb212ff1bd7b83a157dad08,
+    type: 3}
+  lineWidgetPrefab: {fileID: 526299682521089694, guid: 16f3e4d028ae46460a7f54a8c834af0c,
+    type: 3}
+  multilineStringFieldWidgetPrefab: {fileID: 1911104068574340042, guid: 6a0cd5b8539196ba9bab7e9fdd064975,
+    type: 3}
+  sliderFieldWidgetPrefab: {fileID: 6736198315849927313, guid: 76635e10e76c019fa935b06127d6a91a,
+    type: 3}
+  spaceWidgetPrefab: {fileID: 7763232004588554939, guid: 1ff29ac66e29bd46a8f4cdc5e3d8d540,
+    type: 3}
+  stringFieldWidgetPrefab: {fileID: 2694536238198396353, guid: 833279ab66d90ad4e999c2fa5d672b34,
+    type: 3}
+  toggleFieldWidgetPrefab: {fileID: 1251850030158033793, guid: 411b8e2947d8fb39394c9751ec8db575,
+    type: 3}
+  vector2FieldWidgetPrefab: {fileID: 5285838614482955472, guid: 9cf0e0802b5e350b48a13b24626a1866,
+    type: 3}
+  vector3FieldWidgetPrefab: {fileID: 2756891032176785183, guid: ffc76e6e7da4c2ef0ab53f16f9e5a350,
+    type: 3}
+--- !u!114 &3544949825461503607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4106339738034699163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45115577ef41a5b4ca741ed302693907, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactTextPlacement: {fileID: 0}
+  interactText: Use
+  interactTextGO: {fileID: 0}
+  proximity: 2
+  SynchronizePosition: 0
+  AllowCollisionOwnershipTransfer: 0
+  Reliable: 0
+  _syncMethod: 0
+  serializedProgramAsset: {fileID: 11400000, guid: 226030fc8dbcce017a4f882d87807e6f,
+    type: 2}
+  programSource: {fileID: 11400000, guid: c5dc4ba1407235f03b42629aa0182d8e, type: 2}
+  serializedPublicVariablesBytesString: Ai8AAAAAATIAAABWAFIAQwAuAFUAZABvAG4ALgBDAG8AbQBtAG8AbgAuAFUAZABvAG4AVgBhAHIAaQBhAGIAbABlAFQAYQBiAGwAZQAsACAAVgBSAEMALgBVAGQAbwBuAC4AQwBvAG0AbQBvAG4AAAAAAAYBAAAAAAAAACcBBAAAAHQAeQBwAGUAAWgAAABTAHkAcwB0AGUAbQAuAEMAbwBsAGwAZQBjAHQAaQBvAG4AcwAuAEcAZQBuAGUAcgBpAGMALgBMAGkAcwB0AGAAMQBbAFsAVgBSAEMALgBVAGQAbwBuAC4AQwBvAG0AbQBvAG4ALgBJAG4AdABlAHIAZgBhAGMAZQBzAC4ASQBVAGQAbwBuAFYAYQByAGkAYQBiAGwAZQAsACAAVgBSAEMALgBVAGQAbwBuAC4AQwBvAG0AbQBvAG4AXQBdACwAIABtAHMAYwBvAHIAbABpAGIAAQEJAAAAVgBhAHIAaQBhAGIAbABlAHMALwEAAAABaAAAAFMAeQBzAHQAZQBtAC4AQwBvAGwAbABlAGMAdABpAG8AbgBzAC4ARwBlAG4AZQByAGkAYwAuAEwAaQBzAHQAYAAxAFsAWwBWAFIAQwAuAFUAZABvAG4ALgBDAG8AbQBtAG8AbgAuAEkAbgB0AGUAcgBmAGEAYwBlAHMALgBJAFUAZABvAG4AVgBhAHIAaQBhAGIAbABlACwAIABWAFIAQwAuAFUAZABvAG4ALgBDAG8AbQBtAG8AbgBdAF0ALAAgAG0AcwBjAG8AcgBsAGkAYgABAAAABgEAAAAAAAAAAi8CAAAAAUkAAABWAFIAQwAuAFUAZABvAG4ALgBDAG8AbQBtAG8AbgAuAFUAZABvAG4AVgBhAHIAaQBhAGIAbABlAGAAMQBbAFsAUwB5AHMAdABlAG0ALgBJAG4AdAAzADIALAAgAG0AcwBjAG8AcgBsAGkAYgBdAF0ALAAgAFYAUgBDAC4AVQBkAG8AbgAuAEMAbwBtAG0AbwBuAAIAAAAGAgAAAAAAAAAnAQQAAAB0AHkAcABlAAEXAAAAUwB5AHMAdABlAG0ALgBTAHQAcgBpAG4AZwAsACAAbQBzAGMAbwByAGwAaQBiACcBCgAAAFMAeQBtAGIAbwBsAE4AYQBtAGUAAR8AAABfAF8AXwBVAGQAbwBuAFMAaABhAHIAcABCAGUAaABhAHYAaQBvAHUAcgBWAGUAcgBzAGkAbwBuAF8AXwBfACcBBAAAAHQAeQBwAGUAARYAAABTAHkAcwB0AGUAbQAuAEkAbgB0ADMAMgAsACAAbQBzAGMAbwByAGwAaQBiABcBBQAAAFYAYQBsAHUAZQACAAAABwUHBQcF
+  publicVariablesUnityEngineObjects: []
+  publicVariablesSerializationDataFormat: 0

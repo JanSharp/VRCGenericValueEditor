@@ -7,10 +7,10 @@ using VRC.Udon;
 namespace JanSharp
 {
     [UdonBehaviourSyncMode(BehaviourSyncMode.None)]
-    public class GenericValueEditor : UdonSharpBehaviour
+    [SingletonScript("0c974bef0ebc228e7ae9a3818dcca853")]
+    public class WidgetManager : UdonSharpBehaviour
     {
         [HideInInspector] [SerializeField] [SingletonReference] private WannaBeClassesManager wannaBeClasses;
-        [SerializeField] private Transform widgetsRoot;
         [SerializeField] private GameObject boxWidgetPrefab;
         [SerializeField] private GameObject buttonWidgetPrefab;
         [SerializeField] private GameObject decimalFieldWidgetPrefab;
@@ -27,165 +27,97 @@ namespace JanSharp
         [SerializeField] private GameObject toggleFieldWidgetPrefab;
         [SerializeField] private GameObject vector2FieldWidgetPrefab;
         [SerializeField] private GameObject vector3FieldWidgetPrefab;
-        private DataDictionary widgetPrefabsByName = null;
-        private DataDictionary WidgetPrefabsByName
+        /// <summary>
+        /// <para><see cref="string"/> => <see cref="GameObject"/></para>
+        /// </summary>
+        private DataDictionary widgetPrefabsByName = new DataDictionary();
+        /// <summary>
+        /// <para><see cref="string"/> => <see cref="DataList"/> of <see cref="Widget"/></para>
+        /// </summary>
+        private DataDictionary widgetsPools = new DataDictionary();
+
+        private GameObject GetWidgetPrefab(string widgetName) => (GameObject)widgetPrefabsByName[widgetName].Reference;
+
+        bool initialize = false;
+        private void Initialize()
         {
-            get
-            {
-                if (widgetPrefabsByName != null)
-                    return widgetPrefabsByName;
-                #if GenericValueEditorDebug
-                Debug.Log($"[GenericValueEditorDebug] GenericValueEditor  WidgetPrefabsByName.get (inner)");
-                #endif
-                widgetPrefabsByName = new DataDictionary(); // "U# Does not yet support initializer lists".
-                widgetPrefabsByName.Add("Box", boxWidgetPrefab);
-                widgetPrefabsByName.Add("Button", buttonWidgetPrefab);
-                widgetPrefabsByName.Add("DecimalField", decimalFieldWidgetPrefab);
-                widgetPrefabsByName.Add("FoldOut", foldOutWidgetPrefab);
-                widgetPrefabsByName.Add("Grouping", groupingWidgetPrefab);
-                widgetPrefabsByName.Add("Indent", indentWidgetPrefab);
-                widgetPrefabsByName.Add("IntegerField", integerFieldWidgetPrefab);
-                widgetPrefabsByName.Add("Label", labelWidgetPrefab);
-                widgetPrefabsByName.Add("Line", lineWidgetPrefab);
-                widgetPrefabsByName.Add("MultilineStringField", multilineStringFieldWidgetPrefab);
-                widgetPrefabsByName.Add("SliderField", sliderFieldWidgetPrefab);
-                widgetPrefabsByName.Add("Space", spaceWidgetPrefab);
-                widgetPrefabsByName.Add("StringField", stringFieldWidgetPrefab);
-                widgetPrefabsByName.Add("ToggleField", toggleFieldWidgetPrefab);
-                widgetPrefabsByName.Add("Vector2Field", vector2FieldWidgetPrefab);
-                widgetPrefabsByName.Add("Vector3Field", vector3FieldWidgetPrefab);
-                return widgetPrefabsByName;
-            }
-        }
-        private Widget[] widgets = new Widget[ArrList.MinCapacity];
-        private int widgetsCount = 0;
-
-        public WidgetData sendingWidgetData;
-        public BoxWidgetData GetSendingBox() => (BoxWidgetData)sendingWidgetData;
-        public ButtonWidgetData GetSendingButton() => (ButtonWidgetData)sendingWidgetData;
-        public DecimalFieldWidgetData GetSendingDecimalField() => (DecimalFieldWidgetData)sendingWidgetData;
-        public FoldOutWidgetData GetSendingFoldOut() => (FoldOutWidgetData)sendingWidgetData;
-        public GroupingWidgetData GetSendingGrouping() => (GroupingWidgetData)sendingWidgetData;
-        public IndentWidgetData GetSendingIndent() => (IndentWidgetData)sendingWidgetData;
-        public IntegerFieldWidgetData GetSendingIntegerField() => (IntegerFieldWidgetData)sendingWidgetData;
-        public LabelWidgetData GetSendingLabel() => (LabelWidgetData)sendingWidgetData;
-        public LineWidgetData GetSendingLine() => (LineWidgetData)sendingWidgetData;
-        public MultilineStringFieldWidgetData GetSendingMultilineStringField() => (MultilineStringFieldWidgetData)sendingWidgetData;
-        public SliderFieldWidgetData GetSendingSliderField() => (SliderFieldWidgetData)sendingWidgetData;
-        public SpaceWidgetData GetSendingSpace() => (SpaceWidgetData)sendingWidgetData;
-        public StringFieldWidgetData GetSendingStringField() => (StringFieldWidgetData)sendingWidgetData;
-        public ToggleFieldWidgetData GetSendingToggleField() => (ToggleFieldWidgetData)sendingWidgetData;
-        public Vector2FieldWidgetData GetSendingVector2Field() => (Vector2FieldWidgetData)sendingWidgetData;
-        public Vector3FieldWidgetData GetSendingVector3Field() => (Vector3FieldWidgetData)sendingWidgetData;
-
-        private GameObject GetWidgetPrefab(string widgetName) => (GameObject)WidgetPrefabsByName[widgetName].Reference;
-
-        private Transform currentContainer;
-        private Transform[] containerStack = new Transform[ArrList.MinCapacity];
-        private WidgetData[][] iteratorWidgetsStack = new WidgetData[ArrList.MinCapacity][];
-        private int[] iteratorCountStack = new int[ArrList.MinCapacity];
-        private int[] iteratorIndexStack = new int[ArrList.MinCapacity];
-        private int iteratorStackDepth = 0;
-
-        private void PushWidgetsToIterate(Transform container, WidgetData[] widgetData, int count)
-        {
+            if (initialize)
+                return;
             #if GenericValueEditorDebug
-            Debug.Log($"[GenericValueEditorDebug] GenericValueEditor  PushWidgetsToIterate");
+            Debug.Log($"[GenericValueEditorDebug] GenericValueEditorManager  Initialize");
             #endif
-            currentContainer = container;
-            ArrList.Add(ref containerStack, ref iteratorStackDepth, container);
-            iteratorStackDepth--;
-            ArrList.Add(ref iteratorWidgetsStack, ref iteratorStackDepth, widgetData);
-            iteratorStackDepth--;
-            ArrList.Add(ref iteratorCountStack, ref iteratorStackDepth, count);
-            iteratorStackDepth--;
-            ArrList.Add(ref iteratorIndexStack, ref iteratorStackDepth, -1);
+            initialize = true;
+
+            widgetPrefabsByName.Add("Box", boxWidgetPrefab);
+            widgetPrefabsByName.Add("Button", buttonWidgetPrefab);
+            widgetPrefabsByName.Add("DecimalField", decimalFieldWidgetPrefab);
+            widgetPrefabsByName.Add("FoldOut", foldOutWidgetPrefab);
+            widgetPrefabsByName.Add("Grouping", groupingWidgetPrefab);
+            widgetPrefabsByName.Add("Indent", indentWidgetPrefab);
+            widgetPrefabsByName.Add("IntegerField", integerFieldWidgetPrefab);
+            widgetPrefabsByName.Add("Label", labelWidgetPrefab);
+            widgetPrefabsByName.Add("Line", lineWidgetPrefab);
+            widgetPrefabsByName.Add("MultilineStringField", multilineStringFieldWidgetPrefab);
+            widgetPrefabsByName.Add("SliderField", sliderFieldWidgetPrefab);
+            widgetPrefabsByName.Add("Space", spaceWidgetPrefab);
+            widgetPrefabsByName.Add("StringField", stringFieldWidgetPrefab);
+            widgetPrefabsByName.Add("ToggleField", toggleFieldWidgetPrefab);
+            widgetPrefabsByName.Add("Vector2Field", vector2FieldWidgetPrefab);
+            widgetPrefabsByName.Add("Vector3Field", vector3FieldWidgetPrefab);
+
+            widgetsPools.Add("Box", new DataList());
+            widgetsPools.Add("Button", new DataList());
+            widgetsPools.Add("DecimalField", new DataList());
+            widgetsPools.Add("FoldOut", new DataList());
+            widgetsPools.Add("Grouping", new DataList());
+            widgetsPools.Add("Indent", new DataList());
+            widgetsPools.Add("IntegerField", new DataList());
+            widgetsPools.Add("Label", new DataList());
+            widgetsPools.Add("Line", new DataList());
+            widgetsPools.Add("MultilineStringField", new DataList());
+            widgetsPools.Add("SliderField", new DataList());
+            widgetsPools.Add("Space", new DataList());
+            widgetsPools.Add("StringField", new DataList());
+            widgetsPools.Add("ToggleField", new DataList());
+            widgetsPools.Add("Vector2Field", new DataList());
+            widgetsPools.Add("Vector3Field", new DataList());
         }
 
-        private WidgetData Iterate()
+        /// <summary>
+        /// </summary>
+        /// <param name="widgetName"></param>
+        /// <returns>May return a disabled object.</returns>
+        public Widget GetWidgetInstance(string widgetName)
         {
-            int index;
-            while (true)
+            Initialize();
+            DataList pool = widgetsPools[widgetName].DataList;
+            int count = pool.Count;
+            if (count != 0)
             {
-                if (iteratorStackDepth == 0)
-                    return null;
-                int count = iteratorCountStack[iteratorStackDepth - 1];
-                index = iteratorIndexStack[iteratorStackDepth - 1];
-                index++;
-                if (index < count)
-                    break;
-                iteratorStackDepth--;
-                iteratorWidgetsStack[iteratorStackDepth] = null; // Make GC happy.
-                containerStack[iteratorStackDepth] = null; // Make GC happy.
-                currentContainer = iteratorStackDepth == 0 ? null : containerStack[iteratorStackDepth - 1];
+                int index = count - 1;
+                Widget widget = (Widget)pool[index].Reference;
+                pool.RemoveAt(index);
+                return widget;
             }
-            iteratorIndexStack[iteratorStackDepth - 1] = index;
-            return iteratorWidgetsStack[iteratorStackDepth - 1][index];
-        }
-
-        public void Draw(WidgetData[] widgetData, int count = -1)
-        {
             #if GenericValueEditorDebug
-            Debug.Log($"[GenericValueEditorDebug] [sw] GenericValueEditor  Draw");
             System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
             sw.Start();
             #endif
-            if (count < 0)
-                count = widgetData.Length;
-            PushWidgetsToIterate(widgetsRoot, widgetData, count);
-
-            int existingIndex = 0;
-            Widget existingWidget = existingIndex < widgetsCount ? widgets[existingIndex++] : null;
-
-            Widget[] newWidgets = new Widget[ArrList.MinCapacity];
-            int newWidgetsCount = 0;
-            while (true)
-            {
-                WidgetData currentData = Iterate();
-                if (currentData == null)
-                    break;
-
-                Widget widget;
-                if (existingWidget == null || existingWidget.BackingWidgetData.WidgetName != currentData.WidgetName)
-                    widget = Instantiate(GetWidgetPrefab(currentData.WidgetName)).GetComponent<Widget>();
-                else
-                {
-                    widget = existingWidget;
-                    existingWidget = existingIndex < widgetsCount ? widgets[existingIndex++] : null;
-                }
-
-                Transform t = widget.transform;
-                t.SetParent(currentContainer, worldPositionStays: false);
-                t.SetAsLastSibling();
-                // This ultimately calls IncrementRefsCount, allowing the widgetData array to be StdMoved in.
-                widget.BackingWidgetData = currentData;
-                currentData.genericValueEditor = this;
-                ArrList.Add(ref newWidgets, ref newWidgetsCount, widget);
-
-                if (widget.IsContainer)
-                    PushWidgetsToIterate(widget.containerWidgetsRoot, currentData.childWidgets, currentData.childWidgetsCount);
-            }
-
-            if (existingWidget != null)
-                DestroyUnusedWidgets(existingIndex - 1);
-
-            widgets = newWidgets;
-            widgetsCount = newWidgetsCount;
+            GameObject go = Instantiate(GetWidgetPrefab(widgetName));
             #if GenericValueEditorDebug
-            Debug.Log($"[GenericValueEditorDebug] [sw] GenericValueEditor  Draw (inner) - ms: {sw.Elapsed.TotalMilliseconds}, widgetsCount: {widgetsCount}");
+            Debug.Log($"[GenericValueEditorDebug] [sw] GenericValueEditorManager  GetWidgetInstance - instantiateMs: {sw.Elapsed.Milliseconds}");
             #endif
+            return go.GetComponent<Widget>();
         }
 
-        private void DestroyUnusedWidgets(int startingIndex)
+        public void MoveObjectsToPool(Widget[] widgets, int widgetsCount)
         {
-            #if GenericValueEditorDebug
-            Debug.Log($"[GenericValueEditorDebug] GenericValueEditor  DestroyUnusedWidgets");
-            #endif
-            for (int i = startingIndex; i < widgetsCount; i++)
+            for (int i = 0; i < widgetsCount; i++)
             {
                 Widget widget = widgets[i];
-                widget.BackingWidgetData = null; // Free WannaBeClass reference.
-                Destroy(widget.gameObject);
+                widget.gameObject.SetActive(false);
+                string widgetName = widget.WidgetName;
+                widgetsPools[widgetName].DataList.Add(widget);
             }
         }
 
