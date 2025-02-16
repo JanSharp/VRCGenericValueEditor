@@ -34,6 +34,9 @@ namespace JanSharp
             {
                 if (widgetPrefabsByName != null)
                     return widgetPrefabsByName;
+                #if GenericValueEditorDebug
+                Debug.Log($"[GenericValueEditorDebug] GenericValueEditor  WidgetPrefabsByName.get (inner)");
+                #endif
                 widgetPrefabsByName = new DataDictionary(); // "U# Does not yet support initializer lists".
                 widgetPrefabsByName.Add("Box", boxWidgetPrefab);
                 widgetPrefabsByName.Add("Button", buttonWidgetPrefab);
@@ -86,6 +89,9 @@ namespace JanSharp
 
         private void PushWidgetsToIterate(Transform container, WidgetData[] widgetData, int count)
         {
+            #if GenericValueEditorDebug
+            Debug.Log($"[GenericValueEditorDebug] GenericValueEditor  PushWidgetsToIterate");
+            #endif
             currentContainer = container;
             ArrList.Add(ref containerStack, ref iteratorStackDepth, container);
             iteratorStackDepth--;
@@ -119,6 +125,11 @@ namespace JanSharp
 
         public void Draw(WidgetData[] widgetData, int count = -1)
         {
+            #if GenericValueEditorDebug
+            Debug.Log($"[GenericValueEditorDebug] [sw] GenericValueEditor  Draw");
+            System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
+            sw.Start();
+            #endif
             if (count < 0)
                 count = widgetData.Length;
             PushWidgetsToIterate(widgetsRoot, widgetData, count);
@@ -160,10 +171,16 @@ namespace JanSharp
 
             widgets = newWidgets;
             widgetsCount = newWidgetsCount;
+            #if GenericValueEditorDebug
+            Debug.Log($"[GenericValueEditorDebug] [sw] GenericValueEditor  Draw (inner) - ms: {sw.Elapsed.TotalMilliseconds}, widgetsCount: {widgetsCount}");
+            #endif
         }
 
         private void DestroyUnusedWidgets(int startingIndex)
         {
+            #if GenericValueEditorDebug
+            Debug.Log($"[GenericValueEditorDebug] GenericValueEditor  DestroyUnusedWidgets");
+            #endif
             for (int i = startingIndex; i < widgetsCount; i++)
             {
                 Widget widget = widgets[i];
@@ -174,6 +191,9 @@ namespace JanSharp
 
         public WidgetData[] StdMoveWidgetData(WidgetData[] widgetData, int count = -1)
         {
+            #if GenericValueEditorDebug
+            Debug.Log($"[GenericValueEditorDebug] GenericValueEditor  StdMoveWidgetData");
+            #endif
             if (count < 0)
                 count = widgetData.Length;
             for (int i = 0; i < count; i++)
