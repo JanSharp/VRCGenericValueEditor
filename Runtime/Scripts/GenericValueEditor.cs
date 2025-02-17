@@ -81,13 +81,12 @@ namespace JanSharp
             Debug.Log($"[GenericValueEditorDebug] [sw] GenericValueEditor  Draw");
             #endif
             widgetManager.MoveObjectsToPool(widgets, widgetsCount);
+            ArrList.Clear(ref widgets, ref widgetsCount);
 
             if (count < 0)
                 count = widgetData.Length;
             PushWidgetsToIterate(widgetsRoot, widgetData, count);
 
-            Widget[] newWidgets = new Widget[ArrList.MinCapacity];
-            int newWidgetsCount = 0;
             while (true)
             {
                 WidgetData currentData = Iterate();
@@ -100,14 +99,11 @@ namespace JanSharp
                 // This ultimately calls IncrementRefsCount, allowing the widgetData array to be StdMoved in.
                 widget.BackingWidgetData = currentData;
                 currentData.genericValueEditor = this;
-                ArrList.Add(ref newWidgets, ref newWidgetsCount, widget);
+                ArrList.Add(ref widgets, ref widgetsCount, widget);
 
                 if (widget.IsContainer)
                     PushWidgetsToIterate(widget.containerWidgetsRoot, currentData.childWidgets, currentData.childWidgetsCount);
             }
-
-            widgets = newWidgets;
-            widgetsCount = newWidgetsCount;
         }
     }
 }
