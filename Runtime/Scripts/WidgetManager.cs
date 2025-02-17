@@ -126,10 +126,12 @@ namespace JanSharp
         {
             // Does not need to call Initialize because GetWidgetInstance does and it's the only way to get widget instances.
             pooledWidgetsCount += widgetsCount;
+            Transform managerTransform = this.transform;
             for (int i = 0; i < widgetsCount; i++)
             {
                 Widget widget = widgets[i];
                 widget.gameObject.SetActive(false);
+                widget.transform.SetParent(managerTransform, worldPositionStays: false);
                 string widgetName = widget.WidgetName;
                 widgetPools[widgetName].DataList.Add(widget);
             }
