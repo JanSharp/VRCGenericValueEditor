@@ -34,7 +34,12 @@ namespace JanSharp
         /// <summary>
         /// <para><see cref="string"/> => <see cref="DataList"/> of <see cref="Widget"/></para>
         /// </summary>
-        private DataDictionary widgetsPools = new DataDictionary();
+        private DataDictionary widgetPools = new DataDictionary();
+        private DataList[] allWidgetPools = new DataList[ArrList.MinCapacity];
+        private int allWidgetPoolsCount = 0;
+        private int pooledWidgetsCount = 0;
+        private bool cleanupLoopIsRunning = false;
+        private int nextCleanupLoopPoolIndex = 0;
 
         private GameObject GetWidgetPrefab(string widgetName) => (GameObject)widgetPrefabsByName[widgetName].Reference;
 
@@ -65,22 +70,28 @@ namespace JanSharp
             widgetPrefabsByName.Add("Vector2Field", vector2FieldWidgetPrefab);
             widgetPrefabsByName.Add("Vector3Field", vector3FieldWidgetPrefab);
 
-            widgetsPools.Add("Box", new DataList());
-            widgetsPools.Add("Button", new DataList());
-            widgetsPools.Add("DecimalField", new DataList());
-            widgetsPools.Add("FoldOut", new DataList());
-            widgetsPools.Add("Grouping", new DataList());
-            widgetsPools.Add("Indent", new DataList());
-            widgetsPools.Add("IntegerField", new DataList());
-            widgetsPools.Add("Label", new DataList());
-            widgetsPools.Add("Line", new DataList());
-            widgetsPools.Add("MultilineStringField", new DataList());
-            widgetsPools.Add("SliderField", new DataList());
-            widgetsPools.Add("Space", new DataList());
-            widgetsPools.Add("StringField", new DataList());
-            widgetsPools.Add("ToggleField", new DataList());
-            widgetsPools.Add("Vector2Field", new DataList());
-            widgetsPools.Add("Vector3Field", new DataList());
+            allWidgetPoolsCount = widgetPrefabsByName.Count;
+            ArrList.EnsureCapacity(ref allWidgetPools, allWidgetPoolsCount);
+            for (int i = 0; i < allWidgetPoolsCount; i++)
+                allWidgetPools[i] = new DataList();
+
+            int j = 0;
+            widgetPools.Add("Box", allWidgetPools[j++]);
+            widgetPools.Add("Button", allWidgetPools[j++]);
+            widgetPools.Add("DecimalField", allWidgetPools[j++]);
+            widgetPools.Add("FoldOut", allWidgetPools[j++]);
+            widgetPools.Add("Grouping", allWidgetPools[j++]);
+            widgetPools.Add("Indent", allWidgetPools[j++]);
+            widgetPools.Add("IntegerField", allWidgetPools[j++]);
+            widgetPools.Add("Label", allWidgetPools[j++]);
+            widgetPools.Add("Line", allWidgetPools[j++]);
+            widgetPools.Add("MultilineStringField", allWidgetPools[j++]);
+            widgetPools.Add("SliderField", allWidgetPools[j++]);
+            widgetPools.Add("Space", allWidgetPools[j++]);
+            widgetPools.Add("StringField", allWidgetPools[j++]);
+            widgetPools.Add("ToggleField", allWidgetPools[j++]);
+            widgetPools.Add("Vector2Field", allWidgetPools[j++]);
+            widgetPools.Add("Vector3Field", allWidgetPools[j++]);
         }
 
         /// <summary>
@@ -90,10 +101,11 @@ namespace JanSharp
         public Widget GetWidgetInstance(string widgetName)
         {
             Initialize();
-            DataList pool = widgetsPools[widgetName].DataList;
+            DataList pool = widgetPools[widgetName].DataList;
             int count = pool.Count;
             if (count != 0)
             {
+                pooledWidgetsCount--;
                 int index = count - 1;
                 Widget widget = (Widget)pool[index].Reference;
                 pool.RemoveAt(index);
@@ -112,13 +124,36 @@ namespace JanSharp
 
         public void MoveObjectsToPool(Widget[] widgets, int widgetsCount)
         {
+            // Does not need to call Initialize because GetWidgetInstance does and it's the only way to get widget instances.
+            pooledWidgetsCount += widgetsCount;
             for (int i = 0; i < widgetsCount; i++)
             {
                 Widget widget = widgets[i];
                 widget.gameObject.SetActive(false);
                 string widgetName = widget.WidgetName;
-                widgetsPools[widgetName].DataList.Add(widget);
+                widgetPools[widgetName].DataList.Add(widget);
             }
+        }
+
+        private void StartCleanupLoop()
+        {
+            if (cleanupLoopIsRunning)
+                return;
+            cleanupLoopIsRunning = true;
+            SendCustomEventDelayedSeconds(nameof(InternalCleanupLoop), 240f);
+        }
+
+        public void InternalCleanupLoop()
+        {
+            nextCleanupLoopPoolIndex = nextCleanupLoopPoolIndex % allWidgetPoolsCount;
+            DataList pool = allWidgetPools[nextCleanupLoopPoolIndex];
+            int countToDelete = 1 + pooledWidgetsCount / 10;
+            int count = pool.Count;
+            int stopIndex = System.Math.Max(0, count - countToDelete);
+            for (int i = count - 1; i >= stopIndex; i--)
+                Destroy(((Widget)pool[i].Reference).gameObject);
+            nextCleanupLoopPoolIndex++;
+            SendCustomEventDelayedSeconds(nameof(InternalCleanupLoop), 1f);
         }
 
         public WidgetData[] StdMoveWidgetData(WidgetData[] widgetData, int count = -1)

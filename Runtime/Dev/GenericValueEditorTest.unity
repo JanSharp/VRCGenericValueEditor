@@ -4678,7 +4678,7 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 1540367986}
-  editorManager: {fileID: 1531202959}
+  widgetManager: {fileID: 1531202959}
   valueEditor: {fileID: 5465093217910933640}
 --- !u!1 &1573081407
 GameObject:
@@ -7353,6 +7353,11 @@ PrefabInstance:
     - target: {fileID: 2803720100932819004, guid: db84a2b42bc08f2eead1cec975819c77,
         type: 3}
       propertyPath: editorManager
+      value: 
+      objectReference: {fileID: 1531202959}
+    - target: {fileID: 2803720100932819004, guid: db84a2b42bc08f2eead1cec975819c77,
+        type: 3}
+      propertyPath: widgetManager
       value: 
       objectReference: {fileID: 1531202959}
     - target: {fileID: 2803720100932819004, guid: db84a2b42bc08f2eead1cec975819c77,
