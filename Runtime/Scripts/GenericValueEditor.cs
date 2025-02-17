@@ -78,7 +78,7 @@ namespace JanSharp
         public void Draw(WidgetData[] widgetData, int count = -1)
         {
             #if GenericValueEditorDebug
-            Debug.Log($"[GenericValueEditorDebug] [sw] GenericValueEditor  Draw");
+            Debug.Log($"[GenericValueEditorDebug] GenericValueEditor  Draw");
             #endif
             widgetManager.MoveObjectsToPool(widgets, widgetsCount);
             ArrList.Clear(ref widgets, ref widgetsCount);

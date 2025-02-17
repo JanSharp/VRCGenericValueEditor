@@ -129,9 +129,9 @@ namespace JanSharp
                     .SetCustomData(nameof(widgetToToggle), toggleAbleBox),
                 toggleAbleBox,
             };
-            Debug.Log($"[GenericValueEditor] Creating widget data took {sw.Elapsed}.");
+            Debug.Log($"[GenericValueEditor] Creating widget data took {sw.Elapsed.TotalMilliseconds}ms.");
             valueEditor.Draw(widgetManager.StdMoveWidgetData(widgets));
-            Debug.Log($"[GenericValueEditor] Draw took {sw.Elapsed}.");
+            Debug.Log($"[GenericValueEditor] Draw took {sw.Elapsed.TotalMilliseconds}ms.");
         }
 
         private string fieldName;

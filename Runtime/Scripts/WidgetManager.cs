@@ -130,6 +130,7 @@ namespace JanSharp
             for (int i = 0; i < widgetsCount; i++)
             {
                 Widget widget = widgets[i];
+                widget.BackingWidgetData = null;
                 widget.gameObject.SetActive(false);
                 widget.transform.SetParent(managerTransform, worldPositionStays: false);
                 string widgetName = widget.WidgetName;
