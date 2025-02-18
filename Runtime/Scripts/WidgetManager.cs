@@ -7,7 +7,7 @@ using VRC.Udon;
 namespace JanSharp
 {
     [UdonBehaviourSyncMode(BehaviourSyncMode.None)]
-    [SingletonScript("0c974bef0ebc228e7ae9a3818dcca853")]
+    [SingletonScript("0c974bef0ebc228e7ae9a3818dcca853")] // Runtime/Prefabs/WidgetManager.prefab
     public class WidgetManager : UdonSharpBehaviour
     {
         [HideInInspector] [SerializeField] [SingletonReference] private WannaBeClassesManager wannaBeClasses;
@@ -49,7 +49,7 @@ namespace JanSharp
             if (initialize)
                 return;
             #if GenericValueEditorDebug
-            Debug.Log($"[GenericValueEditorDebug] GenericValueEditorManager  Initialize");
+            Debug.Log($"[GenericValueEditorDebug] WidgetManager  Initialize");
             #endif
             initialize = true;
 
@@ -117,7 +117,7 @@ namespace JanSharp
             #endif
             GameObject go = Instantiate(GetWidgetPrefab(widgetName));
             #if GenericValueEditorDebug
-            Debug.Log($"[GenericValueEditorDebug] [sw] GenericValueEditorManager  GetWidgetInstance - instantiateMs: {sw.Elapsed.Milliseconds}");
+            Debug.Log($"[GenericValueEditorDebug] [sw] WidgetManager  GetWidgetInstance - instantiateMs: {sw.Elapsed.Milliseconds}");
             #endif
             return go.GetComponent<Widget>();
         }

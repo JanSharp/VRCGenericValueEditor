@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8264649137225383796}
   - component: {fileID: 3544949825461503607}
   m_Layer: 0
-  m_Name: GenericValueEditorManager
+  m_Name: WidgetManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
