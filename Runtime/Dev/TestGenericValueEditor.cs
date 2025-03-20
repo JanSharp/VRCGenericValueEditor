@@ -86,7 +86,7 @@ namespace JanSharp
                     widgetManager.NewIntField("My Int", -2000)
                         .SetListener(this, nameof(OnIntegerFieldValueChanged))
                         .SetCustomData(nameof(fieldName), "My Int"),
-                    widgetManager.NewUIntField("My UInt", 2000)
+                    widgetManager.NewUIntField("My UInt", 2000u, 1000u, 10000u)
                         .SetListener(this, nameof(OnIntegerFieldValueChanged))
                         .SetCustomData(nameof(fieldName), "My UInt"),
                     widgetManager.NewSpace(),
@@ -100,7 +100,7 @@ namespace JanSharp
 
                 widgetManager.NewFoldOutScope("My Decimals", false).SetChildrenChained(widgetManager.StdMoveWidgetData(new WidgetData[]
                 {
-                    widgetManager.NewFloatField("My Float", 0.5f)
+                    widgetManager.NewFloatField("My Float", 0.5f, -20f, 20f)
                         .SetListener(this, nameof(OnDecimalFieldValueChanged))
                         .SetCustomData(nameof(fieldName), "My Float"),
                     widgetManager.NewDoubleField("My Double", 1234.56789)

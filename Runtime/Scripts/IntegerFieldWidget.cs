@@ -28,7 +28,7 @@ namespace JanSharp
 
         public void UpdateInputField(string text = null)
         {
-            inputField.SetTextWithoutNotify(text != null ? text : Data.GetValueAsString());
+            inputField.SetTextWithoutNotify(text ?? Data.GetValueAsString());
         }
 
         public void OnTextChanged()

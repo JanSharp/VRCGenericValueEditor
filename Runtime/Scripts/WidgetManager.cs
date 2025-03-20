@@ -200,22 +200,22 @@ namespace JanSharp
                 .WannaBeConstructor(label);
         }
 
-        public DecimalFieldWidgetData NewFloatField(string label, float value)
+        public DecimalFieldWidgetData NewFloatField(string label, float value, float minValue = float.MinValue, float maxValue = float.MaxValue)
         {
             return wannaBeClasses.New<DecimalFieldWidgetData>(nameof(DecimalFieldWidgetData))
-                .WannaBeConstructor(label, value);
+                .WannaBeConstructor(label, value, minValue, maxValue);
         }
 
-        public DecimalFieldWidgetData NewDoubleField(string label, double value)
+        public DecimalFieldWidgetData NewDoubleField(string label, double value, double minValue = double.MinValue, double maxValue = double.MaxValue)
         {
             return wannaBeClasses.New<DecimalFieldWidgetData>(nameof(DecimalFieldWidgetData))
-                .WannaBeConstructor(label, value);
+                .WannaBeConstructor(label, value, minValue, maxValue);
         }
 
-        public DecimalFieldWidgetData NewDecimalField(string label, decimal value)
+        public DecimalFieldWidgetData NewDecimalField(string label, decimal value, decimal minValue = decimal.MinValue, decimal maxValue = decimal.MaxValue)
         {
             return wannaBeClasses.New<DecimalFieldWidgetData>(nameof(DecimalFieldWidgetData))
-                .WannaBeConstructor(label, value);
+                .WannaBeConstructor(label, value, minValue, maxValue);
         }
 
         public FoldOutWidgetData NewFoldOutScope(string label, bool foldedOut)
@@ -234,28 +234,28 @@ namespace JanSharp
             return wannaBeClasses.New<IndentWidgetData>(nameof(IndentWidgetData));
         }
 
-        public IntegerFieldWidgetData NewIntField(string label, int value)
+        public IntegerFieldWidgetData NewIntField(string label, int value, int minValue = int.MinValue, int maxValue = int.MaxValue)
         {
             return wannaBeClasses.New<IntegerFieldWidgetData>(nameof(IntegerFieldWidgetData))
-                .WannaBeConstructor(label, value);
+                .WannaBeConstructor(label, value, minValue, maxValue);
         }
 
-        public IntegerFieldWidgetData NewUIntField(string label, uint value)
+        public IntegerFieldWidgetData NewUIntField(string label, uint value, uint minValue = uint.MinValue, uint maxValue = uint.MaxValue)
         {
             return wannaBeClasses.New<IntegerFieldWidgetData>(nameof(IntegerFieldWidgetData))
-                .WannaBeConstructor(label, value);
+                .WannaBeConstructor(label, value, minValue, maxValue);
         }
 
-        public IntegerFieldWidgetData NewLongField(string label, long value)
+        public IntegerFieldWidgetData NewLongField(string label, long value, long minValue = long.MinValue, long maxValue = long.MaxValue)
         {
             return wannaBeClasses.New<IntegerFieldWidgetData>(nameof(IntegerFieldWidgetData))
-                .WannaBeConstructor(label, value);
+                .WannaBeConstructor(label, value, minValue, maxValue);
         }
 
-        public IntegerFieldWidgetData NewULongField(string label, ulong value)
+        public IntegerFieldWidgetData NewULongField(string label, ulong value, ulong minValue = ulong.MinValue, ulong maxValue = ulong.MaxValue)
         {
             return wannaBeClasses.New<IntegerFieldWidgetData>(nameof(IntegerFieldWidgetData))
-                .WannaBeConstructor(label, value);
+                .WannaBeConstructor(label, value, minValue, maxValue);
         }
 
         public LabelWidgetData NewLabel(string label)

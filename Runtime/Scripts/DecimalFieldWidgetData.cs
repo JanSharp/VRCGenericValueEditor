@@ -31,8 +31,14 @@ namespace JanSharp
         private DecimalWidgetType decimalType = DecimalWidgetType.Invalid;
 
         private float floatValue;
+        private float minFloatValue;
+        private float maxFloatValue;
         private double doubleValue;
+        private double minDoubleValue;
+        private double maxDoubleValue;
         private decimal decimalValue;
+        private decimal minDecimalValue;
+        private decimal maxDecimalValue;
 
         public float FloatValue
         {
@@ -44,10 +50,45 @@ namespace JanSharp
             set
             {
                 AssertDecimalType(DecimalWidgetType.Float);
+                value = Mathf.Clamp(value, minFloatValue, maxFloatValue);
                 if (value == floatValue)
                     return;
                 floatValue = value;
                 SetText(value.ToString());
+            }
+        }
+
+        public float MinFloatValue
+        {
+            get
+            {
+                AssertDecimalType(DecimalWidgetType.Float);
+                return minFloatValue;
+            }
+            set
+            {
+                AssertDecimalType(DecimalWidgetType.Float);
+                if (value == minFloatValue)
+                    return;
+                minFloatValue = value;
+                FloatValue = floatValue;
+            }
+        }
+
+        public float MaxFloatValue
+        {
+            get
+            {
+                AssertDecimalType(DecimalWidgetType.Float);
+                return maxFloatValue;
+            }
+            set
+            {
+                AssertDecimalType(DecimalWidgetType.Float);
+                if (value == maxFloatValue)
+                    return;
+                maxFloatValue = value;
+                FloatValue = floatValue;
             }
         }
 
@@ -61,10 +102,45 @@ namespace JanSharp
             set
             {
                 AssertDecimalType(DecimalWidgetType.Double);
+                value = System.Math.Min(System.Math.Max(value, minDoubleValue), maxDoubleValue);
                 if (value == doubleValue)
                     return;
                 doubleValue = value;
                 SetText(value.ToString());
+            }
+        }
+
+        public double MinDoubleValue
+        {
+            get
+            {
+                AssertDecimalType(DecimalWidgetType.Double);
+                return minDoubleValue;
+            }
+            set
+            {
+                AssertDecimalType(DecimalWidgetType.Double);
+                if (value == minDoubleValue)
+                    return;
+                minDoubleValue = value;
+                DoubleValue = doubleValue;
+            }
+        }
+
+        public double MaxDoubleValue
+        {
+            get
+            {
+                AssertDecimalType(DecimalWidgetType.Double);
+                return maxDoubleValue;
+            }
+            set
+            {
+                AssertDecimalType(DecimalWidgetType.Double);
+                if (value == maxDoubleValue)
+                    return;
+                maxDoubleValue = value;
+                DoubleValue = doubleValue;
             }
         }
 
@@ -78,10 +154,45 @@ namespace JanSharp
             set
             {
                 AssertDecimalType(DecimalWidgetType.Decimal);
+                value = System.Math.Min(System.Math.Max(value, minDecimalValue), maxDecimalValue);
                 if (value == decimalValue)
                     return;
                 decimalValue = value;
                 SetText(value.ToString());
+            }
+        }
+
+        public decimal MinDecimalValue
+        {
+            get
+            {
+                AssertDecimalType(DecimalWidgetType.Decimal);
+                return minDecimalValue;
+            }
+            set
+            {
+                AssertDecimalType(DecimalWidgetType.Decimal);
+                if (value == minDecimalValue)
+                    return;
+                minDecimalValue = value;
+                DecimalValue = decimalValue;
+            }
+        }
+
+        public decimal MaxDecimalValue
+        {
+            get
+            {
+                AssertDecimalType(DecimalWidgetType.Decimal);
+                return maxDecimalValue;
+            }
+            set
+            {
+                AssertDecimalType(DecimalWidgetType.Decimal);
+                if (value == maxDecimalValue)
+                    return;
+                maxDecimalValue = value;
+                DecimalValue = decimalValue;
             }
         }
 
@@ -151,27 +262,33 @@ namespace JanSharp
             }
         }
 
-        public DecimalFieldWidgetData WannaBeConstructor(string label, float value)
+        public DecimalFieldWidgetData WannaBeConstructor(string label, float value, float minValue = float.MinValue, float maxValue = float.MaxValue)
         {
             LabeledWidgetDataConstructor(label);
             decimalType = DecimalWidgetType.Float;
             floatValue = value;
+            minFloatValue = minValue;
+            maxFloatValue = maxValue;
             return this;
         }
 
-        public DecimalFieldWidgetData WannaBeConstructor(string label, double value)
+        public DecimalFieldWidgetData WannaBeConstructor(string label, double value, double minValue = double.MinValue, double maxValue = double.MaxValue)
         {
             LabeledWidgetDataConstructor(label);
             decimalType = DecimalWidgetType.Double;
             doubleValue = value;
+            minDoubleValue = minValue;
+            maxDoubleValue = maxValue;
             return this;
         }
 
-        public DecimalFieldWidgetData WannaBeConstructor(string label, decimal value)
+        public DecimalFieldWidgetData WannaBeConstructor(string label, decimal value, decimal minValue = decimal.MinValue, decimal maxValue = decimal.MaxValue)
         {
             LabeledWidgetDataConstructor(label);
             decimalType = DecimalWidgetType.Decimal;
             decimalValue = value;
+            minDecimalValue = minValue;
+            maxDecimalValue = maxValue;
             return this;
         }
     }

@@ -33,9 +33,17 @@ namespace JanSharp
         private IntegerWidgetType integerType = IntegerWidgetType.Invalid;
 
         private int intValue;
+        private int minIntValue;
+        private int maxIntValue;
         private uint uintValue;
+        private uint minUIntValue;
+        private uint maxUIntValue;
         private long longValue;
+        private long minLongValue;
+        private long maxLongValue;
         private ulong ulongValue;
+        private ulong minULongValue;
+        private ulong maxULongValue;
 
         public int IntValue
         {
@@ -47,10 +55,45 @@ namespace JanSharp
             set
             {
                 AssertIntegerType(IntegerWidgetType.Int);
+                value = System.Math.Min(System.Math.Max(value, minIntValue), maxIntValue);
                 if (value == intValue)
                     return;
                 intValue = value;
                 SetText(value.ToString());
+            }
+        }
+
+        public int MinIntValue
+        {
+            get
+            {
+                AssertIntegerType(IntegerWidgetType.Int);
+                return minIntValue;
+            }
+            set
+            {
+                AssertIntegerType(IntegerWidgetType.Int);
+                if (value == minIntValue)
+                    return;
+                minIntValue = value;
+                IntValue = intValue;
+            }
+        }
+
+        public int MaxIntValue
+        {
+            get
+            {
+                AssertIntegerType(IntegerWidgetType.Int);
+                return maxIntValue;
+            }
+            set
+            {
+                AssertIntegerType(IntegerWidgetType.Int);
+                if (value == maxIntValue)
+                    return;
+                maxIntValue = value;
+                IntValue = intValue;
             }
         }
 
@@ -64,10 +107,45 @@ namespace JanSharp
             set
             {
                 AssertIntegerType(IntegerWidgetType.UInt);
+                value = System.Math.Min(System.Math.Max(value, minUIntValue), maxUIntValue);
                 if (value == uintValue)
                     return;
                 uintValue = value;
                 SetText(value.ToString());
+            }
+        }
+
+        public uint MinUIntValue
+        {
+            get
+            {
+                AssertIntegerType(IntegerWidgetType.UInt);
+                return minUIntValue;
+            }
+            set
+            {
+                AssertIntegerType(IntegerWidgetType.UInt);
+                if (value == minUIntValue)
+                    return;
+                minUIntValue = value;
+                UIntValue = uintValue;
+            }
+        }
+
+        public uint MaxUIntValue
+        {
+            get
+            {
+                AssertIntegerType(IntegerWidgetType.UInt);
+                return maxUIntValue;
+            }
+            set
+            {
+                AssertIntegerType(IntegerWidgetType.UInt);
+                if (value == maxUIntValue)
+                    return;
+                maxUIntValue = value;
+                UIntValue = uintValue;
             }
         }
 
@@ -81,10 +159,45 @@ namespace JanSharp
             set
             {
                 AssertIntegerType(IntegerWidgetType.Long);
+                value = System.Math.Min(System.Math.Max(value, minLongValue), maxLongValue);
                 if (value == longValue)
                     return;
                 longValue = value;
                 SetText(value.ToString());
+            }
+        }
+
+        public long MinLongValue
+        {
+            get
+            {
+                AssertIntegerType(IntegerWidgetType.Long);
+                return minLongValue;
+            }
+            set
+            {
+                AssertIntegerType(IntegerWidgetType.Long);
+                if (value == minLongValue)
+                    return;
+                minLongValue = value;
+                LongValue = longValue;
+            }
+        }
+
+        public long MaxLongValue
+        {
+            get
+            {
+                AssertIntegerType(IntegerWidgetType.Long);
+                return maxLongValue;
+            }
+            set
+            {
+                AssertIntegerType(IntegerWidgetType.Long);
+                if (value == maxLongValue)
+                    return;
+                maxLongValue = value;
+                LongValue = longValue;
             }
         }
 
@@ -98,10 +211,45 @@ namespace JanSharp
             set
             {
                 AssertIntegerType(IntegerWidgetType.ULong);
+                value = System.Math.Min(System.Math.Max(value, minULongValue), maxULongValue);
                 if (value == ulongValue)
                     return;
                 ulongValue = value;
                 SetText(value.ToString());
+            }
+        }
+
+        public ulong MinULongValue
+        {
+            get
+            {
+                AssertIntegerType(IntegerWidgetType.ULong);
+                return minULongValue;
+            }
+            set
+            {
+                AssertIntegerType(IntegerWidgetType.ULong);
+                if (value == minULongValue)
+                    return;
+                minULongValue = value;
+                ULongValue = ulongValue;
+            }
+        }
+
+        public ulong MaxULongValue
+        {
+            get
+            {
+                AssertIntegerType(IntegerWidgetType.ULong);
+                return maxULongValue;
+            }
+            set
+            {
+                AssertIntegerType(IntegerWidgetType.ULong);
+                if (value == maxULongValue)
+                    return;
+                maxULongValue = value;
+                ULongValue = ulongValue;
             }
         }
 
@@ -178,35 +326,43 @@ namespace JanSharp
             }
         }
 
-        public IntegerFieldWidgetData WannaBeConstructor(string label, int value)
+        public IntegerFieldWidgetData WannaBeConstructor(string label, int value, int minValue = int.MinValue, int maxValue = int.MaxValue)
         {
             LabeledWidgetDataConstructor(label);
             integerType = IntegerWidgetType.Int;
             intValue = value;
+            minIntValue = minValue;
+            maxIntValue = maxValue;
             return this;
         }
 
-        public IntegerFieldWidgetData WannaBeConstructor(string label, uint value)
+        public IntegerFieldWidgetData WannaBeConstructor(string label, uint value, uint minValue = uint.MinValue, uint maxValue = uint.MaxValue)
         {
             LabeledWidgetDataConstructor(label);
             integerType = IntegerWidgetType.UInt;
             uintValue = value;
+            minUIntValue = minValue;
+            maxUIntValue = maxValue;
             return this;
         }
 
-        public IntegerFieldWidgetData WannaBeConstructor(string label, long value)
+        public IntegerFieldWidgetData WannaBeConstructor(string label, long value, long minValue = long.MinValue, long maxValue = long.MaxValue)
         {
             LabeledWidgetDataConstructor(label);
             integerType = IntegerWidgetType.Long;
             longValue = value;
+            minLongValue = minValue;
+            maxLongValue = maxValue;
             return this;
         }
 
-        public IntegerFieldWidgetData WannaBeConstructor(string label, ulong value)
+        public IntegerFieldWidgetData WannaBeConstructor(string label, ulong value, ulong minValue = ulong.MinValue, ulong maxValue = ulong.MaxValue)
         {
             LabeledWidgetDataConstructor(label);
             integerType = IntegerWidgetType.ULong;
             ulongValue = value;
+            minULongValue = minValue;
+            maxULongValue = maxValue;
             return this;
         }
     }
