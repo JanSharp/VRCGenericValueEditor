@@ -43,15 +43,15 @@ namespace JanSharp
 
         private GameObject GetWidgetPrefab(string widgetName) => (GameObject)widgetPrefabsByName[widgetName].Reference;
 
-        bool initialize = false;
+        bool initialized = false;
         private void Initialize()
         {
-            if (initialize)
+            if (initialized)
                 return;
             #if GenericValueEditorDebug
             Debug.Log($"[GenericValueEditorDebug] WidgetManager  Initialize");
             #endif
-            initialize = true;
+            initialized = true;
 
             widgetPrefabsByName.Add("Box", boxWidgetPrefab);
             widgetPrefabsByName.Add("Button", buttonWidgetPrefab);
@@ -92,6 +92,24 @@ namespace JanSharp
             widgetPools.Add("ToggleField", allWidgetPools[j++]);
             widgetPools.Add("Vector2Field", allWidgetPools[j++]);
             widgetPools.Add("Vector3Field", allWidgetPools[j++]);
+        }
+
+        public void RegisterCustomWidget(string widgetName, GameObject widgetPrefab)
+        {
+            #if GenericValueEditorDebug
+            Debug.Log($"[GenericValueEditorDebug] WidgetManager  RegisterCustomWidget - widgetName: {widgetName}");
+            #endif
+            Initialize();
+            if (widgetPrefabsByName.ContainsKey(widgetName))
+            {
+                Debug.LogError($"[GenericValueEditor] A widget with the name '{widgetName}' already exists, "
+                    + "cannot register another with the same name.");
+                return;
+            }
+            widgetPrefabsByName.Add(widgetName, widgetPrefab);
+            DataList widgetPool = new DataList();
+            ArrList.Add(ref allWidgetPools, ref allWidgetPoolsCount, widgetPool);
+            widgetPools.Add(widgetName, widgetPool);
         }
 
         /// <summary>

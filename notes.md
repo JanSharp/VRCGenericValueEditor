@@ -7,5 +7,6 @@ Think about IMGUI. Then think about Udon. Become sad.
   - [ ] non interactable widgets should be darkened, not red (Would require manually changing the color of boxes and text and I'm not interested right now)
 - [ ] step value for sliders, which also enables int sliders
 - [ ] range limitations on integer and decimal field widgets
-- [ ] custom widgets
+- [x] custom widgets
 - [x] manager which also keeps widget instances pooled for 5 minutes
+- [ ] write some basic docs
