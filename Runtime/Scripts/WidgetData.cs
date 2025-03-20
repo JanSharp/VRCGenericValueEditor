@@ -165,6 +165,13 @@ namespace JanSharp
             SetChildren(children, childCount);
             return this;
         }
+
+        /// <summary>
+        /// <para>Just calls <see cref="WannaBeClass.StdMove"/> but casts the return value to make it easier
+        /// to pass the widget to an add function which expects widget data.</para>
+        /// </summary>
+        /// <returns></returns>
+        public WidgetData StdMoveWidget() => (WidgetData)StdMove();
     }
 
     public static class WidgetDataExtensions
