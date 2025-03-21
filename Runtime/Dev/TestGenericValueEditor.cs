@@ -15,11 +15,11 @@ namespace JanSharp
         {
             System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
             sw.Start();
-            BoxWidgetData toggleAbleBox = (BoxWidgetData)widgetManager.NewBoxScope().SetChildrenChained(widgetManager.StdMoveWidgetData(new WidgetData[]
+            BoxWidgetData toggleAbleBox = (BoxWidgetData)widgetManager.NewBoxScope().SetChildrenChained(widgetManager.StdMoveWidgets(new WidgetData[]
             {
                 widgetManager.NewButton("Button"),
                 widgetManager.NewDecimalField("Decimal Field", 0m),
-                widgetManager.NewFoldOutScope("Fold Out", false).SetChildrenChained(widgetManager.StdMoveWidgetData(new WidgetData[]
+                widgetManager.NewFoldOutScope("Fold Out", false).SetChildrenChained(widgetManager.StdMoveWidgets(new WidgetData[]
                 {
                     widgetManager.NewLine(),
                 })),
@@ -38,17 +38,17 @@ namespace JanSharp
 
             WidgetData[] widgets = new WidgetData[]
             {
-                widgetManager.NewFoldOutScope("My Boxes and Stuff", false).SetChildrenChained(widgetManager.StdMoveWidgetData(new WidgetData[]
+                widgetManager.NewFoldOutScope("My Boxes and Stuff", false).SetChildrenChained(widgetManager.StdMoveWidgets(new WidgetData[]
                 {
-                    widgetManager.NewBoxScope().SetChildrenChained(widgetManager.StdMoveWidgetData(new WidgetData[]
+                    widgetManager.NewBoxScope().SetChildrenChained(widgetManager.StdMoveWidgets(new WidgetData[]
                     {
                         widgetManager.NewButton("My Button")
                             .SetListener(this, nameof(OnButtonClicked))
                             .SetCustomData(nameof(fieldName), "My Button"),
                         widgetManager.NewLabel("My Label"),
-                        widgetManager.NewIndentScope().SetChildrenChained(widgetManager.StdMoveWidgetData(new WidgetData[]
+                        widgetManager.NewIndentScope().SetChildrenChained(widgetManager.StdMoveWidgets(new WidgetData[]
                         {
-                            widgetManager.NewGrouping().SetChildrenChained(widgetManager.StdMoveWidgetData(new WidgetData[]
+                            widgetManager.NewGrouping().SetChildrenChained(widgetManager.StdMoveWidgets(new WidgetData[]
                             {
                                 widgetManager.NewLine(),
                                 widgetManager.NewLabel("My Label"),
@@ -61,7 +61,7 @@ namespace JanSharp
                     })),
                 })),
 
-                widgetManager.NewFoldOutScope("My Strings", false).SetChildrenChained(widgetManager.StdMoveWidgetData(new WidgetData[]
+                widgetManager.NewFoldOutScope("My Strings", false).SetChildrenChained(widgetManager.StdMoveWidgets(new WidgetData[]
                 {
                     widgetManager.NewMultilineStringField("My Multiline String", "Hello World!\nGoodbye World.")
                         .SetListener(this, nameof(OnStringFieldValueChanged))
@@ -84,7 +84,7 @@ namespace JanSharp
                     .SetListener(this, nameof(OnToggleFieldValueChanged))
                     .SetCustomData(nameof(fieldName), "My Toggle"),
 
-                widgetManager.NewFoldOutScope("My Integers", false).SetChildrenChained(widgetManager.StdMoveWidgetData(new WidgetData[]
+                widgetManager.NewFoldOutScope("My Integers", false).SetChildrenChained(widgetManager.StdMoveWidgets(new WidgetData[]
                 {
                     widgetManager.NewIntField("My Int", -2000)
                         .SetListener(this, nameof(OnIntegerFieldValueChanged))
@@ -101,7 +101,7 @@ namespace JanSharp
                         .SetCustomData(nameof(fieldName), "My ULong"),
                 })),
 
-                widgetManager.NewFoldOutScope("My Decimals", false).SetChildrenChained(widgetManager.StdMoveWidgetData(new WidgetData[]
+                widgetManager.NewFoldOutScope("My Decimals", false).SetChildrenChained(widgetManager.StdMoveWidgets(new WidgetData[]
                 {
                     widgetManager.NewFloatField("My Float", 0.5f, -20f, 20f)
                         .SetListener(this, nameof(OnDecimalFieldValueChanged))
@@ -114,7 +114,7 @@ namespace JanSharp
                         .SetCustomData(nameof(fieldName), "My Decimal"),
                 })),
 
-                widgetManager.NewFoldOutScope("My Vectors", false).SetChildrenChained(widgetManager.StdMoveWidgetData(new WidgetData[]
+                widgetManager.NewFoldOutScope("My Vectors", false).SetChildrenChained(widgetManager.StdMoveWidgets(new WidgetData[]
                 {
                     widgetManager.NewVector2Field("My Vector2", new Vector2(100, 200))
                         .SetListener(this, nameof(OnVector2FieldValueChanged))
@@ -133,7 +133,7 @@ namespace JanSharp
                 toggleAbleBox,
             };
             Debug.Log($"[GenericValueEditor] Creating widget data took {sw.Elapsed.TotalMilliseconds}ms.");
-            valueEditor.Draw(widgetManager.StdMoveWidgetData(widgets));
+            valueEditor.Draw(widgetManager.StdMoveWidgets(widgets));
             Debug.Log($"[GenericValueEditor] Draw took {sw.Elapsed.TotalMilliseconds}ms.");
         }
 

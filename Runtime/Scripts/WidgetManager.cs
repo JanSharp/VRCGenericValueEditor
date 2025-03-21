@@ -177,7 +177,7 @@ namespace JanSharp
             SendCustomEventDelayedSeconds(nameof(InternalCleanupLoop), 1f);
         }
 
-        public WidgetData[] StdMoveWidgetData(WidgetData[] widgetData, int count = -1)
+        public WidgetData[] StdMoveWidgets(WidgetData[] widgetData, int count = -1)
         {
             #if GenericValueEditorDebug
             Debug.Log($"[GenericValueEditorDebug] GenericValueEditor  StdMoveWidgetData");
