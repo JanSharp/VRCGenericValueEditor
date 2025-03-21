@@ -77,6 +77,9 @@ namespace JanSharp
                 widgetManager.NewSliderField("My Unrestricted Slider", 0.5f, -1f, 1f, enforceMinMax: false)
                     .SetListener(this, nameof(OnSliderFieldValueChanged))
                     .SetCustomData(nameof(fieldName), "My Unrestricted Slider"),
+                widgetManager.NewSliderField("My Stepped Slider", 0.5f, -5f, 10f).SetStep(0.5f)
+                    .SetListener(this, nameof(OnSliderFieldValueChanged))
+                    .SetCustomData(nameof(fieldName), "My Stepped Slider"),
                 widgetManager.NewToggleField("My Toggle", true)
                     .SetListener(this, nameof(OnToggleFieldValueChanged))
                     .SetCustomData(nameof(fieldName), "My Toggle"),

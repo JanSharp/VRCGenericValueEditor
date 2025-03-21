@@ -15,13 +15,12 @@ namespace JanSharp
 
         public Slider slider;
         public TMP_InputField inputField;
+        private bool hasStep;
 
         protected override void InitFromData()
         {
             base.InitFromData();
-            slider.SetValueWithoutNotify(Data.Value);
-            slider.minValue = Data.MinValue;
-            slider.maxValue = Data.MaxValue;
+            UpdateSliderStepping();
             UpdateInputField();
         }
 
@@ -32,6 +31,42 @@ namespace JanSharp
             slider.interactable = interactable;
             inputField.interactable = interactable;
         }
+
+        public void UpdateSliderStepping()
+        {
+            float step = Data.Step;
+            hasStep = step != 0f;
+            slider.wholeNumbers = hasStep;
+            UpdateSlider();
+            float minValue = Data.MinValue;
+            float maxValue = Data.MaxValue;
+            if (hasStep)
+            {
+                minValue = Mathf.Round(minValue / step);
+                maxValue = Mathf.Round(maxValue / step);
+            }
+            slider.minValue = minValue;
+            slider.maxValue = maxValue;
+        }
+
+        public void UpdateSlider()
+        {
+            slider.SetValueWithoutNotify(hasStep ? Data.Value / Data.Step : Data.Value);
+        }
+
+        // private string GetFormat()
+        // {
+        //     if (!hasStep)
+        //         return "0.###";
+        //     float step = Data.Step;
+        //     if (step < 0.01f)
+        //         return "0.###";
+        //     if (step < 0.1f)
+        //         return "0.##";
+        //     if (step < 1f)
+        //         return "0.#";
+        //     return "0";
+        // }
 
         public void UpdateInputField()
         {
@@ -46,7 +81,8 @@ namespace JanSharp
             // 0.82000005245208740234375 which is a step in between those 2 values. So it's actually 2 steps
             // away from the most accurate representation.
             // Tool used: https://www.h-schmidt.net/FloatConverter/IEEE754.html
-            Data.Value = float.Parse(slider.value.ToString("0.###"));
+            float value = float.Parse(slider.value.ToString("0.###"));
+            Data.Value = hasStep ? value * Data.Step : value;
         }
 
         public void OnInputFieldTextChanged()

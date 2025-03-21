@@ -53,12 +53,32 @@ namespace JanSharp
             }
         }
 
+        private float step;
+        /// <summary>
+        /// <para><c>0</c> means no step, no rounding.</para>
+        /// </summary>
+        public float Step
+        {
+            get => step;
+            set
+            {
+                if (value == step)
+                    return;
+                step = value;
+                Value = this.value;
+                if (ActualWidget != null)
+                    ActualWidget.UpdateSliderStepping();
+            }
+        }
+
         private float value;
         public float Value
         {
             get => value;
             set
             {
+                if (step != 0)
+                    value = Mathf.Round(value / step) * step;
                 if (enforceMinMax)
                     value = Mathf.Clamp(value, minValue, maxValue);
                 if (value == this.value)
@@ -66,11 +86,22 @@ namespace JanSharp
                 this.value = value;
                 if (ActualWidget != null)
                 {
-                    ActualWidget.slider.SetValueWithoutNotify(value);
+                    ActualWidget.UpdateSlider();
                     ActualWidget.UpdateInputField();
                 }
                 RaiseEvent();
             }
+        }
+
+        /// <summary>
+        /// <para><c>0</c> means no step, no rounding.</para>
+        /// </summary>
+        /// <param name="step"></param>
+        /// <returns></returns>
+        public SliderFieldWidgetData SetStep(float step)
+        {
+            Step = step;
+            return this;
         }
 
         public SliderFieldWidgetData WannaBeConstructor(string label, float value, float minValue, float maxValue, bool enforceMinMax = true)
