@@ -32,6 +32,7 @@ namespace JanSharp
         public void UpdateInputFields()
         {
             Vector2 value = Data.Value;
+            // No format string to let people type in whatever they want.
             xInputField.SetTextWithoutNotify(value.x.ToString());
             yInputField.SetTextWithoutNotify(value.y.ToString());
         }

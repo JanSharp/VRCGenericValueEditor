@@ -11,4 +11,4 @@ Think about IMGUI. Then think about Udon. Become sad.
 - [x] manager which also keeps widget instances pooled for 5 minutes
 - [ ] write some basic docs
 - [x] probably make input fields respond to text change 1 frame delayed. Yes I'm very salty about the on end edit bug not getting fixed
-- [ ] add format to vector field ToString calls
+- [x] ~~add format to vector field ToString calls~~ nope, just let people type in whatever they want without formatting it
