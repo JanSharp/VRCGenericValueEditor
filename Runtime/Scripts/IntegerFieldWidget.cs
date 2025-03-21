@@ -33,6 +33,16 @@ namespace JanSharp
 
         public void OnTextChanged()
         {
+            if (raisingTextChanged)
+                return;
+            raisingTextChanged = true;
+            SendCustomEventDelayedFrames(nameof(OnTextChangedDelayed), 1);
+        }
+
+        private bool raisingTextChanged = false;
+        public void OnTextChangedDelayed()
+        {
+            raisingTextChanged = false;
             Data.SetValueFromString(inputField.text);
             UpdateInputField(); // To handle when the value didn't change, but text does differ.
         }

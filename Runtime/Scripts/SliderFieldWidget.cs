@@ -87,6 +87,16 @@ namespace JanSharp
 
         public void OnInputFieldTextChanged()
         {
+            if (raisingTextChanged)
+                return;
+            raisingTextChanged = true;
+            SendCustomEventDelayedFrames(nameof(OnInputFieldTextChangedDelayed), 1);
+        }
+
+        private bool raisingTextChanged = false;
+        public void OnInputFieldTextChangedDelayed()
+        {
+            raisingTextChanged = false;
             Data.Value = float.TryParse(inputField.text, out float value) ? value : 0f;
             UpdateInputField(); // To handle when the value didn't change, but text does differ.
         }
