@@ -8,8 +8,17 @@ namespace JanSharp
     [UdonBehaviourSyncMode(BehaviourSyncMode.None)]
     public abstract class Widget : UdonSharpBehaviour
     {
+        /// <summary>
+        /// <para>Must match with an associated <see cref="WidgetData.WidgetName"/>.</para>
+        /// </summary>
         public abstract string WidgetName { get; }
+        /// <summary>
+        /// <para>Whether this type of widget can contain child widgets.</para>
+        /// </summary>
         public virtual bool IsContainer => false;
+        /// <summary>
+        /// <para>Must be set in the inspector if <see cref="IsContainer"/> is <see langword="true"/>.</para>
+        /// </summary>
         public Transform containerWidgetsRoot;
         public CanvasGroup InteractableCanvasGroup;
 

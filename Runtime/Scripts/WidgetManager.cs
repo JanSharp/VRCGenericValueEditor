@@ -94,6 +94,22 @@ namespace JanSharp
             widgetPools.Add("Vector3Field", allWidgetPools[j++]);
         }
 
+        /// <summary>
+        /// <para>Register a custom <see cref="Widget"/> with an associated <paramref name="widgetPrefab"/>
+        /// and underlying <see cref="WidgetData"/>.</para>
+        /// <para>The <see cref="Widget.WidgetName"/> and <see cref="WidgetData.WidgetName"/> must match
+        /// <paramref name="widgetName"/>.</para>
+        /// <para><paramref name="widgetPrefab"/>Must have a <see cref="Widget"/> component (the custom
+        /// deriving class) on the root game object.</para>
+        /// <para>For best consistency also add 2 extension methods.<br/>
+        /// One to <see cref="WidgetManager"/> which creates a <c>New</c> instance of the custom
+        /// <see cref="WidgetData"/> and potentially calls an appropriate <c>WannaBeConstructor</c>.<br/>
+        /// And an extension method to <see cref="GenericValueEditor"/> which casts the
+        /// <see cref="GenericValueEditor.sendingWidgetData"/> to the custom <see cref="WidgetData"/>
+        /// type.</para>
+        /// </summary>
+        /// <param name="widgetName">Must be unique.</param>
+        /// <param name="widgetPrefab"></param>
         public void RegisterCustomWidget(string widgetName, GameObject widgetPrefab)
         {
             #if GenericValueEditorDebug
@@ -140,6 +156,11 @@ namespace JanSharp
             return go.GetComponent<Widget>();
         }
 
+        /// <summary>
+        /// <para>Used by <see cref="GenericValueEditor"/> to return widget instances back to the pool.</para>
+        /// </summary>
+        /// <param name="widgets"></param>
+        /// <param name="widgetsCount"></param>
         public void MoveObjectsToPool(Widget[] widgets, int widgetsCount)
         {
             // Does not need to call Initialize because GetWidgetInstance does and it's the only way to get widget instances.
@@ -177,6 +198,14 @@ namespace JanSharp
             SendCustomEventDelayedSeconds(nameof(InternalCleanupLoop), 1f);
         }
 
+        /// <summary>
+        /// <para>Calls <see cref="WannaBeClass.StdMove"/> on each <see cref="WidgetData"/> in
+        /// <paramref name="widgetData"/>, optionally limited by <paramref name="count"/>. All of the widgets
+        /// must not be <see langword="null"/>.</para>
+        /// </summary>
+        /// <param name="widgetData"></param>
+        /// <param name="count"><c>-1</c> means "use <paramref name="widgetData"/> length".</param>
+        /// <returns>Simply a reference to <paramref name="widgetData"/>.</returns>
         public WidgetData[] StdMoveWidgets(WidgetData[] widgetData, int count = -1)
         {
             #if GenericValueEditorDebug

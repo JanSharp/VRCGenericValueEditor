@@ -75,6 +75,17 @@ namespace JanSharp
             return iteratorWidgetsStack[iteratorStackDepth - 1][index];
         }
 
+        /// <summary>
+        /// <para>Returns all active <see cref="Widget"/>s to the <see cref="WidgetManager"/> and redraws
+        /// <see cref="Widget"/>s as defined by <paramref name="widgetData"/>.</para>
+        /// <para>Actively shown <see cref="Widget"/>s hold strong references to the underlying
+        /// <see cref="WidgetData"/>, enabling using <see cref="WidgetManager.StdMoveWidgets(WidgetData[])"/>
+        /// or in some other way calling <see cref="WannaBeClass.StdMove"/>, such that
+        /// <see cref="WidgetData"/> stays alive while shown in the generic value editor, and destroyed with
+        /// the next redraw.</para>
+        /// </summary>
+        /// <param name="widgetData"></param>
+        /// <param name="count"></param>
         public void Draw(WidgetData[] widgetData, int count = -1)
         {
             #if GenericValueEditorDebug
