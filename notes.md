@@ -9,6 +9,8 @@ Think about IMGUI. Then think about Udon. Become sad.
 - [x] range limitations on integer and decimal field widgets
 - [x] custom widgets
 - [x] manager which also keeps widget instances pooled for 5 minutes
-- [ ] write some basic docs
+- [x] write some basic docs
 - [x] probably make input fields respond to text change 1 frame delayed. Yes I'm very salty about the on end edit bug not getting fixed
 - [x] ~~add format to vector field ToString calls~~ nope, just let people type in whatever they want without formatting it
+- [ ] the ability to have multiple buttons next to each other would be great. Though horizontal flows seem problematic for most other widgets
+- [ ] toggle groups would be great
