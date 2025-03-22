@@ -50,3 +50,18 @@ The rest of the built in `Widget`s are interactive:
 - ToggleField
 - Vector2Field
 - Vector3Field
+
+## Editor Performance
+
+In a commit ([`ff73c8b`](https://github.com/JanSharp/VRCGenericValueEditor/commit/ff73c8ba438114ad6701cf46b54bab6313bd6d7a)) performance was tested. The relevant part here is the huge difference between in Editor and in VRChat performance:
+
+| Context   | Action                       | Time             |
+|-----------|------------------------------|------------------|
+| In Editor | Creating WidgetData          | 00:00:01.5072221 |
+| In VRChat | Creating WidgetData          | 00:00:00.0074896 |
+| In Editor | Draw (no Widgets pooled yet) | 00:00:02.9701157 |
+| In VRChat | Draw (no Widgets pooled yet) | 00:00:00.0160837 |
+
+Also note that for me personally the in Editor performance varies incredibly over time. Generally if I've had the Editor open for a while performance degrades so much that I've had it run into the 10 second Udon timeout limit in the test scene. My suspicion is that it is specifically the instantiation and with it initialization of UdonBehaviour components along side their Editor helper components, however this is just a guess. What matters is that it's slow, annoyingly so.
+
+For the record I would still consider the 7.5 and 16 ms in VRChat for the test UI at the time to be slow, and I know a large part of this is UdonBehavior instantiation + initialization, which happens for each WidgetData and Widget here. But at least it didn't freeze for whole seconds.
