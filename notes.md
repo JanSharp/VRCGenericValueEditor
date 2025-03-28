@@ -14,3 +14,5 @@ Think about IMGUI. Then think about Udon. Become sad.
 - [x] ~~add format to vector field ToString calls~~ nope, just let people type in whatever they want without formatting it
 - [ ] the ability to have multiple buttons next to each other would be great. Though horizontal flows seem problematic for most other widgets
 - [ ] toggle groups would be great
+- [ ] set value without notify on everything that has a value and raises events on value change
+- [ ] input fields do not open the VRChat input field
