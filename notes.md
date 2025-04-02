@@ -15,4 +15,4 @@ Think about IMGUI. Then think about Udon. Become sad.
 - [ ] the ability to have multiple buttons next to each other would be great. Though horizontal flows seem problematic for most other widgets
 - [ ] toggle groups would be great
 - [ ] set value without notify on everything that has a value and raises events on value change
-- [ ] input fields do not open the VRChat input field
+- [x] ~~input fields do not open the VRChat input field~~ Go up vote https://feedback.vrchat.com/bug-reports/p/instantiated-input-fields-dont-open-the-vrc-keyboard
