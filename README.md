@@ -7,9 +7,9 @@ Edit values with UI defined more through code rather than unity objects.
 
 Head to my [VCC Listing](https://jansharp.github.io/vrc/vcclisting.xhtml) and follow the instructions there.
 
-# Bugs
+# Personal Request
 
-All input fields part of UI made with the generic value editor do not open the VRC input field + keyboard popup. This is a VRChat bug, **please vote for [the bug report here](https://feedback.vrchat.com/bug-reports/p/instantiated-input-fields-dont-open-the-vrc-keyboard) if you are interested in using this package.**
+If you are interested/are using this package, please go vote for [this bug report here](https://feedback.vrchat.com/bug-reports/p/instantiated-input-fields-dont-open-the-vrc-keyboard). As stated in the bug report itself I have found a workaround for it, but it still needs to be fixed to prevent future developers from wasting their time debugging this bug when they encounter it. They may not even look for or find the bug report.
 
 # Features
 
