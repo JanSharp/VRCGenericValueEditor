@@ -17,15 +17,25 @@ namespace JanSharp
             get => value;
             set
             {
-                if (value == null)
-                    value = "";
-                if (value == this.value)
-                    return;
-                this.value = value;
-                if (ActualWidget != null)
-                    ActualWidget.UpdateInputField();
-                RaiseEvent();
+                if (SetValueWithoutNotify(value))
+                    RaiseEvent();
             }
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns><see langword="true"/> if the value changed.</returns>
+        public bool SetValueWithoutNotify(string value)
+        {
+            if (value == null)
+                value = "";
+            if (value == this.value)
+                return false;
+            this.value = value;
+            if (ActualWidget != null)
+                ActualWidget.UpdateInputField();
+            return true;
         }
 
         public StringFieldWidgetData WannaBeConstructor(string label, string value)

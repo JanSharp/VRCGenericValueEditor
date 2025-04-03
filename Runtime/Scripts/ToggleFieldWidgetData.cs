@@ -17,13 +17,23 @@ namespace JanSharp
             get => value;
             set
             {
-                if (value == this.value)
-                    return;
-                this.value = value;
-                if (ActualWidget != null)
-                    ActualWidget.toggle.SetIsOnWithoutNotify(value);
-                RaiseEvent();
+                if (SetValueWithoutNotify(value))
+                    RaiseEvent();
             }
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns><see langword="true"/> if the value changed.</returns>
+        public bool SetValueWithoutNotify(bool value)
+        {
+            if (value == this.value)
+                return false;
+            this.value = value;
+            if (ActualWidget != null)
+                ActualWidget.toggle.SetIsOnWithoutNotify(value);
+            return true;
         }
 
         public ToggleFieldWidgetData WannaBeConstructor(string label, bool value)

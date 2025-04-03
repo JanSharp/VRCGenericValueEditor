@@ -49,13 +49,25 @@ namespace JanSharp
             }
             set
             {
-                AssertDecimalType(DecimalWidgetType.Float);
-                value = Mathf.Clamp(value, minFloatValue, maxFloatValue);
-                if (value == floatValue)
-                    return;
-                floatValue = value;
-                SetText(value.ToString());
+                if (SetFloatValueWithoutNotify(value))
+                    RaiseEvent();
             }
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns><see langword="true"/> if the value changed.</returns>
+        public bool SetFloatValueWithoutNotify(float value)
+        {
+            AssertDecimalType(DecimalWidgetType.Float);
+            value = Mathf.Clamp(value, minFloatValue, maxFloatValue);
+            if (value == floatValue)
+                return false;
+            floatValue = value;
+            if (ActualWidget != null)
+                ActualWidget.UpdateInputField(value.ToString());
+            return true;
         }
 
         public float MinFloatValue
@@ -101,13 +113,25 @@ namespace JanSharp
             }
             set
             {
-                AssertDecimalType(DecimalWidgetType.Double);
-                value = System.Math.Min(System.Math.Max(value, minDoubleValue), maxDoubleValue);
-                if (value == doubleValue)
-                    return;
-                doubleValue = value;
-                SetText(value.ToString());
+                if (SetDoubleValueWithoutNotify(value))
+                    RaiseEvent();
             }
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns><see langword="true"/> if the value changed.</returns>
+        public bool SetDoubleValueWithoutNotify(double value)
+        {
+            AssertDecimalType(DecimalWidgetType.Double);
+            value = System.Math.Min(System.Math.Max(value, minDoubleValue), maxDoubleValue);
+            if (value == doubleValue)
+                return false;
+            doubleValue = value;
+            if (ActualWidget != null)
+                ActualWidget.UpdateInputField(value.ToString());
+            return true;
         }
 
         public double MinDoubleValue
@@ -153,13 +177,25 @@ namespace JanSharp
             }
             set
             {
-                AssertDecimalType(DecimalWidgetType.Decimal);
-                value = System.Math.Min(System.Math.Max(value, minDecimalValue), maxDecimalValue);
-                if (value == decimalValue)
-                    return;
-                decimalValue = value;
-                SetText(value.ToString());
+                if (SetDecimalValueWithoutNotify(value))
+                    RaiseEvent();
             }
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns><see langword="true"/> if the value changed.</returns>
+        public bool SetDecimalValueWithoutNotify(decimal value)
+        {
+            AssertDecimalType(DecimalWidgetType.Decimal);
+            value = System.Math.Min(System.Math.Max(value, minDecimalValue), maxDecimalValue);
+            if (value == decimalValue)
+                return false;
+            decimalValue = value;
+            if (ActualWidget != null)
+                ActualWidget.UpdateInputField(value.ToString());
+            return true;
         }
 
         public decimal MinDecimalValue
@@ -204,13 +240,6 @@ namespace JanSharp
                 + $"DecimalFieldWidget as {decimalTypeNames[(int)expectedType]}. Mismatching data types "
                 + $"on the same widget like this is going to result in unexpected values displayed vs read, "
                 + $"since the widget data stores different data types in different variables.");
-        }
-
-        private void SetText(string text)
-        {
-            if (ActualWidget != null)
-                ActualWidget.UpdateInputField(text);
-            RaiseEvent();
         }
 
         public void SetValueFromString(string value)

@@ -77,20 +77,30 @@ namespace JanSharp
             get => value;
             set
             {
-                if (step != 0)
-                    value = Mathf.Round(value / step) * step;
-                if (enforceMinMax)
-                    value = Mathf.Clamp(value, minValue, maxValue);
-                if (value == this.value)
-                    return;
-                this.value = value;
-                if (ActualWidget != null)
-                {
-                    ActualWidget.UpdateSlider();
-                    ActualWidget.UpdateInputField();
-                }
-                RaiseEvent();
+                if (SetValueWithoutNotify(value))
+                    RaiseEvent();
             }
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns><see langword="true"/> if the value changed.</returns>
+        public bool SetValueWithoutNotify(float value)
+        {
+            if (step != 0)
+                value = Mathf.Round(value / step) * step;
+            if (enforceMinMax)
+                value = Mathf.Clamp(value, minValue, maxValue);
+            if (value == this.value)
+                return false;
+            this.value = value;
+            if (ActualWidget != null)
+            {
+                ActualWidget.UpdateSlider();
+                ActualWidget.UpdateInputField();
+            }
+            return true;
         }
 
         /// <summary>

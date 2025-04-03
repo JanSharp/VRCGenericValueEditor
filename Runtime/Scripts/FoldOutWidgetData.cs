@@ -17,13 +17,23 @@ namespace JanSharp
             get => foldedOut;
             set
             {
-                if (value == foldedOut)
-                    return;
-                foldedOut = value;
-                if (ActualWidget != null)
-                    ActualWidget.UpdateFoldOut();
-                RaiseEvent();
+                if (SetFoldedOutWithoutNotify(value))
+                    RaiseEvent();
             }
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns><see langword="true"/> if the value changed.</returns>
+        public bool SetFoldedOutWithoutNotify(bool value)
+        {
+            if (value == foldedOut)
+                return false;
+            foldedOut = value;
+            if (ActualWidget != null)
+                ActualWidget.UpdateFoldOut();
+            return true;
         }
 
         public FoldOutWidgetData WannaBeConstructor(string label, bool foldedOut)

@@ -17,13 +17,23 @@ namespace JanSharp
             get => value;
             set
             {
-                if (value == this.value)
-                    return;
-                this.value = value;
-                if (ActualWidget != null)
-                    ActualWidget.UpdateInputFields();
-                RaiseEvent();
+                if (SetValueWithoutNotify(value))
+                    RaiseEvent();
             }
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns><see langword="true"/> if the value changed.</returns>
+        public bool SetValueWithoutNotify(Vector2 value)
+        {
+            if (value == this.value)
+                return false;
+            this.value = value;
+            if (ActualWidget != null)
+                ActualWidget.UpdateInputFields();
+            return true;
         }
 
         public float X
@@ -37,6 +47,17 @@ namespace JanSharp
             }
         }
 
+        /// <summary>
+        /// </summary>
+        /// <param name="x"></param>
+        /// <returns><see langword="true"/> if the value changed.</returns>
+        public bool SetXWithoutNotify(float x)
+        {
+            Vector3 newValue = value;
+            newValue.x = x;
+            return SetValueWithoutNotify(newValue);
+        }
+
         public float Y
         {
             get => value.y;
@@ -46,6 +67,17 @@ namespace JanSharp
                 newValue.y = value;
                 Value = newValue;
             }
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <param name="y"></param>
+        /// <returns><see langword="true"/> if the value changed.</returns>
+        public bool SetYWithoutNotify(float y)
+        {
+            Vector3 newValue = value;
+            newValue.y = y;
+            return SetValueWithoutNotify(newValue);
         }
 
         public Vector2FieldWidgetData WannaBeConstructor(string label, Vector2 value)

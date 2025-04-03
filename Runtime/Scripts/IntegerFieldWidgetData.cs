@@ -54,13 +54,25 @@ namespace JanSharp
             }
             set
             {
-                AssertIntegerType(IntegerWidgetType.Int);
-                value = System.Math.Min(System.Math.Max(value, minIntValue), maxIntValue);
-                if (value == intValue)
-                    return;
-                intValue = value;
-                SetText(value.ToString());
+                if (SetIntValueWithoutNotify(value))
+                    RaiseEvent();
             }
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns><see langword="true"/> if the value changed.</returns>
+        public bool SetIntValueWithoutNotify(int value)
+        {
+            AssertIntegerType(IntegerWidgetType.Int);
+            value = System.Math.Min(System.Math.Max(value, minIntValue), maxIntValue);
+            if (value == intValue)
+                return false;
+            intValue = value;
+            if (ActualWidget != null)
+                ActualWidget.UpdateInputField(value.ToString());
+            return true;
         }
 
         public int MinIntValue
@@ -106,13 +118,25 @@ namespace JanSharp
             }
             set
             {
-                AssertIntegerType(IntegerWidgetType.UInt);
-                value = System.Math.Min(System.Math.Max(value, minUIntValue), maxUIntValue);
-                if (value == uintValue)
-                    return;
-                uintValue = value;
-                SetText(value.ToString());
+                if (SetUIntValueWithoutNotify(value))
+                    RaiseEvent();
             }
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns><see langword="true"/> if the value changed.</returns>
+        public bool SetUIntValueWithoutNotify(uint value)
+        {
+            AssertIntegerType(IntegerWidgetType.UInt);
+            value = System.Math.Min(System.Math.Max(value, minUIntValue), maxUIntValue);
+            if (value == uintValue)
+                return false;
+            uintValue = value;
+            if (ActualWidget != null)
+                ActualWidget.UpdateInputField(value.ToString());
+            return true;
         }
 
         public uint MinUIntValue
@@ -158,13 +182,25 @@ namespace JanSharp
             }
             set
             {
-                AssertIntegerType(IntegerWidgetType.Long);
-                value = System.Math.Min(System.Math.Max(value, minLongValue), maxLongValue);
-                if (value == longValue)
-                    return;
-                longValue = value;
-                SetText(value.ToString());
+                if (SetLongValueWithoutNotify(value))
+                    RaiseEvent();
             }
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns><see langword="true"/> if the value changed.</returns>
+        public bool SetLongValueWithoutNotify(long value)
+        {
+            AssertIntegerType(IntegerWidgetType.Long);
+            value = System.Math.Min(System.Math.Max(value, minLongValue), maxLongValue);
+            if (value == longValue)
+                return false;
+            longValue = value;
+            if (ActualWidget != null)
+                ActualWidget.UpdateInputField(value.ToString());
+            return true;
         }
 
         public long MinLongValue
@@ -210,13 +246,25 @@ namespace JanSharp
             }
             set
             {
-                AssertIntegerType(IntegerWidgetType.ULong);
-                value = System.Math.Min(System.Math.Max(value, minULongValue), maxULongValue);
-                if (value == ulongValue)
-                    return;
-                ulongValue = value;
-                SetText(value.ToString());
+                if (SetULongValueWithoutNotify(value))
+                    RaiseEvent();
             }
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns><see langword="true"/> if the value changed.</returns>
+        public bool SetULongValueWithoutNotify(ulong value)
+        {
+            AssertIntegerType(IntegerWidgetType.ULong);
+            value = System.Math.Min(System.Math.Max(value, minULongValue), maxULongValue);
+            if (value == ulongValue)
+                return false;
+            ulongValue = value;
+            if (ActualWidget != null)
+                ActualWidget.UpdateInputField(value.ToString());
+            return true;
         }
 
         public ulong MinULongValue
@@ -261,13 +309,6 @@ namespace JanSharp
                 + $"IntegerFieldWidget as {integerTypeNames[(int)expectedType]}. Mismatching data types "
                 + $"on the same widget like this is going to result in unexpected values displayed vs read, "
                 + $"since the widget data stores different data types in different variables.");
-        }
-
-        private void SetText(string text)
-        {
-            if (ActualWidget != null)
-                ActualWidget.UpdateInputField(text);
-            RaiseEvent();
         }
 
         public void SetValueFromString(string value)
