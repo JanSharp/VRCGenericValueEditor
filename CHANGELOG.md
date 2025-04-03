@@ -1,6 +1,17 @@
 
 # Changelog
 
+## [1.0.1] - 2025-04-03
+
+### Added
+
+- Add set without notify functions ([`a0fbd98`](https://github.com/JanSharp/VRCGenericValueEditor/commit/a0fbd98212412e410fa1cf9db03abbdcd26e23e9))
+
+### Fixed
+
+- Add workaround for input fields not showing VRChat keyboard and popup ([`8e93ba2`](https://github.com/JanSharp/VRCGenericValueEditor/commit/8e93ba29ad1b4ce399afb59a8ace85ab11f00c3f))
+- Set WidgetManager prefab transform position to 0 0 0 ([`5b6e679`](https://github.com/JanSharp/VRCGenericValueEditor/commit/5b6e679462cc220b83af45caf0ba57e0571c39e9))
+
 ## [1.0.0] - 2025-03-22
 
 ### Added
@@ -31,4 +42,5 @@
 - Add SliderField widget ([`3190fe3`](https://github.com/JanSharp/VRCGenericValueEditor/commit/3190fe35ada4c5a700016ce2db9fc949db0d8fb7), [`e7163fb`](https://github.com/JanSharp/VRCGenericValueEditor/commit/e7163fbbd94d493816246b730c99e7750ca2cd1c), [`8322070`](https://github.com/JanSharp/VRCGenericValueEditor/commit/8322070fbcea0d4c07c1213004e3b4d960cc9494), [`87939e8`](https://github.com/JanSharp/VRCGenericValueEditor/commit/87939e8d67973f2eccfbfee475e601d8cbe050e2), [`6ffa170`](https://github.com/JanSharp/VRCGenericValueEditor/commit/6ffa1703ab079fe349efab7692168d3a09daf657), [`b4635ee`](https://github.com/JanSharp/VRCGenericValueEditor/commit/b4635ee8d4b38359fea9dd6df4d04b80d26437e8), [`a7a080f`](https://github.com/JanSharp/VRCGenericValueEditor/commit/a7a080f16c274f6239ab13ac465cb7acb66f8500), [`a4d52e3`](https://github.com/JanSharp/VRCGenericValueEditor/commit/a4d52e304e8b0c500c12621a964dd6f0a1c9afe8))
 - Add ToggleField widget ([`3190fe3`](https://github.com/JanSharp/VRCGenericValueEditor/commit/3190fe35ada4c5a700016ce2db9fc949db0d8fb7), [`e7163fb`](https://github.com/JanSharp/VRCGenericValueEditor/commit/e7163fbbd94d493816246b730c99e7750ca2cd1c))
 
+[1.0.1]: https://github.com/JanSharp/VRCGenericValueEditor/releases/tag/v1.0.1
 [1.0.0]: https://github.com/JanSharp/VRCGenericValueEditor/releases/tag/v1.0.0
