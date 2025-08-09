@@ -1,6 +1,12 @@
 
 # Changelog
 
+## [1.0.3] - 2025-08-09
+
+### Fixed
+
+- Fix sliders being completely broken due to using positive and negative infinity in 1.0.2 ([`89cd737`](https://github.com/JanSharp/VRCGenericValueEditor/commit/89cd7371ed5c4dc390abc349060c5bb2c8e2dcd4))
+
 ## [1.0.2] - 2025-08-09
 
 ### Changed
@@ -53,6 +59,7 @@
 - Add SliderField widget ([`3190fe3`](https://github.com/JanSharp/VRCGenericValueEditor/commit/3190fe35ada4c5a700016ce2db9fc949db0d8fb7), [`e7163fb`](https://github.com/JanSharp/VRCGenericValueEditor/commit/e7163fbbd94d493816246b730c99e7750ca2cd1c), [`8322070`](https://github.com/JanSharp/VRCGenericValueEditor/commit/8322070fbcea0d4c07c1213004e3b4d960cc9494), [`87939e8`](https://github.com/JanSharp/VRCGenericValueEditor/commit/87939e8d67973f2eccfbfee475e601d8cbe050e2), [`6ffa170`](https://github.com/JanSharp/VRCGenericValueEditor/commit/6ffa1703ab079fe349efab7692168d3a09daf657), [`b4635ee`](https://github.com/JanSharp/VRCGenericValueEditor/commit/b4635ee8d4b38359fea9dd6df4d04b80d26437e8), [`a7a080f`](https://github.com/JanSharp/VRCGenericValueEditor/commit/a7a080f16c274f6239ab13ac465cb7acb66f8500), [`a4d52e3`](https://github.com/JanSharp/VRCGenericValueEditor/commit/a4d52e304e8b0c500c12621a964dd6f0a1c9afe8))
 - Add ToggleField widget ([`3190fe3`](https://github.com/JanSharp/VRCGenericValueEditor/commit/3190fe35ada4c5a700016ce2db9fc949db0d8fb7), [`e7163fb`](https://github.com/JanSharp/VRCGenericValueEditor/commit/e7163fbbd94d493816246b730c99e7750ca2cd1c))
 
+[1.0.3]: https://github.com/JanSharp/VRCGenericValueEditor/releases/tag/v1.0.3
 [1.0.2]: https://github.com/JanSharp/VRCGenericValueEditor/releases/tag/v1.0.2
 [1.0.1]: https://github.com/JanSharp/VRCGenericValueEditor/releases/tag/v1.0.1
 [1.0.0]: https://github.com/JanSharp/VRCGenericValueEditor/releases/tag/v1.0.0
