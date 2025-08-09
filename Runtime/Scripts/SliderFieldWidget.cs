@@ -37,7 +37,6 @@ namespace JanSharp
             float step = Data.Step;
             hasStep = step != 0f;
             slider.wholeNumbers = hasStep;
-            UpdateSlider();
             float minValue = Data.MinValue;
             float maxValue = Data.MaxValue;
             if (hasStep)
@@ -45,8 +44,11 @@ namespace JanSharp
                 minValue = Mathf.Round(minValue / step);
                 maxValue = Mathf.Round(maxValue / step);
             }
+            UpdateSlider(); // To prevent the next 2 property setters from raising a value change event.
             slider.minValue = minValue;
             slider.maxValue = maxValue;
+            UpdateSlider(); // To fix the value after the previous 2 setters.
+            // Currently do not know why the value changes to a seemingly random new value when changing min/max.
         }
 
         public void UpdateSlider()
