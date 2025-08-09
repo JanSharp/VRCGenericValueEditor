@@ -14,6 +14,7 @@ namespace JanSharp
         public Slider slider;
         public TMP_InputField inputField;
         private bool hasStep;
+        private bool ignoreSliderValueChangedEvents = false;
 
         protected override void InitFromData()
         {
@@ -32,12 +33,7 @@ namespace JanSharp
 
         public void UpdateSliderStepping()
         {
-            // Reset in case this is a reused pooled widget.
-            // Specifically to prevent the wholeNumbers setter from potentially raising an OnValueChanged event.
-            slider.minValue = float.NegativeInfinity;
-            slider.maxValue = float.NegativeInfinity;
-            slider.SetValueWithoutNotify(0f);
-
+            ignoreSliderValueChangedEvents = true;
             float step = Data.Step;
             hasStep = step != 0f;
             slider.wholeNumbers = hasStep;
@@ -48,10 +44,10 @@ namespace JanSharp
                 minValue = Mathf.Round(minValue / step);
                 maxValue = Mathf.Round(maxValue / step);
             }
-            UpdateSlider(); // To prevent the next 2 property setters from raising an OnValueChanged event.
             slider.minValue = minValue;
             slider.maxValue = maxValue;
-            UpdateSlider(); // To fix the value after the previous 2 setters.
+            ignoreSliderValueChangedEvents = false;
+            UpdateSlider(); // Must be after setting min and max, because for some unknown reason setting
             // Currently do not know why the value changes to a seemingly random new value when changing min/max.
         }
 
@@ -81,6 +77,8 @@ namespace JanSharp
 
         public void OnSliderValueChanged()
         {
+            if (ignoreSliderValueChangedEvents)
+                return;
             // Unfortunately 'value - (value % 0.001f)' was not precise enough, it had results like 0.8200001
             // (actually 0.820000112056732177734375) even though 0.819999992847442626953125 is the more
             // accurate representation for 0.82 - not only more accurate, there's also
