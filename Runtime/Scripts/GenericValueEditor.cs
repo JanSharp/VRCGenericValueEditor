@@ -1,15 +1,12 @@
 ﻿using UdonSharp;
 using UnityEngine;
-using VRC.SDK3.Data;
-using VRC.SDKBase;
-using VRC.Udon;
 
 namespace JanSharp
 {
     [UdonBehaviourSyncMode(BehaviourSyncMode.None)]
     public class GenericValueEditor : UdonSharpBehaviour
     {
-        [HideInInspector] [SerializeField] [SingletonReference] private WidgetManager widgetManager;
+        [HideInInspector][SerializeField][SingletonReference] private WidgetManager widgetManager;
         public Transform widgetsRoot;
         private Widget[] widgets = new Widget[ArrList.MinCapacity];
         private int widgetsCount = 0;
@@ -41,9 +38,9 @@ namespace JanSharp
 
         private void PushWidgetsToIterate(Transform container, WidgetData[] widgetData, int count)
         {
-            #if GenericValueEditorDebug
+#if GenericValueEditorDebug
             Debug.Log($"[GenericValueEditorDebug] GenericValueEditor  PushWidgetsToIterate");
-            #endif
+#endif
             currentContainer = container;
             ArrList.Add(ref containerStack, ref iteratorStackDepth, container);
             iteratorStackDepth--;
@@ -88,9 +85,9 @@ namespace JanSharp
         /// <param name="count"></param>
         public void Draw(WidgetData[] widgetData, int count = -1)
         {
-            #if GenericValueEditorDebug
+#if GenericValueEditorDebug
             Debug.Log($"[GenericValueEditorDebug] GenericValueEditor  Draw");
-            #endif
+#endif
             widgetManager.MoveObjectsToPool(widgets, widgetsCount);
             ArrList.Clear(ref widgets, ref widgetsCount);
 

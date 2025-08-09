@@ -1,9 +1,5 @@
-﻿using TMPro;
-using UdonSharp;
-using UnityEngine;
+﻿using UdonSharp;
 using UnityEngine.UI;
-using VRC.SDKBase;
-using VRC.Udon;
 
 namespace JanSharp
 {

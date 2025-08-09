@@ -1,14 +1,12 @@
 ﻿using UdonSharp;
 using UnityEngine;
-using VRC.SDKBase;
-using VRC.Udon;
 
 namespace JanSharp
 {
     [UdonBehaviourSyncMode(BehaviourSyncMode.None)]
     public class TestGenericValueEditor : UdonSharpBehaviour
     {
-        [HideInInspector] [SerializeField] [SingletonReference] private WidgetManager widgetManager;
+        [HideInInspector][SerializeField][SingletonReference] private WidgetManager widgetManager;
         public GenericValueEditor valueEditor;
 
         private void Start()
