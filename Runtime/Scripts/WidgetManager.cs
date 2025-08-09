@@ -185,6 +185,14 @@ namespace JanSharp
 
         public void InternalCleanupLoop()
         {
+            // TODO: This is an incomplete implementation and is currently completely unused.
+            // Issues:
+            // - countToDelete is bad, if there's a ton of widgets it would delete many in one frame,
+            // causing potential lag spikes
+            // - there is no stop condition for this cleanup loop
+            // - the goal should be that pooled widgets get deleted after about 5 minutes of being alive,
+            // while also ensuring that the deletion logic doesn't cause lag itself. This implementation
+            // simply does not achieve this goal
             nextCleanupLoopPoolIndex = nextCleanupLoopPoolIndex % allWidgetPoolsCount;
             DataList pool = allWidgetPools[nextCleanupLoopPoolIndex];
             int countToDelete = 1 + pooledWidgetsCount / 10;
