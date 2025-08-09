@@ -1,6 +1,17 @@
 
 # Changelog
 
+## [1.0.2] - 2025-08-09
+
+### Changed
+
+- Rename define to GENERIC_VALUE_EDITOR_DEBUG ([`61f720e`](https://github.com/JanSharp/VRCGenericValueEditor/commit/61f720ec66a2001b0ba5ae6236b835703fa529e6))
+
+### Fixed
+
+- Fix visual slider position when creating them ([`f2d26d7`](https://github.com/JanSharp/VRCGenericValueEditor/commit/f2d26d7768c10806335721431fbd4392cfbefe96))
+- Prevent reused/pooled slider widgets from unintentionally changing value upon drawing ([`d996a08`](https://github.com/JanSharp/VRCGenericValueEditor/commit/d996a080a7c6fa33febc3f9d164fcd78b3471500))
+
 ## [1.0.1] - 2025-04-03
 
 ### Added
@@ -42,5 +53,6 @@
 - Add SliderField widget ([`3190fe3`](https://github.com/JanSharp/VRCGenericValueEditor/commit/3190fe35ada4c5a700016ce2db9fc949db0d8fb7), [`e7163fb`](https://github.com/JanSharp/VRCGenericValueEditor/commit/e7163fbbd94d493816246b730c99e7750ca2cd1c), [`8322070`](https://github.com/JanSharp/VRCGenericValueEditor/commit/8322070fbcea0d4c07c1213004e3b4d960cc9494), [`87939e8`](https://github.com/JanSharp/VRCGenericValueEditor/commit/87939e8d67973f2eccfbfee475e601d8cbe050e2), [`6ffa170`](https://github.com/JanSharp/VRCGenericValueEditor/commit/6ffa1703ab079fe349efab7692168d3a09daf657), [`b4635ee`](https://github.com/JanSharp/VRCGenericValueEditor/commit/b4635ee8d4b38359fea9dd6df4d04b80d26437e8), [`a7a080f`](https://github.com/JanSharp/VRCGenericValueEditor/commit/a7a080f16c274f6239ab13ac465cb7acb66f8500), [`a4d52e3`](https://github.com/JanSharp/VRCGenericValueEditor/commit/a4d52e304e8b0c500c12621a964dd6f0a1c9afe8))
 - Add ToggleField widget ([`3190fe3`](https://github.com/JanSharp/VRCGenericValueEditor/commit/3190fe35ada4c5a700016ce2db9fc949db0d8fb7), [`e7163fb`](https://github.com/JanSharp/VRCGenericValueEditor/commit/e7163fbbd94d493816246b730c99e7750ca2cd1c))
 
+[1.0.2]: https://github.com/JanSharp/VRCGenericValueEditor/releases/tag/v1.0.2
 [1.0.1]: https://github.com/JanSharp/VRCGenericValueEditor/releases/tag/v1.0.1
 [1.0.0]: https://github.com/JanSharp/VRCGenericValueEditor/releases/tag/v1.0.0
