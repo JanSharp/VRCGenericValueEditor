@@ -32,6 +32,12 @@ namespace JanSharp
 
         public void UpdateSliderStepping()
         {
+            // Reset in case this is a reused pooled widget.
+            // Specifically to prevent the wholeNumbers setter from potentially raising an OnValueChanged event.
+            slider.minValue = float.NegativeInfinity;
+            slider.maxValue = float.NegativeInfinity;
+            slider.SetValueWithoutNotify(0f);
+
             float step = Data.Step;
             hasStep = step != 0f;
             slider.wholeNumbers = hasStep;
@@ -42,7 +48,7 @@ namespace JanSharp
                 minValue = Mathf.Round(minValue / step);
                 maxValue = Mathf.Round(maxValue / step);
             }
-            UpdateSlider(); // To prevent the next 2 property setters from raising a value change event.
+            UpdateSlider(); // To prevent the next 2 property setters from raising an OnValueChanged event.
             slider.minValue = minValue;
             slider.maxValue = maxValue;
             UpdateSlider(); // To fix the value after the previous 2 setters.
