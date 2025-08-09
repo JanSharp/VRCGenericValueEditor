@@ -38,7 +38,7 @@ namespace JanSharp
 
         private void PushWidgetsToIterate(Transform container, WidgetData[] widgetData, int count)
         {
-#if GenericValueEditorDebug
+#if GENERIC_VALUE_EDITOR_DEBUG
             Debug.Log($"[GenericValueEditorDebug] GenericValueEditor  PushWidgetsToIterate");
 #endif
             currentContainer = container;
@@ -85,7 +85,7 @@ namespace JanSharp
         /// <param name="count"></param>
         public void Draw(WidgetData[] widgetData, int count = -1)
         {
-#if GenericValueEditorDebug
+#if GENERIC_VALUE_EDITOR_DEBUG
             Debug.Log($"[GenericValueEditorDebug] GenericValueEditor  Draw");
 #endif
             widgetManager.MoveObjectsToPool(widgets, widgetsCount);

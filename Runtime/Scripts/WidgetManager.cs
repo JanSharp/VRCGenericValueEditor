@@ -46,7 +46,7 @@ namespace JanSharp
         {
             if (initialized)
                 return;
-#if GenericValueEditorDebug
+#if GENERIC_VALUE_EDITOR_DEBUG
             Debug.Log($"[GenericValueEditorDebug] WidgetManager  Initialize");
 #endif
             initialized = true;
@@ -110,7 +110,7 @@ namespace JanSharp
         /// <param name="widgetPrefab"></param>
         public void RegisterCustomWidget(string widgetName, GameObject widgetPrefab)
         {
-#if GenericValueEditorDebug
+#if GENERIC_VALUE_EDITOR_DEBUG
             Debug.Log($"[GenericValueEditorDebug] WidgetManager  RegisterCustomWidget - widgetName: {widgetName}");
 #endif
             Initialize();
@@ -143,12 +143,12 @@ namespace JanSharp
                 pool.RemoveAt(index);
                 return widget;
             }
-#if GenericValueEditorDebug
+#if GENERIC_VALUE_EDITOR_DEBUG
             System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
             sw.Start();
 #endif
             GameObject go = Instantiate(GetWidgetPrefab(widgetName));
-#if GenericValueEditorDebug
+#if GENERIC_VALUE_EDITOR_DEBUG
             Debug.Log($"[GenericValueEditorDebug] [sw] WidgetManager  GetWidgetInstance - instantiateMs: {sw.Elapsed.Milliseconds}");
 #endif
             return go.GetComponent<Widget>();
@@ -206,7 +206,7 @@ namespace JanSharp
         /// <returns>Simply a reference to <paramref name="widgetData"/>.</returns>
         public WidgetData[] StdMoveWidgets(WidgetData[] widgetData, int count = -1)
         {
-#if GenericValueEditorDebug
+#if GENERIC_VALUE_EDITOR_DEBUG
             Debug.Log($"[GenericValueEditorDebug] GenericValueEditor  StdMoveWidgetData");
 #endif
             if (count < 0)
