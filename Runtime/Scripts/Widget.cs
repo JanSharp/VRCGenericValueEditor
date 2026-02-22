@@ -29,7 +29,10 @@ namespace JanSharp
                 if (value == backingWidgetData)
                     return;
                 if (backingWidgetData != null)
+                {
+                    backingWidgetData.widget = null; // Prevent potential errors if the widget data gets reused.
                     backingWidgetData.DecrementRefsCount();
+                }
                 backingWidgetData = value;
                 if (value != null)
                 {
