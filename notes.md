@@ -17,3 +17,4 @@ Think about IMGUI. Then think about Udon. Become sad.
 - [x] set value without notify on everything that has a value and raises events on value change
 - [x] ~~input fields do not open the VRChat input field~~ Go up vote https://feedback.vrchat.com/bug-reports/p/instantiated-input-fields-dont-open-the-vrc-keyboard
   - [x] try having the "prefab" referenced by the manager actually be an instance of the prefab in the scene
+- [ ] add "left toggle", where the checkbox is all the way on the left and the label to the right of it
