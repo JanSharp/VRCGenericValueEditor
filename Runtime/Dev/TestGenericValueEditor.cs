@@ -26,6 +26,8 @@ namespace JanSharp
                 widgetManager.NewSliderField("Slider field", 0f, 0f, 1f),
                 widgetManager.NewStringField("String Field", ""),
                 widgetManager.NewToggleField("Toggle Field", false),
+                widgetManager.NewToggleField("Left Toggle Field", false, isLeftToggle: true),
+                widgetManager.NewLeftToggleField("Another Left Toggle Field", false),
                 widgetManager.NewVector2Field("Vector2 Field", Vector2.zero),
                 widgetManager.NewVector3Field("Vector3 Field", Vector3.zero),
                 widgetManager.NewLabel("Hello World!"),

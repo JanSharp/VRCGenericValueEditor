@@ -71,6 +71,8 @@ MonoBehaviour:
   integerFieldWidgetPrefab: {fileID: 1180237342996898406}
   labelWidgetPrefab: {fileID: 5511203837243142918, guid: c4859a881eb212ff1bd7b83a157dad08,
     type: 3}
+  leftToggleFieldWidgetPrefab: {fileID: 385185925303300056, guid: 25258702bccfa55ee98609688ed835bc,
+    type: 3}
   lineWidgetPrefab: {fileID: 526299682521089694, guid: 16f3e4d028ae46460a7f54a8c834af0c,
     type: 3}
   multilineStringFieldWidgetPrefab: {fileID: 5950675826035962477}

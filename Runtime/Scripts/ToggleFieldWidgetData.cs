@@ -8,6 +8,8 @@ namespace JanSharp
         public override string WidgetName => "ToggleField";
         public ToggleFieldWidget ActualWidget => (ToggleFieldWidget)widget;
 
+        public virtual bool IsLeftToggle => false;
+
         private bool value;
         public bool Value
         {

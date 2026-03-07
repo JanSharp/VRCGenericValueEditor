@@ -9,6 +9,8 @@ namespace JanSharp
         public override string WidgetName => "ToggleField";
         public ToggleFieldWidgetData Data => (ToggleFieldWidgetData)BackingWidgetData;
 
+        public virtual bool IsLeftToggle => false;
+
         public Toggle toggle;
 
         protected override void InitFromData()

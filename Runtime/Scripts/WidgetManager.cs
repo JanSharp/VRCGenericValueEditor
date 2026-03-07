@@ -17,6 +17,7 @@ namespace JanSharp
         [SerializeField] private GameObject indentWidgetPrefab;
         [SerializeField] private GameObject integerFieldWidgetPrefab;
         [SerializeField] private GameObject labelWidgetPrefab;
+        [SerializeField] private GameObject leftToggleFieldWidgetPrefab;
         [SerializeField] private GameObject lineWidgetPrefab;
         [SerializeField] private GameObject multilineStringFieldWidgetPrefab;
         [SerializeField] private GameObject sliderFieldWidgetPrefab;
@@ -59,6 +60,7 @@ namespace JanSharp
             widgetPrefabsByName.Add("Indent", indentWidgetPrefab);
             widgetPrefabsByName.Add("IntegerField", integerFieldWidgetPrefab);
             widgetPrefabsByName.Add("Label", labelWidgetPrefab);
+            widgetPrefabsByName.Add("LeftToggleField", leftToggleFieldWidgetPrefab);
             widgetPrefabsByName.Add("Line", lineWidgetPrefab);
             widgetPrefabsByName.Add("MultilineStringField", multilineStringFieldWidgetPrefab);
             widgetPrefabsByName.Add("SliderField", sliderFieldWidgetPrefab);
@@ -82,6 +84,7 @@ namespace JanSharp
             widgetPools.Add("Indent", allWidgetPools[j++]);
             widgetPools.Add("IntegerField", allWidgetPools[j++]);
             widgetPools.Add("Label", allWidgetPools[j++]);
+            widgetPools.Add("LeftToggleField", allWidgetPools[j++]);
             widgetPools.Add("Line", allWidgetPools[j++]);
             widgetPools.Add("MultilineStringField", allWidgetPools[j++]);
             widgetPools.Add("SliderField", allWidgetPools[j++]);
@@ -299,6 +302,12 @@ namespace JanSharp
                 .WannaBeConstructor(label);
         }
 
+        public ToggleFieldWidgetData NewLeftToggleField(string label, bool value)
+        {
+            return wannaBeClasses.New<LeftToggleFieldWidgetData>(nameof(LeftToggleFieldWidgetData))
+                .WannaBeConstructor(label, value);
+        }
+
         public LineWidgetData NewLine()
         {
             return wannaBeClasses.New<LineWidgetData>(nameof(LineWidgetData));
@@ -328,10 +337,13 @@ namespace JanSharp
                 .WannaBeConstructor(label, value);
         }
 
-        public ToggleFieldWidgetData NewToggleField(string label, bool value)
+        public ToggleFieldWidgetData NewToggleField(string label, bool value, bool isLeftToggle = false)
         {
-            return wannaBeClasses.New<ToggleFieldWidgetData>(nameof(ToggleFieldWidgetData))
-                .WannaBeConstructor(label, value);
+            return isLeftToggle
+                ? wannaBeClasses.New<LeftToggleFieldWidgetData>(nameof(LeftToggleFieldWidgetData))
+                    .WannaBeConstructor(label, value)
+                : wannaBeClasses.New<ToggleFieldWidgetData>(nameof(ToggleFieldWidgetData))
+                    .WannaBeConstructor(label, value);
         }
 
         public Vector2FieldWidgetData NewVector2Field(string label, Vector2 value)
