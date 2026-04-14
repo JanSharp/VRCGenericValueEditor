@@ -33,6 +33,13 @@ namespace JanSharp
             return true;
         }
 
+        public override bool WannaBeClassSupportsPooling => true;
+        public override void ResetWannaBeClassToDefault()
+        {
+            base.ResetWannaBeClassToDefault();
+            foldedOut = default;
+        }
+
         public FoldOutWidgetData WannaBeConstructor(string label, bool foldedOut)
         {
             LabeledWidgetDataConstructor(label);

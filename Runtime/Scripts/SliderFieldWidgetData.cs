@@ -112,6 +112,17 @@ namespace JanSharp
             return this;
         }
 
+        public override bool WannaBeClassSupportsPooling => true;
+        public override void ResetWannaBeClassToDefault()
+        {
+            base.ResetWannaBeClassToDefault();
+            minValue = default;
+            maxValue = default;
+            enforceMinMax = default;
+            step = default;
+            value = default;
+        }
+
         public SliderFieldWidgetData WannaBeConstructor(string label, float value, float minValue, float maxValue, bool enforceMinMax = true)
         {
             LabeledWidgetDataConstructor(label);

@@ -7,5 +7,8 @@ namespace JanSharp
     {
         public override string WidgetName => "Line";
         public LineWidget ActualWidget => (LineWidget)widget;
+
+        public override bool WannaBeClassSupportsPooling => true;
+        // public override void ResetWannaBeClassToDefault() => base.ResetWannaBeClassToDefault(); // Redundant.
     }
 }

@@ -21,6 +21,13 @@ namespace JanSharp
             }
         }
 
+        // public override bool WannaBeClassSupportsPooling => true; // Up to the deriving class.
+        public override void ResetWannaBeClassToDefault()
+        {
+            base.ResetWannaBeClassToDefault();
+            label = default;
+        }
+
         protected void LabeledWidgetDataConstructor(string label)
         {
             this.label = label;

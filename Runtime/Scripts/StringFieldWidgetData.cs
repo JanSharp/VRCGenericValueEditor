@@ -35,6 +35,13 @@ namespace JanSharp
             return true;
         }
 
+        public override bool WannaBeClassSupportsPooling => true;
+        public override void ResetWannaBeClassToDefault()
+        {
+            base.ResetWannaBeClassToDefault();
+            value = default;
+        }
+
         public StringFieldWidgetData WannaBeConstructor(string label, string value)
         {
             LabeledWidgetDataConstructor(label);

@@ -38,6 +38,22 @@ namespace JanSharp
         private decimal minDecimalValue;
         private decimal maxDecimalValue;
 
+        public override bool WannaBeClassSupportsPooling => true;
+        public override void ResetWannaBeClassToDefault()
+        {
+            base.ResetWannaBeClassToDefault();
+            decimalType = DecimalWidgetType.Invalid;
+            floatValue = default;
+            minFloatValue = default;
+            maxFloatValue = default;
+            doubleValue = default;
+            minDoubleValue = default;
+            maxDoubleValue = default;
+            decimalValue = default;
+            minDecimalValue = default;
+            maxDecimalValue = default;
+        }
+
         public float FloatValue
         {
             get

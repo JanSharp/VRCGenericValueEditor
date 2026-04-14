@@ -43,6 +43,25 @@ namespace JanSharp
         private ulong minULongValue;
         private ulong maxULongValue;
 
+        public override bool WannaBeClassSupportsPooling => true;
+        public override void ResetWannaBeClassToDefault()
+        {
+            base.ResetWannaBeClassToDefault();
+            integerType = IntegerWidgetType.Invalid;
+            intValue = default;
+            minIntValue = default;
+            maxIntValue = default;
+            uintValue = default;
+            minUIntValue = default;
+            maxUIntValue = default;
+            longValue = default;
+            minLongValue = default;
+            maxLongValue = default;
+            ulongValue = default;
+            minULongValue = default;
+            maxULongValue = default;
+        }
+
         public int IntValue
         {
             get

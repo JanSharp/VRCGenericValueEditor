@@ -100,6 +100,13 @@ namespace JanSharp
             return SetValueWithoutNotify(newValue);
         }
 
+        public override bool WannaBeClassSupportsPooling => true;
+        public override void ResetWannaBeClassToDefault()
+        {
+            base.ResetWannaBeClassToDefault();
+            value = default;
+        }
+
         public Vector3FieldWidgetData WannaBeConstructor(string label, Vector3 value)
         {
             LabeledWidgetDataConstructor(label);

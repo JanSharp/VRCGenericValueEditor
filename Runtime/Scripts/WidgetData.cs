@@ -82,6 +82,23 @@ namespace JanSharp
             }
         }
 
+        // public override bool WannaBeClassSupportsPooling => true; // Up to the deriving class.
+        public override void ResetWannaBeClassToDefault()
+        {
+            widget = default;
+            genericValueEditor = default;
+            listener = default;
+            listenerEventName = default;
+            customDataFieldName = default;
+            customData = default;
+            childWidgets = new WidgetData[WannaBeArrList.MinCapacity];
+            childWidgetsCount = 0;
+            preventRecursion = false;
+            waitingForRaiseEvent = false;
+            isVisible = true;
+            interactable = true;
+        }
+
         public override void WannaBeDestructor()
         {
             ClearChildren();
