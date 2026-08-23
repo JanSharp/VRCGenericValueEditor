@@ -1,6 +1,21 @@
 
 # Changelog
 
+## [1.0.4] - 2026-08-23
+
+### Changed
+
+- Update `com.jansharp.common` dependency to 1.4.0 ([`7cef149`](https://github.com/JanSharp/VRCGenericValueEditor/commit/7cef14998bf73e2342b8ae984b07afe47f4e5e63))
+- Impl support for new pooling of `WannaBeClass`es ([`6ca9deb`](https://github.com/JanSharp/VRCGenericValueEditor/commit/6ca9deb4bc3f72696fd1b33331a553be67dc5a8b))
+
+### Added
+
+- Add left toggle, a toggle field with the checkbox on the left and the label/entire row being clickable ([`edd569e`](https://github.com/JanSharp/VRCGenericValueEditor/commit/edd569e841c1ab459adadbae3764e7184b6dca0b))
+
+### Fixed
+
+- Fix potential errors when reusing widget data ([`2099a42`](https://github.com/JanSharp/VRCGenericValueEditor/commit/2099a42751c696060a3e0e6944d49a813cbd3e9c))
+
 ## [1.0.3] - 2025-08-09
 
 ### Fixed
@@ -59,6 +74,7 @@
 - Add SliderField widget ([`3190fe3`](https://github.com/JanSharp/VRCGenericValueEditor/commit/3190fe35ada4c5a700016ce2db9fc949db0d8fb7), [`e7163fb`](https://github.com/JanSharp/VRCGenericValueEditor/commit/e7163fbbd94d493816246b730c99e7750ca2cd1c), [`8322070`](https://github.com/JanSharp/VRCGenericValueEditor/commit/8322070fbcea0d4c07c1213004e3b4d960cc9494), [`87939e8`](https://github.com/JanSharp/VRCGenericValueEditor/commit/87939e8d67973f2eccfbfee475e601d8cbe050e2), [`6ffa170`](https://github.com/JanSharp/VRCGenericValueEditor/commit/6ffa1703ab079fe349efab7692168d3a09daf657), [`b4635ee`](https://github.com/JanSharp/VRCGenericValueEditor/commit/b4635ee8d4b38359fea9dd6df4d04b80d26437e8), [`a7a080f`](https://github.com/JanSharp/VRCGenericValueEditor/commit/a7a080f16c274f6239ab13ac465cb7acb66f8500), [`a4d52e3`](https://github.com/JanSharp/VRCGenericValueEditor/commit/a4d52e304e8b0c500c12621a964dd6f0a1c9afe8))
 - Add ToggleField widget ([`3190fe3`](https://github.com/JanSharp/VRCGenericValueEditor/commit/3190fe35ada4c5a700016ce2db9fc949db0d8fb7), [`e7163fb`](https://github.com/JanSharp/VRCGenericValueEditor/commit/e7163fbbd94d493816246b730c99e7750ca2cd1c))
 
+[1.0.4]: https://github.com/JanSharp/VRCGenericValueEditor/releases/tag/v1.0.4
 [1.0.3]: https://github.com/JanSharp/VRCGenericValueEditor/releases/tag/v1.0.3
 [1.0.2]: https://github.com/JanSharp/VRCGenericValueEditor/releases/tag/v1.0.2
 [1.0.1]: https://github.com/JanSharp/VRCGenericValueEditor/releases/tag/v1.0.1
