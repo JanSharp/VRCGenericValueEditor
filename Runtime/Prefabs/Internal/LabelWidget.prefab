@@ -159,6 +159,7 @@ MonoBehaviour:
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 597007128593796347}
   containerWidgetsRoot: {fileID: 0}
+  InteractableCanvasGroup: {fileID: 0}
   label: {fileID: 6301395215963918882}
 --- !u!114 &597007128593796347
 MonoBehaviour:

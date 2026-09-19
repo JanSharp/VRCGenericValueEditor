@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: 35630e38b4e5ffb40b44ec5348b4333f, type: 2}
   m_Color: {r: 0.504, g: 0.504, b: 0.504, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -168,41 +168,8 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 8377345033412379564}
-  wannaBeClasses: {fileID: 0}
+  widgetManager: {fileID: 0}
   widgetsRoot: {fileID: 7174205594031353377}
-  boxWidgetPrefab: {fileID: 4746048533275003449, guid: fc85ec2adb18006b68aa9cc9011f83fe,
-    type: 3}
-  buttonWidgetPrefab: {fileID: 6180328593967467976, guid: a9271ffd3807bc39d8526e460b3a73a1,
-    type: 3}
-  decimalFieldWidgetPrefab: {fileID: 3060553831817875626, guid: bc34cb51bdd683dcdafef67e63f7cec0,
-    type: 3}
-  foldOutWidgetPrefab: {fileID: 8401109466896166462, guid: fb11bdaa4c855a4279d103027014f983,
-    type: 3}
-  groupingWidgetPrefab: {fileID: 8111467951281651599, guid: b551a51ed785aadf8a44c69fa98488eb,
-    type: 3}
-  indentWidgetPrefab: {fileID: 7730269699152747894, guid: f157b9d4948e73962833eec3eb02ede3,
-    type: 3}
-  integerFieldWidgetPrefab: {fileID: 1589331122007408812, guid: 319acd8e360ce35d994fa06af1971451,
-    type: 3}
-  labelWidgetPrefab: {fileID: 5511203837243142918, guid: c4859a881eb212ff1bd7b83a157dad08,
-    type: 3}
-  lineWidgetPrefab: {fileID: 526299682521089694, guid: 16f3e4d028ae46460a7f54a8c834af0c,
-    type: 3}
-  multilineStringFieldWidgetPrefab: {fileID: 1911104068574340042, guid: 6a0cd5b8539196ba9bab7e9fdd064975,
-    type: 3}
-  sliderFieldWidgetPrefab: {fileID: 6736198315849927313, guid: 76635e10e76c019fa935b06127d6a91a,
-    type: 3}
-  spaceWidgetPrefab: {fileID: 7763232004588554939, guid: 1ff29ac66e29bd46a8f4cdc5e3d8d540,
-    type: 3}
-  stringFieldWidgetPrefab: {fileID: 2694536238198396353, guid: 833279ab66d90ad4e999c2fa5d672b34,
-    type: 3}
-  toggleFieldWidgetPrefab: {fileID: 1251850030158033793, guid: 411b8e2947d8fb39394c9751ec8db575,
-    type: 3}
-  vector2FieldWidgetPrefab: {fileID: 5285838614482955472, guid: 9cf0e0802b5e350b48a13b24626a1866,
-    type: 3}
-  vector3FieldWidgetPrefab: {fileID: 2756891032176785183, guid: ffc76e6e7da4c2ef0ab53f16f9e5a350,
-    type: 3}
-  sendingWidgetData: {fileID: 0}
 --- !u!114 &8377345033412379564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287,7 +254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: 35630e38b4e5ffb40b44ec5348b4333f, type: 2}
   m_Color: {r: 0.504, g: 0.504, b: 0.504, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -348,8 +315,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8560956782948476151}
   m_HandleRect: {fileID: 4226731199518581610}
   m_Direction: 2
-  m_Value: 0
-  m_Size: 1
+  m_Value: 0.99999887
+  m_Size: 0
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -411,7 +378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: 35630e38b4e5ffb40b44ec5348b4333f, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -488,7 +455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: 35630e38b4e5ffb40b44ec5348b4333f, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -577,7 +544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: 35630e38b4e5ffb40b44ec5348b4333f, type: 2}
   m_Color: {r: 0.496, g: 0.496, b: 0.496, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}

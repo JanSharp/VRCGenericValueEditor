@@ -81,6 +81,7 @@ MonoBehaviour:
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 4919186148507131056}
   containerWidgetsRoot: {fileID: 0}
+  InteractableCanvasGroup: {fileID: 0}
 --- !u!114 &4919186148507131056
 MonoBehaviour:
   m_ObjectHideFlags: 0

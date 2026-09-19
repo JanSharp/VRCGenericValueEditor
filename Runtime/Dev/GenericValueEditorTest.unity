@@ -164,6 +164,7 @@ MonoBehaviour:
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 7976551}
   wannaBeClasses: {fileID: 687433483}
+  internalClassIndex: 0
 --- !u!4 &7976550
 Transform:
   m_ObjectHideFlags: 0
@@ -282,6 +283,7 @@ MonoBehaviour:
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 26940252}
   wannaBeClasses: {fileID: 687433483}
+  internalClassIndex: 0
   lockstep: {fileID: 0}
   voiceRangeManager: {fileID: 0}
 --- !u!4 &26940254
@@ -365,6 +367,7 @@ MonoBehaviour:
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 62690816}
   wannaBeClasses: {fileID: 687433483}
+  internalClassIndex: 0
 --- !u!4 &62690818
 Transform:
   m_ObjectHideFlags: 0
@@ -689,7 +692,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: 35630e38b4e5ffb40b44ec5348b4333f, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -764,7 +767,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: 35630e38b4e5ffb40b44ec5348b4333f, type: 2}
   m_Color: {r: 0.5, g: 0.66753936, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -831,6 +834,7 @@ MonoBehaviour:
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 155816436}
   wannaBeClasses: {fileID: 687433483}
+  internalClassIndex: 0
 --- !u!4 &155816435
 Transform:
   m_ObjectHideFlags: 0
@@ -918,6 +922,7 @@ MonoBehaviour:
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 188860836}
   wannaBeClasses: {fileID: 687433483}
+  internalClassIndex: 0
 --- !u!4 &188860835
 Transform:
   m_ObjectHideFlags: 0
@@ -1066,6 +1071,7 @@ MonoBehaviour:
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 225899035}
   wannaBeClasses: {fileID: 687433483}
+  internalClassIndex: 0
   lockstep: {fileID: 0}
   permissionManager: {fileID: 0}
 --- !u!4 &225899037
@@ -1149,6 +1155,7 @@ MonoBehaviour:
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 225926316}
   wannaBeClasses: {fileID: 687433483}
+  internalClassIndex: 0
   lockstep: {fileID: 0}
 --- !u!4 &225926318
 Transform:
@@ -1206,6 +1213,7 @@ MonoBehaviour:
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 238683385}
   wannaBeClasses: {fileID: 687433483}
+  internalClassIndex: 0
   lockstep: {fileID: 0}
   entitySystem: {fileID: 0}
 --- !u!4 &238683384
@@ -1304,7 +1312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: 35630e38b4e5ffb40b44ec5348b4333f, type: 2}
   m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -1371,6 +1379,7 @@ MonoBehaviour:
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 304272043}
   wannaBeClasses: {fileID: 687433483}
+  internalClassIndex: 0
   lockstep: {fileID: 0}
   entitySystem: {fileID: 0}
   interpolation: {fileID: 0}
@@ -1482,6 +1491,7 @@ MonoBehaviour:
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 345081449}
   wannaBeClasses: {fileID: 687433483}
+  internalClassIndex: 0
 --- !u!4 &345081451
 Transform:
   m_ObjectHideFlags: 0
@@ -1563,6 +1573,7 @@ MonoBehaviour:
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 348718539}
   wannaBeClasses: {fileID: 687433483}
+  internalClassIndex: 0
   lockstep: {fileID: 0}
 --- !u!4 &348718541
 Transform:
@@ -1644,6 +1655,7 @@ MonoBehaviour:
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 442816621}
   wannaBeClasses: {fileID: 687433483}
+  internalClassIndex: 0
 --- !u!4 &442816620
 Transform:
   m_ObjectHideFlags: 0
@@ -1750,6 +1762,7 @@ MonoBehaviour:
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 452795065}
   wannaBeClasses: {fileID: 687433483}
+  internalClassIndex: 0
   summonManager: {fileID: 0}
 --- !u!4 &452795067
 Transform:
@@ -1832,12 +1845,13 @@ MonoBehaviour:
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 460961548}
   wannaBeClasses: {fileID: 687433483}
+  internalClassIndex: 0
   lockstep: {fileID: 0}
   playersBackendManager: {fileID: 0}
   playerDataManager: {fileID: 0}
   playersFavoritesManager: {fileID: 0}
   itemsFavoritesManager: {fileID: 0}
-  entitySystem: {fileID: 0}
+  objectsFavoritesManager: {fileID: 0}
 --- !u!4 &460961550
 Transform:
   m_ObjectHideFlags: 0
@@ -1919,6 +1933,7 @@ MonoBehaviour:
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 461157162}
   wannaBeClasses: {fileID: 687433483}
+  internalClassIndex: 0
   lockstep: {fileID: 0}
   noClipSettingsManager: {fileID: 0}
 --- !u!4 &461157164
@@ -2002,6 +2017,7 @@ MonoBehaviour:
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 461824546}
   wannaBeClasses: {fileID: 687433483}
+  internalClassIndex: 0
   lockstep: {fileID: 0}
 --- !u!4 &461824548
 Transform:
@@ -2077,6 +2093,7 @@ MonoBehaviour:
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 519967880}
   wannaBeClasses: {fileID: 687433483}
+  internalClassIndex: 0
 --- !u!4 &519967879
 Transform:
   m_ObjectHideFlags: 0
@@ -2183,6 +2200,7 @@ MonoBehaviour:
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 555771007}
   wannaBeClasses: {fileID: 687433483}
+  internalClassIndex: 0
   lockstep: {fileID: 0}
 --- !u!4 &555771009
 Transform:
@@ -2240,6 +2258,7 @@ MonoBehaviour:
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 605820647}
   wannaBeClasses: {fileID: 687433483}
+  internalClassIndex: 0
 --- !u!4 &605820646
 Transform:
   m_ObjectHideFlags: 0
@@ -2460,6 +2479,7 @@ MonoBehaviour:
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 632823784}
   wannaBeClasses: {fileID: 687433483}
+  internalClassIndex: 0
   lockstep: {fileID: 0}
 --- !u!4 &632823783
 Transform:
@@ -2567,6 +2587,7 @@ MonoBehaviour:
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 637797800}
   wannaBeClasses: {fileID: 687433483}
+  internalClassIndex: 0
 --- !u!4 &637797802
 Transform:
   m_ObjectHideFlags: 0
@@ -2653,6 +2674,7 @@ MonoBehaviour:
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 816692829}
   wannaBeClasses: {fileID: 687433483}
+  internalClassIndex: 0
 --- !u!4 &816692828
 Transform:
   m_ObjectHideFlags: 0
@@ -2759,6 +2781,7 @@ MonoBehaviour:
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 909262801}
   wannaBeClasses: {fileID: 687433483}
+  internalClassIndex: 0
   lockstep: {fileID: 0}
 --- !u!4 &909262803
 Transform:
@@ -3679,6 +3702,7 @@ MonoBehaviour:
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 973342284}
   wannaBeClasses: {fileID: 687433483}
+  internalClassIndex: 0
   lockstep: {fileID: 0}
   playerDataManager: {fileID: 0}
 --- !u!4 &973342286
@@ -3737,6 +3761,7 @@ MonoBehaviour:
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 974903145}
   wannaBeClasses: {fileID: 687433483}
+  internalClassIndex: 0
 --- !u!4 &974903144
 Transform:
   m_ObjectHideFlags: 0
@@ -3843,6 +3868,7 @@ MonoBehaviour:
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 977239161}
   wannaBeClasses: {fileID: 687433483}
+  internalClassIndex: 0
   lockstep: {fileID: 0}
 --- !u!4 &977239163
 Transform:
@@ -5812,7 +5838,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: 35630e38b4e5ffb40b44ec5348b4333f, type: 2}
   m_Color: {r: 0.5, g: 0.66753936, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -5955,7 +5981,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: 35630e38b4e5ffb40b44ec5348b4333f, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -6163,6 +6189,7 @@ MonoBehaviour:
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 1090391503}
   wannaBeClasses: {fileID: 687433483}
+  internalClassIndex: 0
 --- !u!4 &1090391502
 Transform:
   m_ObjectHideFlags: 0
@@ -6269,6 +6296,7 @@ MonoBehaviour:
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 1117880053}
   wannaBeClasses: {fileID: 687433483}
+  internalClassIndex: 0
 --- !u!4 &1117880055
 Transform:
   m_ObjectHideFlags: 0
@@ -6356,6 +6384,7 @@ MonoBehaviour:
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 1156105520}
   wannaBeClasses: {fileID: 687433483}
+  internalClassIndex: 0
   lockstep: {fileID: 0}
 --- !u!4 &1156105522
 Transform:
@@ -6547,6 +6576,7 @@ MonoBehaviour:
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 1177509355}
   wannaBeClasses: {fileID: 687433483}
+  internalClassIndex: 0
 --- !u!4 &1177509354
 Transform:
   m_ObjectHideFlags: 0
@@ -6787,6 +6817,7 @@ MonoBehaviour:
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 1195636961}
   wannaBeClasses: {fileID: 687433483}
+  internalClassIndex: 0
   lockstep: {fileID: 0}
 --- !u!4 &1195636963
 Transform:
@@ -6844,6 +6875,7 @@ MonoBehaviour:
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 1252595348}
   wannaBeClasses: {fileID: 687433483}
+  internalClassIndex: 0
   lockstep: {fileID: 0}
 --- !u!4 &1252595347
 Transform:
@@ -6926,6 +6958,7 @@ MonoBehaviour:
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 1285161933}
   wannaBeClasses: {fileID: 687433483}
+  internalClassIndex: 0
   lockstep: {fileID: 0}
   entitySystem: {fileID: 0}
 --- !u!4 &1285161932
@@ -7274,6 +7307,7 @@ MonoBehaviour:
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 1442128211}
   wannaBeClasses: {fileID: 687433483}
+  internalClassIndex: 0
   lockstep: {fileID: 0}
 --- !u!4 &1442128213
 Transform:
@@ -7337,6 +7371,7 @@ MonoBehaviour:
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 1492661240}
   wannaBeClasses: {fileID: 687433483}
+  internalClassIndex: 0
 --- !u!4 &1492661239
 Transform:
   m_ObjectHideFlags: 0
@@ -7449,6 +7484,7 @@ MonoBehaviour:
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 1499884068}
   wannaBeClasses: {fileID: 687433483}
+  internalClassIndex: 0
   lockstep: {fileID: 0}
   selectionManager: {fileID: 0}
 --- !u!4 &1499884070
@@ -7550,6 +7586,7 @@ MonoBehaviour:
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 1533049124}
   wannaBeClasses: {fileID: 687433483}
+  internalClassIndex: 0
   lockstep: {fileID: 0}
   playerDataManager: {fileID: 0}
 --- !u!4 &1533049126
@@ -7633,6 +7670,7 @@ MonoBehaviour:
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 1537543582}
   wannaBeClasses: {fileID: 687433483}
+  internalClassIndex: 0
   lockstep: {fileID: 0}
   menuSettingsManager: {fileID: 0}
 --- !u!4 &1537543584
@@ -7898,6 +7936,7 @@ MonoBehaviour:
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 1594233621}
   wannaBeClasses: {fileID: 687433483}
+  internalClassIndex: 0
   lockstep: {fileID: 0}
   entitySystem: {fileID: 0}
   gmProxiesManager: {fileID: 0}
@@ -7957,6 +7996,7 @@ MonoBehaviour:
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 1675194634}
   wannaBeClasses: {fileID: 687433483}
+  internalClassIndex: 0
 --- !u!4 &1675194633
 Transform:
   m_ObjectHideFlags: 0
@@ -8163,6 +8203,7 @@ MonoBehaviour:
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 1739306726}
   wannaBeClasses: {fileID: 687433483}
+  internalClassIndex: 0
   lockstep: {fileID: 0}
 --- !u!4 &1739306728
 Transform:
@@ -8261,7 +8302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: 35630e38b4e5ffb40b44ec5348b4333f, type: 2}
   m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -8340,6 +8381,7 @@ MonoBehaviour:
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 1802965421}
   wannaBeClasses: {fileID: 687433483}
+  internalClassIndex: 0
   manager: {fileID: 0}
 --- !u!4 &1802965420
 Transform:
@@ -8481,7 +8523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: 35630e38b4e5ffb40b44ec5348b4333f, type: 2}
   m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -8560,6 +8602,7 @@ MonoBehaviour:
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 1836920417}
   wannaBeClasses: {fileID: 687433483}
+  internalClassIndex: 0
 --- !u!4 &1836920416
 Transform:
   m_ObjectHideFlags: 0
@@ -8780,6 +8823,7 @@ MonoBehaviour:
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 1846742418}
   wannaBeClasses: {fileID: 687433483}
+  internalClassIndex: 0
 --- !u!4 &1846742417
 Transform:
   m_ObjectHideFlags: 0
@@ -8886,6 +8930,7 @@ MonoBehaviour:
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 1858330965}
   wannaBeClasses: {fileID: 687433483}
+  internalClassIndex: 0
   lockstep: {fileID: 0}
   entitySystem: {fileID: 0}
   manager: {fileID: 0}
@@ -8947,6 +8992,7 @@ MonoBehaviour:
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 1866581544}
   wannaBeClasses: {fileID: 687433483}
+  internalClassIndex: 0
 --- !u!4 &1866581543
 Transform:
   m_ObjectHideFlags: 0
@@ -9034,6 +9080,7 @@ MonoBehaviour:
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 1879123390}
   wannaBeClasses: {fileID: 687433483}
+  internalClassIndex: 0
   lockstep: {fileID: 0}
   entitySystem: {fileID: 0}
   transformController: {fileID: 0}
@@ -9156,6 +9203,7 @@ MonoBehaviour:
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 1933403456}
   wannaBeClasses: {fileID: 687433483}
+  internalClassIndex: 0
   lockstep: {fileID: 0}
   entitySystem: {fileID: 0}
 --- !u!4 &1933403458
@@ -9220,6 +9268,7 @@ MonoBehaviour:
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 1981187402}
   wannaBeClasses: {fileID: 687433483}
+  internalClassIndex: 0
 --- !u!4 &1981187401
 Transform:
   m_ObjectHideFlags: 0
@@ -9345,6 +9394,7 @@ MonoBehaviour:
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 2075971363}
   wannaBeClasses: {fileID: 687433483}
+  internalClassIndex: 0
 --- !u!4 &2075971362
 Transform:
   m_ObjectHideFlags: 0
@@ -9451,6 +9501,7 @@ MonoBehaviour:
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 2085512583}
   wannaBeClasses: {fileID: 687433483}
+  internalClassIndex: 0
   lockstep: {fileID: 0}
   customLocationManager: {fileID: 0}
 --- !u!4 &2085512585
@@ -9534,6 +9585,7 @@ MonoBehaviour:
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 2099743579}
   wannaBeClasses: {fileID: 687433483}
+  internalClassIndex: 0
 --- !u!4 &2099743581
 Transform:
   m_ObjectHideFlags: 0
@@ -9590,6 +9642,7 @@ MonoBehaviour:
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 2127894567}
   wannaBeClasses: {fileID: 687433483}
+  internalClassIndex: 0
   lockstep: {fileID: 0}
 --- !u!4 &2127894566
 Transform:
@@ -11219,6 +11272,11 @@ PrefabInstance:
     - target: {fileID: 4226731199518581610, guid: db84a2b42bc08f2eead1cec975819c77,
         type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4226731199518581610, guid: db84a2b42bc08f2eead1cec975819c77,
+        type: 3}
+      propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5384957142805168101, guid: db84a2b42bc08f2eead1cec975819c77,
